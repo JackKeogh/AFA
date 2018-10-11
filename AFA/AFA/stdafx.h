@@ -10,5 +10,6 @@
 #include <cmath>
 #include <fstream>
 #include <map>
+#include <SDL.h>
 using namespace std;
 #endif
