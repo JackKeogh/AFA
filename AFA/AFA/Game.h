@@ -38,5 +38,5 @@ public:
 	void Clean();
 
 private:
-
+	bool m_running;
 };

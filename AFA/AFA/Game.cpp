@@ -15,12 +15,29 @@ bool Game::Initialiser()
 		return false;
 	}
 
+	m_running = true;
+
 	return true;
 }
 
 void Game::Run()
 {
+	int FRAMES_PER_SECOND = 60;
+	int FRAME_DELAY = 1000 / FRAMES_PER_SECOND;
+	Uint32 START_FRAME = 0;
+	int FRAME_TIME = 0;
 
+	while (m_running)
+	{
+		START_FRAME = SDL_GetTicks();
+
+		FRAME_TIME = SDL_GetTicks() - START_FRAME;
+
+		if (FRAME_DELAY > FRAME_TIME)
+		{
+			SDL_Delay(FRAME_DELAY - FRAME_TIME);
+		}
+	}
 }
 
 void Game::Clean()
