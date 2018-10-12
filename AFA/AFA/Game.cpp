@@ -17,6 +17,11 @@ bool Game::Initialiser()
 
 	m_running = true;
 
+	if (!(RenderSystem::Init("Awnie's Frosty Adventure", 0, 0, 1260, 720)))
+	{
+		return false;
+	}
+
 	return true;
 }
 

@@ -4,6 +4,7 @@
 
 #pragma once
 #include "stdafx.h"
+#include "RenderSystem.h"
 
 class Game
 {
@@ -39,4 +40,5 @@ public:
 
 private:
 	bool m_running;
+	RenderSystem * m_renderer;
 };
