@@ -13,7 +13,7 @@ RenderSystem::~RenderSystem()
 
 }
 
-void RenderSystem::Init(string title, int x, int y, int w, int h)
+bool RenderSystem::Init(string title, int x, int y, int w, int h)
 {
 	if (x == 0 && y == 0)
 	{
@@ -25,6 +25,11 @@ void RenderSystem::Init(string title, int x, int y, int w, int h)
 	}
 
 	m_renderer = SDL_CreateRenderer(m_window, -1, NULL);
+
+	if (m_renderer == nullptr)
+		return false;
+	else
+		return true;
 }
 
 SDL_Renderer * RenderSystem::Renderer()
