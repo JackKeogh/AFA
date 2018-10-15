@@ -5,6 +5,7 @@
 #pragma once
 #include "stdafx.h"
 #include "RenderSystem.h"
+#include "SceneManager.h"
 
 class Game
 {
@@ -41,4 +42,5 @@ public:
 private:
 	bool m_running;
 	RenderSystem * m_renderer;
+	SceneManager * m_sceneManager;
 };
