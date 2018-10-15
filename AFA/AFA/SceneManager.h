@@ -71,7 +71,7 @@ public:
 	/// <returns>A pointer to the current scene.</returns>
 	Scene* getScene()
 	{
-		
+		return m_scene;
 	}
 
 private:
