@@ -75,5 +75,7 @@ public:
 	}
 
 private:
-
+	static Scenes m_currentScene;
+	static Scene* m_scene;
+	static vector<Scene*> m_scenesList;
 };
