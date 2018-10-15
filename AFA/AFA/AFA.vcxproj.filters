@@ -16,11 +16,11 @@
     <Filter Include="Header Files\Systems">
       <UniqueIdentifier>{4204fdf2-a612-4588-a485-75054c7d8978}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\RenderSystem">
-      <UniqueIdentifier>{f94059d2-ac21-4826-a233-b5bffeda108a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Scenes">
       <UniqueIdentifier>{a948b717-f044-45f1-991b-c1882174b513}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Systems">
+      <UniqueIdentifier>{f94059d2-ac21-4826-a233-b5bffeda108a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -31,7 +31,10 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RenderSystem.cpp">
-      <Filter>Source Files\RenderSystem</Filter>
+      <Filter>Source Files\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Source Files\Systems</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -48,6 +51,9 @@
       <Filter>Header Files\Systems</Filter>
     </ClInclude>
     <ClInclude Include="Scene.h">
+      <Filter>Header Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="TestScene.h">
       <Filter>Header Files\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
