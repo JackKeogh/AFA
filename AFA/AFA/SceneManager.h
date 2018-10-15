@@ -4,8 +4,7 @@
 
 #pragma once
 #include "stdafx.h"
-
-class Scene;
+#include "Scene.h"
 
 class SceneManager
 {
