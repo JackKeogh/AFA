@@ -19,6 +19,9 @@
     <Filter Include="Header Files\Scenes">
       <UniqueIdentifier>{a948b717-f044-45f1-991b-c1882174b513}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Components">
+      <UniqueIdentifier>{5fa92a72-ac6a-48f4-b485-48e51cdbeb1c}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files\Systems">
       <UniqueIdentifier>{f94059d2-ac21-4826-a233-b5bffeda108a}</UniqueIdentifier>
     </Filter>
@@ -52,6 +55,9 @@
     </ClInclude>
     <ClInclude Include="Scene.h">
       <Filter>Header Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformComponent.h">
+      <Filter>Header Files\Components</Filter>
     </ClInclude>
     <ClInclude Include="TestScene.h">
       <Filter>Header Files\Scenes</Filter>
