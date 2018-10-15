@@ -1,14 +1,12 @@
-#pragma once
-#include <iostream>
-#include "ECS.h"
-#include "Vector2.h"
-
-/// <class> TransformComponent <class>
 /// <summary>
 /// This component will handle the coordinates,
 /// scale and velocity of an enitity.
 /// </summary>
-/// <author> Jack Keogh & Jason Hannon </author>
+/// 
+#pragma once
+#include "stdafx.h"
+#include <ECS.h>
+#include <Vector2.h>
 
 using namespace jk;
 
@@ -49,15 +47,51 @@ public:
 		acceleration = Vector2f(0, 0);
 	}
 
+	/// <summary>
+	/// Used to initialise the Transform Component
+	/// </summary>
 	void Init() override
 	{
 		velocity = Vector2f(0, 0);
 	}
 
+	/// <summary>
+	/// Get Velocity
+	/// 
+	/// This is a getter function for velocity.
+	/// </summary>
+	/// <returns>A vector2f value for velocity.</returns>
 	Vector2f getVelocity() { return velocity; }
+
+	/// <summary>
+	/// Get Position
+	/// 
+	/// This is a getter function for position.
+	/// </summary>
+	/// <returns>A vector2f value for position.</returns>
 	Vector2f getPosition() { return position; }
 
+	/// <summary>
+	/// Set Position
+	/// 
+	/// This is a setter function for position.
+	/// </summary>
+	/// <param name="value">A vector2f value to set position to.</param>
 	void setPosition(Vector2f value) { position = value; }
+
+	/// <summary>
+	/// Set Velocity
+	/// 
+	/// This is a setter function for velocity.
+	/// </summary>
+	/// <param name="value">A vector2f value to set velocity to.</param>
 	void setVelocity(Vector2f value) { velocity = value; }
+
+	/// <summary>
+	/// Set Acceleration
+	/// 
+	/// This is a setter function for acceleration.
+	/// </summary>
+	/// <param name="value">A vector2f value to set acceleration to.</param>
 	void setAcceleration(Vector2f value) { acceleration = value; }
 };
