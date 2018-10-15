@@ -35,7 +35,7 @@ public:
 	/// 
 	/// Changes the scene to the next scene in the vector.
 	/// </summary>
-	void NextLevel();
+	void LoadNextLevel();
 
 	Scenes getCurrentState()
 	{

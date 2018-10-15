@@ -51,6 +51,6 @@ public:
 	/// </summary>
 	virtual void LoadLevel() = 0;
 
-private:
+protected:
 	bool m_running;
 };
