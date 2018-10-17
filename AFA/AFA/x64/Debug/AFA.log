@@ -1,8 +1,11 @@
 ﻿  Game.cpp
 c:\users\jack\onedrive\desktop\projects\afa\afa\afa\transformcomponent.h(44): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  InputSystem.cpp
+c:\users\jack\onedrive\desktop\projects\afa\afa\afa\transformcomponent.h(44): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
   Main.cpp
 c:\users\jack\onedrive\desktop\projects\afa\afa\afa\transformcomponent.h(44): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
   SceneManager.cpp
 c:\users\jack\onedrive\desktop\projects\afa\afa\afa\transformcomponent.h(44): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
   Generating Code...
+     Creating library C:\Users\jack\OneDrive\Desktop\Projects\AFA\AFA\x64\Debug\AFA.lib and object C:\Users\jack\OneDrive\Desktop\Projects\AFA\AFA\x64\Debug\AFA.exp
   AFA.vcxproj -> C:\Users\jack\OneDrive\Desktop\Projects\AFA\AFA\x64\Debug\AFA.exe
