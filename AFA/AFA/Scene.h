@@ -2,6 +2,9 @@
 /// This is an abstract class for scenes to inherit from.
 /// </summary>
 
+#pragma once
+#include "stdafx.h"
+
 class Scene
 {
 public:
