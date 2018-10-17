@@ -26,6 +26,30 @@ protected:
 	Command() {};
 };
 
+class MoveLeft : public Command
+{
+	void Execute(TransformComponent * T) override
+	{
+		cout << "Moving Left..." << endl;
+	}
+};
+
+class MoveRight : public Command
+{
+	void Execute(TransformComponent * T) override
+	{
+		cout << "Moving Right..." << endl;
+	}
+};
+
+class Jump : public Command
+{
+	void Execute(TransformComponent * T) override
+	{
+		cout << "Jumping..." << endl;
+	}
+};
+
 class CommandComponent : public jk::Component
 {
 public:
