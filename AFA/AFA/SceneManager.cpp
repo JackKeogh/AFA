@@ -1,6 +1,4 @@
 #include "SceneManager.h"
-#include "RenderSystem.h"
-#include "TestScene.h"
 
 SceneManager::Scenes SceneManager::m_currentScene;
 Scene* SceneManager::m_scene;
