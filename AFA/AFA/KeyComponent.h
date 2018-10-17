@@ -10,6 +10,16 @@
 class KeyComponent : public jk::Component
 {
 public:
+	/// <summary>
+	/// Constructor
+	/// </summary>
+	/// <param name="R">SDL_Keycode for the right button.</param>
+	/// <param name="L">SDL_Keycode for the left button.</param>
+	/// <param name="J">SDL_Keycode for the jump button.</param>
+	KeyComponent(SDL_Keycode R = SDLK_d, SDL_Keycode L = SDLK_a, SDL_Keycode J = SDLK_SPACE) :
+		m_right(R), m_left(L), m_jump(J)
+	{
+	}
 
 private:
 	SDL_Keycode m_right;
