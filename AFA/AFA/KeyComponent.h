@@ -12,5 +12,7 @@ class KeyComponent : public jk::Component
 public:
 
 private:
-
+	SDL_Keycode m_right;
+	SDL_Keycode m_left;
+	SDL_Keycode m_jump;
 };
