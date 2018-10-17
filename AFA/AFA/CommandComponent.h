@@ -63,7 +63,9 @@ public:
 	/// </summary>
 	void Init() override
 	{
-
+		m_commands["Left"] = new MoveLeft;
+		m_commands["Right"] = new MoveRight;
+		m_commands["Jump"] = new Jump;
 	}
 
 	/// <summary>
