@@ -52,3 +52,23 @@ void InputSystem::KeyReleased(SDL_Event e, vector<jk::Entity*>& entities)
 	}
 }
 
+void InputSystem::Update(jk::EntityManager * Manager, vector<jk::Entity*>& entities)
+{
+	for (jk::Entity* ent : entities)
+	{
+		if (m_left)
+		{
+			ent->getComponent<CommandComponent>().getCommand("Left")->Execute(&ent->getComponent<TransformComponent>());
+		}
+
+		if (m_right)
+		{
+			ent->getComponent<CommandComponent>().getCommand("Right")->Execute(&ent->getComponent<TransformComponent>());
+		}
+		
+		if (m_jump)
+		{
+			ent->getComponent<CommandComponent>().getCommand("Jump")->Execute(&ent->getComponent<TransformComponent>());
+		}
+	}
+}
