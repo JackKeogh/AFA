@@ -1,5 +1,7 @@
 #pragma once
 #include "Scene.h"
+#include <ECS.h>
+#include "Components.h"
 #include "InputSystem.h"
 
 class TestScene : public Scene
@@ -12,10 +14,25 @@ public:
 		m_running = true;
 		
 		m_inputSystem = new InputSystem;
+
+		m_entityManager = new jk::EntityManager;
+
+		////////////////////////////////////////////
+		auto& Player = m_entityManager->addEntity();
+		Player.addComponent<TransformComponent>();
+		Player.addComponent<CommandComponent>();
+		Player.addComponent<KeyComponent>();
+		Player.addGroup(jk::Groups::PlayerGroup);
+		Player.addLayer(jk::Layers::Middleground);
+		////////////////////////////////////////////
 	};
 	~TestScene() {};
 
-	void Update() override {};
+	void Update() override 
+	{
+		m_inputSystem->Update(m_entityManager, m_entityManager->getGroup(jk::Groups::PlayerGroup));
+	};
+
 	void Render() override
 	{
 		RenderSystem::Clear();
@@ -34,6 +51,9 @@ public:
 				m_running = false;
 				break;
 			}
+
+			m_inputSystem->KeyPressed(LocalEvent, m_entityManager->getGroup(jk::Groups::PlayerGroup));
+			m_inputSystem->KeyReleased(LocalEvent, m_entityManager->getGroup(jk::Groups::PlayerGroup));
 		}
 	};
 
@@ -43,4 +63,5 @@ public:
 
 private:
 	InputSystem * m_inputSystem;
+	jk::EntityManager * m_entityManager;
 };
