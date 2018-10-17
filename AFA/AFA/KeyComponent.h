@@ -21,6 +21,27 @@ public:
 	{
 	}
 
+	/// <summary>
+	/// Left
+	/// 
+	/// Returns the keycode for the left button.
+	/// </summary>
+	SDL_Keycode Left() { return m_left; };
+
+	/// <summary>
+	/// Right
+	/// 
+	/// Returns the keycode for the right button.
+	/// </summary>
+	SDL_Keycode Right() { return m_right; };
+
+	/// <summary>
+	/// Jump
+	/// 
+	/// Returns the keycode for the jump button.
+	/// </summary>
+	SDL_Keycode Jump() { return m_jump; };
+
 private:
 	SDL_Keycode m_right;
 	SDL_Keycode m_left;
