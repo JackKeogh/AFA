@@ -29,3 +29,26 @@ void InputSystem::KeyPressed(SDL_Event e, vector<jk::Entity *>& entities)
 		}
 	}
 }
+
+void InputSystem::KeyReleased(SDL_Event e, vector<jk::Entity*>& entities)
+{
+	if (e.type == SDL_KEYUP)
+	{
+		for (jk::Entity * ent : entities)
+		{
+			if (e.key.keysym.sym == ent->getComponent<KeyComponent>().Left())
+			{
+				m_left = false;
+			}
+			else if (e.key.keysym.sym == ent->getComponent<KeyComponent>().Right())
+			{
+				m_right = false;
+			}
+			else if (e.key.keysym.sym == ent->getComponent<KeyComponent>().Jump())
+			{
+				m_jump = false;
+			}
+		}
+	}
+}
+
