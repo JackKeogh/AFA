@@ -39,6 +39,9 @@
     <ClCompile Include="SceneManager.cpp">
       <Filter>Source Files\Systems</Filter>
     </ClCompile>
+    <ClCompile Include="InputSystem.cpp">
+      <Filter>Source Files\Systems</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -69,6 +72,9 @@
       <Filter>Header Files\Components</Filter>
     </ClInclude>
     <ClInclude Include="KeyComponent.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
   </ItemGroup>

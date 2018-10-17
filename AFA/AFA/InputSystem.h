@@ -6,11 +6,16 @@
 #pragma once
 #include "stdafx.h"
 #include <ECS.h>
+#include "Components.h"
 
 class InputSystem
 {
 public:
+	// Constructor
 	InputSystem();
+
+	// Destructor
+	~InputSystem();
 
 	/// <summary>
 	/// Checks key down event and if the key pressed corresponds
@@ -29,18 +34,6 @@ public:
 	/// <param name="entity">vector of unique ptr of Entity to loop through entities until
 	/// player is found.</param>
 	void KeyReleased(SDL_Event e, vector<jk::Entity*> &entity);
-
-	/// <summary>
-	/// Checks if the left mouse button is pressed or released.
-	/// </summary>
-	/// <param name="e">SDL_event</param>
-	void MouseButton(SDL_Event e);
-
-	/// <summary>
-	/// Checks mouse movement and updates the player entities rotation.
-	/// </summary>
-	/// <param name="e">SDL_event</param>
-	void MouseMove(SDL_Event e);
 
 	/// <summary>
 	/// Updates the player based on current keys pressed and released.
