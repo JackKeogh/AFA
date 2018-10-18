@@ -2,3 +2,4 @@
 #include "TransformComponent.h"
 #include "CommandComponent.h"
 #include "KeyComponent.h"
+#include "SpriteComponent.h"

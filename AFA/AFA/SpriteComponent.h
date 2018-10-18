@@ -1,21 +1,16 @@
-#pragma once
-#include <iostream>
-#include <SDL_image.h>
-#include "RenderSystem.h"
-#include "TransformComponent.h"
-#include "Components.h"
-
-using namespace std;
-using namespace jk;
-
-/// <class>SpriteComponent</class>
 /// <summary>
 /// This class uses a reference to 
 /// the transform component to draw
 /// an sdl_texture at a particular 
 /// position.
 /// </summary>
-/// <author>Jack Keogh & Jason Hannon</author>
+
+#pragma once
+#include "stdafx.h"
+#include "RenderSystem.h"
+#include "TransformComponent.h"
+
+using namespace jk;
 
 class SpriteComponent : public Component
 {
@@ -38,6 +33,7 @@ public:
 		if (!(m_texture = IMG_LoadTexture(RenderSystem::Renderer(), path)))
 		{
 			cout << IMG_GetError << endl;
+			cout << "Failed to Load Image..." << endl;
 		}
 
 		m_srcRect.w = w;
@@ -78,7 +74,7 @@ public:
 		rotation = m_transform->rotation;
 	}
 
-	void Draw()
+	void Render() override
 	{
 		RenderSystem::Draw(m_texture, m_srcRect, m_distRect, rotation);
 	}
