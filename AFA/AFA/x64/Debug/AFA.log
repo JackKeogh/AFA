@@ -1,21 +1,21 @@
 ﻿  Game.cpp
 c:\users\jack\onedrive\desktop\projects\afa\afa\afa\transformcomponent.h(44): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(61): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(67): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(62): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(68): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(70): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(83): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(71): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(84): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
@@ -32,22 +32,22 @@ c:\users\jack\onedrive\desktop\projects\afa\afa\externallibraries\ecs\include\ec
           ]
   Main.cpp
 c:\users\jack\onedrive\desktop\projects\afa\afa\afa\transformcomponent.h(44): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(61): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(67): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(62): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(68): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(70): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(83): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(71): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(84): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
@@ -64,22 +64,22 @@ c:\users\jack\onedrive\desktop\projects\afa\afa\externallibraries\ecs\include\ec
           ]
   SceneManager.cpp
 c:\users\jack\onedrive\desktop\projects\afa\afa\afa\transformcomponent.h(44): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(61): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(67): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(62): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(68): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(70): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(83): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(71): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(84): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float

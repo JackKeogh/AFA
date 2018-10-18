@@ -54,6 +54,12 @@ public:
 		m_srcRect.h = h;
 	}
 
+	/// <summary>
+	/// Init
+	/// 
+	/// Override for component initialiser.
+	/// Takes data from the Transfrom component and assigns it to the relevant variables.
+	/// </summary>
 	void Init() override
 	{
 		m_transform = &m_entity->getComponent<TransformComponent>();
@@ -65,6 +71,13 @@ public:
 		rotation = m_transform->rotation;
 	}
 
+	/// <summary>
+	/// Update
+	/// 
+	/// Override for the component update function.
+	/// This keeps track of the transform component and updates the sprite
+	/// component as necessary.
+	/// </summary>
 	void Update() override
 	{
 		m_distRect.x = m_transform->position.x;
@@ -74,6 +87,13 @@ public:
 		rotation = m_transform->rotation;
 	}
 
+	/// <summary>
+	/// Render
+	/// 
+	/// Override for the component render function.
+	/// Using the Rendersystem the sprite component calls the draw function
+	/// passing in the necessary variables.
+	/// </summary>
 	void Render() override
 	{
 		RenderSystem::Draw(m_texture, m_srcRect, m_distRect, rotation);

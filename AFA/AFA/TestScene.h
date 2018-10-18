@@ -32,6 +32,8 @@ public:
 	void Update() override 
 	{
 		m_inputSystem->Update(m_entityManager, m_entityManager->getGroup(jk::Groups::PlayerGroup));
+
+		m_entityManager->Update();
 	};
 
 	void Render() override
