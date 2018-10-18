@@ -19,9 +19,10 @@ public:
 
 		////////////////////////////////////////////
 		auto& Player = m_entityManager->addEntity();
-		Player.addComponent<TransformComponent>();
+		Player.addComponent<TransformComponent>(jk::Vector2f(100, 100), 64, 64, 0, 1);
 		Player.addComponent<CommandComponent>();
 		Player.addComponent<KeyComponent>();
+		Player.addComponent<SpriteComponent>("Assets/Tiles/Bottom.png", 64, 64);
 		Player.addGroup(jk::Groups::PlayerGroup);
 		Player.addLayer(jk::Layers::Middleground);
 		////////////////////////////////////////////
@@ -31,11 +32,15 @@ public:
 	void Update() override 
 	{
 		m_inputSystem->Update(m_entityManager, m_entityManager->getGroup(jk::Groups::PlayerGroup));
+
+		m_entityManager->Update();
 	};
 
 	void Render() override
 	{
 		RenderSystem::Clear();
+		
+		m_entityManager->Render();
 
 		RenderSystem::Present();
 	};
