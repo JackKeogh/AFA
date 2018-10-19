@@ -20,15 +20,25 @@ c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(84): warni
           [
               T=float
           ]
-c:\users\jack\onedrive\desktop\projects\afa\afa\externallibraries\ecs\include\ecs.h(220): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+c:\users\jack\onedrive\desktop\projects\afa\afa\afa\testscene.h(39): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
-              _Ty=int
+              T=float
           ]
-  c:\users\jack\onedrive\desktop\projects\afa\afa\afa\testscene.h(22): note: see reference to function template instantiation 'T &jk::Entity::addComponent<TransformComponent,jk::Vector2f,int,int,int,int>(jk::Vector2f &&,int &&,int &&,int &&,int &&)' being compiled
+c:\users\jack\onedrive\desktop\projects\afa\afa\afa\testscene.h(46): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
-              T=TransformComponent
+              T=float
+          ]
+c:\users\jack\onedrive\desktop\projects\afa\afa\afa\testscene.h(53): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\jack\onedrive\desktop\projects\afa\afa\afa\testscene.h(61): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
           ]
   Main.cpp
 c:\users\jack\onedrive\desktop\projects\afa\afa\afa\transformcomponent.h(44): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
@@ -52,15 +62,25 @@ c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(84): warni
           [
               T=float
           ]
-c:\users\jack\onedrive\desktop\projects\afa\afa\externallibraries\ecs\include\ecs.h(220): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+c:\users\jack\onedrive\desktop\projects\afa\afa\afa\testscene.h(39): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
-              _Ty=int
+              T=float
           ]
-  c:\users\jack\onedrive\desktop\projects\afa\afa\afa\testscene.h(22): note: see reference to function template instantiation 'T &jk::Entity::addComponent<TransformComponent,jk::Vector2f,int,int,int,int>(jk::Vector2f &&,int &&,int &&,int &&,int &&)' being compiled
+c:\users\jack\onedrive\desktop\projects\afa\afa\afa\testscene.h(46): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
-              T=TransformComponent
+              T=float
+          ]
+c:\users\jack\onedrive\desktop\projects\afa\afa\afa\testscene.h(53): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\jack\onedrive\desktop\projects\afa\afa\afa\testscene.h(61): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
           ]
   SceneManager.cpp
 c:\users\jack\onedrive\desktop\projects\afa\afa\afa\transformcomponent.h(44): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
@@ -84,15 +104,25 @@ c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(84): warni
           [
               T=float
           ]
-c:\users\jack\onedrive\desktop\projects\afa\afa\externallibraries\ecs\include\ecs.h(220): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+c:\users\jack\onedrive\desktop\projects\afa\afa\afa\testscene.h(39): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
-              _Ty=int
+              T=float
           ]
-  c:\users\jack\onedrive\desktop\projects\afa\afa\afa\testscene.h(22): note: see reference to function template instantiation 'T &jk::Entity::addComponent<TransformComponent,jk::Vector2f,int,int,int,int>(jk::Vector2f &&,int &&,int &&,int &&,int &&)' being compiled
+c:\users\jack\onedrive\desktop\projects\afa\afa\afa\testscene.h(46): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
-              T=TransformComponent
+              T=float
+          ]
+c:\users\jack\onedrive\desktop\projects\afa\afa\afa\testscene.h(53): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\jack\onedrive\desktop\projects\afa\afa\afa\testscene.h(61): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
           ]
   Generating Code...
   AFA.vcxproj -> C:\Users\jack\OneDrive\Desktop\Projects\AFA\AFA\x64\Debug\AFA.exe

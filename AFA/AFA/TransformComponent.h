@@ -35,7 +35,7 @@ public:
 	/// <param name="s">int to determine scale.</param>
 	/// <param name="v">int to determine speed.</param>
 	/// <param name="a">int to determine max acceleration.</param>
-	TransformComponent(Vector2f p = Vector2f(0, 0), int w = 0, int h = 0, float r = 0, int s = 0, int v = 0, int a = 0) :
+	TransformComponent(Vector2f p = Vector2f(0, 0), int w = 0, int h = 0, float r = 0, int s = 1, int v = 0, int a = 0) :
 		position(p),
 		width(w),
 		height(h),
