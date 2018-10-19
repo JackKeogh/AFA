@@ -18,13 +18,52 @@ public:
 		m_entityManager = new jk::EntityManager;
 
 		////////////////////////////////////////////
-		auto& Player = m_entityManager->addEntity();
-		Player.addComponent<TransformComponent>(jk::Vector2f(100, 100), 64, 64, 0, 1);
-		Player.addComponent<CommandComponent>();
-		Player.addComponent<KeyComponent>();
-		Player.addComponent<SpriteComponent>("Assets/Tiles/Bottom.png", 64, 64);
-		Player.addGroup(jk::Groups::PlayerGroup);
-		Player.addLayer(jk::Layers::Middleground);
+		
+		auto& ent = m_entityManager->addEntity();
+		ent.addComponent<TransformComponent>(Vector2f(60, 525), 60, 64);
+		ent.addComponent<SpriteComponent>("Assets/Characters/Temp.png", 64, 64);
+		ent.addComponent<CommandComponent>();
+		ent.addComponent<KeyComponent>();
+		ent.addGroup(jk::Groups::PlayerGroup);
+		ent.addLayer(jk::Layers::Middleground);
+
+		for (int row = 0; row < 21; row++)
+		{
+			for (int col = 0; col < 2; col++)
+			{
+				if (col == 0)
+				{
+					if (row == 0)
+					{
+						auto& ent = m_entityManager->addEntity();
+						ent.addComponent<TransformComponent>(Vector2f(60 * row, 592), 60, 64);
+						ent.addComponent<SpriteComponent>("Assets/Tiles/Left.png", 64, 64);
+						ent.addLayer(jk::Layers::Middleground);
+					}
+					else if (row == 20)
+					{
+						auto& ent = m_entityManager->addEntity();
+						ent.addComponent<TransformComponent>(Vector2f(60 * row, 592), 60, 64);
+						ent.addComponent<SpriteComponent>("Assets/Tiles/Right.png", 64, 64);
+						ent.addLayer(jk::Layers::Middleground);
+					}
+					else
+					{
+						auto& ent = m_entityManager->addEntity();
+						ent.addComponent<TransformComponent>(Vector2f(60 * row, 592), 60, 64);
+						ent.addComponent<SpriteComponent>("Assets/Tiles/Top.png", 64, 64);
+						ent.addLayer(jk::Layers::Middleground);
+					}
+				}
+				else
+				{
+					auto& ent = m_entityManager->addEntity();
+					ent.addComponent<TransformComponent>(Vector2f(60 * row, 656), 60, 64);
+					ent.addComponent<SpriteComponent>("Assets/Tiles/Bottom.png", 64, 64);
+					ent.addLayer(jk::Layers::Middleground);
+				}
+			}
+		}
 		////////////////////////////////////////////
 	};
 	~TestScene() {};
@@ -40,7 +79,20 @@ public:
 	{
 		RenderSystem::Clear();
 		
-		m_entityManager->Render();
+		for (jk::Entity * ent : m_entityManager->getLayer(jk::Layers::Background))
+		{
+			ent->Render();
+		}
+
+		for (jk::Entity * ent : m_entityManager->getLayer(jk::Layers::Middleground))
+		{
+			ent->Render();
+		}
+
+		for (jk::Entity * ent : m_entityManager->getLayer(jk::Layers::Foreground))
+		{
+			ent->Render();
+		}
 
 		RenderSystem::Present();
 	};
