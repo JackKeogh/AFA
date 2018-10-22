@@ -37,9 +37,9 @@ void SceneManager::EventScene()
 	m_scene->Event();
 }
 
-void SceneManager::UpdateScene()
+void SceneManager::UpdateScene(float delta_time)
 {
-	m_scene->Update();
+	m_scene->Update(delta_time);
 }
 
 void SceneManager::RenderScene()

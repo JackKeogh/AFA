@@ -42,19 +42,29 @@ void Game::Run()
 	Uint32 START_FRAME = 0;
 	int FRAME_TIME = 0;
 
+	Uint32 old_time, current_time;
+	float deltaTime;
+
+	current_time = SDL_GetTicks();
+
 	while (m_running)
 	{
-		START_FRAME = SDL_GetTicks();
+		old_time = current_time;
+		current_time = SDL_GetTicks();
 
-		FRAME_TIME = SDL_GetTicks() - START_FRAME;
+		deltaTime = (current_time - old_time) / 1000.0f;
+
+		START_FRAME = SDL_GetTicks();
 
 		//////////////////////////////////////////
 		m_sceneManager->EventScene();
-		m_sceneManager->UpdateScene();
+		m_sceneManager->UpdateScene(deltaTime);
 		m_sceneManager->RenderScene();
 
 		m_running = m_sceneManager->getScene()->Running();
 		//////////////////////////////////////////
+
+		FRAME_TIME = SDL_GetTicks() - START_FRAME;
 
 		if (FRAME_DELAY > FRAME_TIME)
 		{

@@ -10,7 +10,7 @@
 class MovementSystem
 {
 public:
-	static void Move(vector<jk::Entity*>& entities);
+	static void Move(vector<jk::Entity*>& entities, float delta_time);
 
 private:
 	static float m_gravity;

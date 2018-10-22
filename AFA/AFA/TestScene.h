@@ -21,7 +21,7 @@ public:
 		////////////////////////////////////////////
 		
 		auto& ent = m_entityManager->addEntity();
-		ent.addComponent<TransformComponent>(Vector2f(60, 525), 60, 64);
+		ent.addComponent<TransformComponent>(Vector2f(60, 0), 60, 64);
 		ent.addComponent<SpriteComponent>("Assets/Characters/Temp.png", 64, 64);
 		ent.addComponent<CommandComponent>();
 		ent.addComponent<KeyComponent>();
@@ -69,11 +69,11 @@ public:
 	};
 	~TestScene() {};
 
-	void Update() override 
+	void Update(float delta_time) override 
 	{
 		m_inputSystem->Update(m_entityManager, m_entityManager->getGroup(jk::Groups::PlayerGroup));
 
-		MovementSystem::Move(m_entityManager->getGroup(jk::Groups::PlayerGroup));
+		MovementSystem::Move(m_entityManager->getGroup(jk::Groups::PlayerGroup), delta_time);
 
 		m_entityManager->Update();
 	};
