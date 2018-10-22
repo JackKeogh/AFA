@@ -7,7 +7,10 @@ void MovementSystem::Move(vector<jk::Entity*>& entities, float delta_time)
 {
 	for (jk::Entity * ent : entities)
 	{
-		ent->getComponent<TransformComponent>().velocity.y += m_gravity * delta_time;
+		if (ent->getComponent<RigidbodyComponent>().UsingGravity())
+		{
+			ent->getComponent<TransformComponent>().velocity.y += m_gravity * delta_time;
+		}
 
 
 		ent->getComponent<TransformComponent>().position += ent->getComponent<TransformComponent>().velocity;
