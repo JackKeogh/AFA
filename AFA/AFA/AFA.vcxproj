@@ -107,7 +107,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>$(SolutionDIR)\ExternalLibraries\AssetHandler\lib\x64;$(SolutionDIR)\ExternalLibraries\ECS\lib\x64\Debug;$(SolutionDIR)\ExternalLibraries\SDL2-2.0.7\lib\x64;$(SolutionDIR)\ExternalLibraries\Vector2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDIR)\ExternalLibraries\AssetHandler\lib\x64;$(SolutionDIR)\ExternalLibraries\ECS\lib\x64\Debug;$(SolutionDIR)\ExternalLibraries\SDL2-2.0.7\lib\x64;$(SolutionDIR)\ExternalLibraries\Vector2\lib\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>Vector2.lib;AssetHandler.lib;Entity-Component-System.lib;SDL2.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
