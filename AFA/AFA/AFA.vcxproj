@@ -163,6 +163,7 @@
     <ClInclude Include="KeyComponent.h" />
     <ClInclude Include="MovementSystem.h" />
     <ClInclude Include="RenderSystem.h" />
+    <ClInclude Include="Rigidbody.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SpriteComponent.h" />
