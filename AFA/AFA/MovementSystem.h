@@ -13,6 +13,6 @@ public:
 	static void Move(vector<jk::Entity*>& entities);
 
 private:
-	float m_gravity;
-	float m_friction;
+	static float m_gravity;
+	static float m_friction;
 };
