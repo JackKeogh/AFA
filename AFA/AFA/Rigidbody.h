@@ -16,9 +16,9 @@ public:
 	/// 
 	/// Default constructor.
 	/// </summary>
-	RigidbodyComponent()
+	RigidbodyComponent(bool s) :
+		use_gravity(s)
 	{
-		use_gravity = false;
 		m_collider = SDL_Rect{ 0, 0, 0, 0 };
 	};
 
