@@ -1,10 +1,10 @@
 ///<summary>
-/// Vector2 is a template class. 
+/// Vector2f is a template class. 
 /// Its use is to handle two variables
 /// of type T in the form of coordinate
 /// geometry. The ideal variable types
 /// are int, float and double. They're
-/// types are defined as Vector2i/f/d.
+/// types are defined as Vector2fi/f/d.
 ///</summary>
 ///<Date>
 /// 05/10/2018
@@ -16,19 +16,18 @@
 
 namespace jk
 {
-	template <class T>
-	struct Vector2
+	struct Vector2f
 	{
 		// variables
-		T x;
-		T y;
+		float x;
+		float y;
 
 		/// <summary>
 		/// Default constructor
 		/// 
 		/// Initialises x and y variables to 0.
 		/// </summary>
-		Vector2() :
+		Vector2f() :
 			x(0), y(0) {};
 
 		/// <summary>
@@ -39,17 +38,17 @@ namespace jk
 		/// </summary>
 		/// <param name="vx">Overload value for x.</param>
 		/// <param name="vy">Overload value for y.</param>
-		Vector2(T vx, T vy) :
+		Vector2f(float vx, float vy) :
 			x(vx), y(vy) {};
 
 		/// <summary>
 		/// Overload constructor
 		/// 
 		/// Initialises x and y to parameters
-		/// of Vector2 passed in.
+		/// of Vector2f passed in.
 		/// </summary>
-		/// <param name="v">Vector2 to overload x and y with.</param>
-		Vector2(const Vector2& v) :
+		/// <param name="v">Vector2f to overload x and y with.</param>
+		Vector2f(const Vector2f& v) :
 			x(v.x), y(v.y) {};
 
 		/// <summary>
@@ -58,9 +57,9 @@ namespace jk
 		/// Assigns x and y variables to param's
 		/// x and y variables.
 		/// </summary>
-		/// <param name="v">Vector2 parameter.</param>
-		/// <returns>This Vector2 Object.</returns>
-		Vector2& operator=(const Vector2& v)
+		/// <param name="v">Vector2f parameter.</param>
+		/// <returns>This Vector2f Object.</returns>
+		Vector2f& operator=(const Vector2f& v)
 		{
 			x = v.x;
 			y = v.y;
@@ -71,76 +70,76 @@ namespace jk
 		/// Addition operator
 		/// 
 		/// Adds two vectors together and returns
-		/// the result as a Vector2.
+		/// the result as a Vector2f.
 		/// </summary>
-		/// <param name="r">Vector2 to be added.</param>
-		/// <returns>A Vector2 object.</returns>
-		Vector2 operator+(const Vector2& r) const
+		/// <param name="r">Vector2f to be added.</param>
+		/// <returns>A Vector2f object.</returns>
+		Vector2f operator+(const Vector2f& r) const
 		{
-			return Vector2(x + r.x, y + r.y);
+			return Vector2f(x + r.x, y + r.y);
 		}
 
 		/// <summary>
 		/// Subtract operator
 		/// 
 		/// Subtracts two vectors and returns
-		/// the result as a Vector2.
+		/// the result as a Vector2f.
 		/// </summary>
-		/// <param name="r">Vector2 to be subtracted.</param>
-		/// <returns>A Vector2 object.</returns>
-		Vector2 operator-(const Vector2& r)
+		/// <param name="r">Vector2f to be subtracted.</param>
+		/// <returns>A Vector2f object.</returns>
+		Vector2f operator-(const Vector2f& r)
 		{
-			return Vector2(x - r.x, y - r.y);
+			return Vector2f(x - r.x, y - r.y);
 		}
 
 		/// <summary>
 		/// Division operator
 		/// 
 		/// Divides the left vector by the right vector
-		/// and returns the result as a Vector2 object.
+		/// and returns the result as a Vector2f object.
 		/// </summary>
-		/// <param name="r">Vector2 to use to divide by.</param>
-		/// <returns>A Vector2 object.</returns>
-		Vector2 operator/(const Vector2& r)
+		/// <param name="r">Vector2f to use to divide by.</param>
+		/// <returns>A Vector2f object.</returns>
+		Vector2f operator/(const Vector2f& r)
 		{
-			return Vector2(x / r.x, y / r.y);
+			return Vector2f(x / r.x, y / r.y);
 		}
 
 		/// <summary>
 		/// Multiplyer operator
 		/// 
 		/// Multiples the left vector by the right vector
-		/// and returns the result as a Vector2 object.
+		/// and returns the result as a Vector2f object.
 		/// </summary>
-		/// <param name="r">Vector2 to multiply by.</param>
-		/// <returns>A Vector2 object.</returns>
-		Vector2 operator*(const Vector2& r)
+		/// <param name="r">Vector2f to multiply by.</param>
+		/// <returns>A Vector2f object.</returns>
+		Vector2f operator*(const Vector2f& r)
 		{
-			return Vector2(x * r.x, y * r.y);
+			return Vector2f(x * r.x, y * r.y);
 		}
 
 		/// <summary>
 		/// Scalar operator
 		/// 
 		/// Multiplies the left vector by right floating point number
-		/// and returns the result as a Vector2 object.
+		/// and returns the result as a Vector2f object.
 		/// </summary>
 		/// <param name="r">Floating point number to multiply by.</param>
-		/// <returns>A Vector2 object.</returns>
-		Vector2 operator*(const float r)
+		/// <returns>A Vector2f object.</returns>
+		Vector2f operator*(const float r)
 		{
-			return Vector2(x * r, y * r);
+			return Vector2f(x * r, y * r);
 		}
 
 		/// <summary>
 		/// Add and Assign operator
 		/// 
-		/// Adds the right Vector2 to the left Vector2
-		/// and returns the left Vector2 object.
+		/// Adds the right Vector2f to the left Vector2f
+		/// and returns the left Vector2f object.
 		/// </summary>
-		/// <param name="r">Vector2 to add by.</param>
-		/// <returns>This Vector2 Object.</returns>
-		Vector2& operator+=(const Vector2& r)
+		/// <param name="r">Vector2f to add by.</param>
+		/// <returns>This Vector2f Object.</returns>
+		Vector2f& operator+=(const Vector2f& r)
 		{
 			x += r.x;
 			y += r.y;
@@ -151,12 +150,12 @@ namespace jk
 		/// <summary>
 		/// Subtract and Assign operator
 		/// 
-		/// Subtracts the right Vector2 from the left 
-		/// Vector2 and returns the left Vector2 object.
+		/// Subtracts the right Vector2f from the left 
+		/// Vector2f and returns the left Vector2f object.
 		/// </summary>
-		/// <param name="r">Vector2 to subtract by.</param>
-		/// <returns>This Vector2 Object.</returns>
-		Vector2& operator-=(const Vector2& r)
+		/// <param name="r">Vector2f to subtract by.</param>
+		/// <returns>This Vector2f Object.</returns>
+		Vector2f& operator-=(const Vector2f& r)
 		{
 			x -= r.x;
 			y -= r.y;
@@ -167,12 +166,12 @@ namespace jk
 		/// <summary>
 		/// Divide and Assign operator
 		/// 
-		/// Divides the right Vector2 from the left Vector2
-		/// and returns the left Vector2 object.
+		/// Divides the right Vector2f from the left Vector2f
+		/// and returns the left Vector2f object.
 		/// </summary>
-		/// <param name="r">Vector2 to divide by.</param>
-		/// <returns>This Vector2 Object.</returns>
-		Vector2& operator/=(const Vector2& r)
+		/// <param name="r">Vector2f to divide by.</param>
+		/// <returns>This Vector2f Object.</returns>
+		Vector2f& operator/=(const Vector2f& r)
 		{
 			x /= r.x;
 			y /= r.y;
@@ -183,12 +182,12 @@ namespace jk
 		/// <summary>
 		/// Multiply and Assign operator
 		/// 
-		/// Multiplies the left Vector2 by the right Vector2
-		/// and returns the left Vector2 object.
+		/// Multiplies the left Vector2f by the right Vector2f
+		/// and returns the left Vector2f object.
 		/// </summary>
-		/// <param name="r">Vector2 to multiply by.</param>
-		/// <returns>This Vector2 Object.</returns>
-		Vector2& operator*=(const Vector2& r)
+		/// <param name="r">Vector2f to multiply by.</param>
+		/// <returns>This Vector2f Object.</returns>
+		Vector2f& operator*=(const Vector2f& r)
 		{
 			x *= r.x;
 			y *= r.y;
@@ -200,11 +199,11 @@ namespace jk
 		/// Scalar operator
 		/// 
 		/// Multiplies the left vector by the right floating point number
-		/// and returns the left Vector2 object.
+		/// and returns the left Vector2f object.
 		/// </summary>
 		/// <param name="r">Floating point number to multiply by.</param>
-		/// <returns>A Vector2 object.</returns>
-		Vector2& operator*=(const float r)
+		/// <returns>A Vector2f object.</returns>
+		Vector2f& operator*=(const float r)
 		{
 			x *= r;
 			y *= r;
@@ -217,9 +216,9 @@ namespace jk
 		/// 
 		/// Checks if the left vector equals the right vector.
 		/// </summary>
-		/// <param name="r">Vector2 to compare.</param>
+		/// <param name="r">Vector2f to compare.</param>
 		/// <returns>A True or False Statement.</returns>
-		bool operator==(const Vector2& r)
+		bool operator==(const Vector2f& r)
 		{
 			if (x == r.x && y == r.y)
 				return true;
@@ -232,18 +231,18 @@ namespace jk
 		/// 
 		/// Checks if the left vector does not equal the right vector.
 		/// </summary>
-		/// <param name="r">Vector2 to compare.</param>
+		/// <param name="r">Vector2f to compare.</param>
 		/// <returns>A True or False Statement.</returns>
-		bool operator!=(const Vector2& r)
+		bool operator!=(const Vector2f& r)
 		{
 			return !(*this == r);
 		}
 
 		/// <summary>
-		/// Normalises the Vector2 object.
+		/// Normalises the Vector2f object.
 		/// </summary>
-		/// <returns>A normalised Vector2 Object.</returns>
-		Vector2& Normalise();
+		/// <returns>A normalised Vector2f Object.</returns>
+		Vector2f& Normalise();
 
 		/// <summary>
 		/// Returns the size of the vector.
@@ -251,8 +250,4 @@ namespace jk
 		/// <returns>A floating point value.</returns>
 		float Magnitude();
 	};
-
-	typedef Vector2<int> Vector2i;
-	typedef Vector2<float> Vector2f;
-	typedef Vector2<double> Vector2d;
 }
