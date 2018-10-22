@@ -4,6 +4,7 @@
 #include "Components.h"
 #include "InputSystem.h"
 #include "MovementSystem.h"
+#include "CollisionSystem.h"
 
 class TestScene : public Scene
 {
@@ -21,13 +22,13 @@ public:
 		////////////////////////////////////////////
 		
 		auto& ent = m_entityManager->addEntity();
-		ent.addComponent<TransformComponent>(Vector2f(60, 0), 60, 64);
+		ent.addComponent<TransformComponent>(Vector2f(61, 0), 60, 64);
 		ent.addComponent<SpriteComponent>("Assets/Characters/Temp.png", 64, 64);
 		ent.addComponent<CommandComponent>();
 		ent.addComponent<KeyComponent>();
 		ent.addComponent<RigidbodyComponent>(true);
 		ent.addGroup(jk::Groups::PlayerGroup);
-		ent.addLayer(jk::Layers::Middleground);
+		ent.addLayer(jk::Layers::Foreground);
 
 		for (int row = 0; row < 21; row++)
 		{
@@ -40,21 +41,27 @@ public:
 						auto& ent = m_entityManager->addEntity();
 						ent.addComponent<TransformComponent>(Vector2f(60 * row, 592), 60, 64);
 						ent.addComponent<SpriteComponent>("Assets/Tiles/Left.png", 64, 64);
+						ent.addComponent<RigidbodyComponent>(false);
 						ent.addLayer(jk::Layers::Middleground);
+						ent.addGroup(jk::Groups::TileGroup);
 					}
 					else if (row == 20)
 					{
 						auto& ent = m_entityManager->addEntity();
 						ent.addComponent<TransformComponent>(Vector2f(60 * row, 592), 60, 64);
 						ent.addComponent<SpriteComponent>("Assets/Tiles/Right.png", 64, 64);
+						ent.addComponent<RigidbodyComponent>(false);
 						ent.addLayer(jk::Layers::Middleground);
+						ent.addGroup(jk::Groups::TileGroup);
 					}
 					else
 					{
 						auto& ent = m_entityManager->addEntity();
 						ent.addComponent<TransformComponent>(Vector2f(60 * row, 592), 60, 64);
 						ent.addComponent<SpriteComponent>("Assets/Tiles/Top.png", 64, 64);
+						ent.addComponent<RigidbodyComponent>(false);
 						ent.addLayer(jk::Layers::Middleground);
+						ent.addGroup(jk::Groups::TileGroup);
 					}
 				}
 				else
@@ -62,7 +69,9 @@ public:
 					auto& ent = m_entityManager->addEntity();
 					ent.addComponent<TransformComponent>(Vector2f(60 * row, 656), 60, 64);
 					ent.addComponent<SpriteComponent>("Assets/Tiles/Bottom.png", 64, 64);
+					ent.addComponent<RigidbodyComponent>(false);
 					ent.addLayer(jk::Layers::Middleground);
+					ent.addGroup(jk::Groups::TileGroup);
 				}
 			}
 		}
@@ -75,6 +84,8 @@ public:
 		m_inputSystem->Update(m_entityManager, m_entityManager->getGroup(jk::Groups::PlayerGroup));
 
 		MovementSystem::Move(m_entityManager->getGroup(jk::Groups::PlayerGroup), delta_time);
+
+		CollisionSystem::TileCollision(m_entityManager->getGroup(jk::Groups::TileGroup), m_entityManager->getGroup(jk::Groups::PlayerGroup));
 
 		m_entityManager->Update();
 	};
