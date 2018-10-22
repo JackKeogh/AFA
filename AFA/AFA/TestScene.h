@@ -28,7 +28,7 @@ public:
 		ent.addComponent<KeyComponent>();
 		ent.addComponent<RigidbodyComponent>(true);
 		ent.addGroup(jk::Groups::PlayerGroup);
-		ent.addLayer(jk::Layers::Middleground);
+		ent.addLayer(jk::Layers::Foreground);
 
 		for (int row = 0; row < 21; row++)
 		{

@@ -10,7 +10,9 @@ void CollisionSystem::TileCollision(vector<jk::Entity*>& tiles, vector<jk::Entit
 		{
 			if (AABB(ent->getComponent<RigidbodyComponent>().getCollider(), tile->getComponent<RigidbodyComponent>().getCollider()))
 			{
-				cout << "Collision..." << endl;
+				ent->getComponent<RigidbodyComponent>().setGravity(false);
+				ent->getComponent<TransformComponent>().position.y -= 0.1f;
+				ent->getComponent<TransformComponent>().velocity.y = 0.0f;
 			}
 		}
 	}
