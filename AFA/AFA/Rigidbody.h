@@ -18,6 +18,8 @@ public:
 	/// </summary>
 	RigidbodyComponent()
 	{
+		use_gravity = false;
+		m_collider = SDL_Rect{ 0, 0, 0, 0 };
 	};
 
 	/// <summary>
@@ -36,7 +38,12 @@ public:
 	/// </summary>
 	void Init() override
 	{
+		m_transform = &m_entity->getComponent<TransformComponent>();
 
+		m_collider.x = m_transform->position.x;
+		m_collider.y = m_transform->position.y;
+		m_collider.w = m_transform->width * m_transform->scale;
+		m_collider.h = m_transform->height * m_transform->scale;
 	};
 
 	/// <summary>
@@ -46,7 +53,10 @@ public:
 	/// </summary>
 	void Update() override
 	{
-
+		m_collider.x = m_transform->position.x;
+		m_collider.y = m_transform->position.y;
+		m_collider.w = m_transform->width * m_transform->scale;
+		m_collider.h = m_transform->height * m_transform->scale;
 	};
 
 	/// <summary>
@@ -57,8 +67,19 @@ public:
 	/// <returns>A bool value.</returns>
 	bool UsingGravity()
 	{
-
+		return use_gravity;
 	};
+
+	/// <summary>
+	/// Set Gravity
+	/// 
+	/// Sets the use_gravity variable.
+	/// </summary>
+	/// <param name="value">A bool value.</param>
+	void setGravity(bool value)
+	{
+		use_gravity = value;
+	}
 
 	/// <summary>
 	/// Get Collider
@@ -68,7 +89,7 @@ public:
 	/// <returns>A SDL_Rect value.</returns>
 	SDL_Rect getCollider()
 	{
-
+		return m_collider;
 	};
 
 private:
