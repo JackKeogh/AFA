@@ -3,6 +3,7 @@
 #include <ECS.h>
 #include "Components.h"
 #include "InputSystem.h"
+#include "MovementSystem.h"
 
 class TestScene : public Scene
 {
@@ -71,6 +72,8 @@ public:
 	void Update() override 
 	{
 		m_inputSystem->Update(m_entityManager, m_entityManager->getGroup(jk::Groups::PlayerGroup));
+
+		MovementSystem::Move(m_entityManager->getGroup(jk::Groups::PlayerGroup));
 
 		m_entityManager->Update();
 	};

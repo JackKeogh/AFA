@@ -1,7 +1,7 @@
 #include "MovementSystem.h"
 
-float MovementSystem::m_friction;
-float MovementSystem::m_gravity;
+float MovementSystem::m_friction = 0.9f;
+float MovementSystem::m_gravity = 0.981f;
 
 void MovementSystem::Move(vector<jk::Entity*>& entities)
 {
