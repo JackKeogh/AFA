@@ -55,7 +55,7 @@ public:
 	/// 
 	/// This will be used to update the current scene.
 	/// </summary>
-	void UpdateScene();
+	void UpdateScene(float delta_time);
 
 	/// <summary>
 	/// Render Scene

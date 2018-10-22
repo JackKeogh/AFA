@@ -69,7 +69,7 @@ public:
 	};
 	~TestScene() {};
 
-	void Update() override 
+	void Update(float delta_time) override 
 	{
 		m_inputSystem->Update(m_entityManager, m_entityManager->getGroup(jk::Groups::PlayerGroup));
 

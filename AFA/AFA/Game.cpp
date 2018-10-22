@@ -54,13 +54,11 @@ void Game::Run()
 
 		deltaTime = (current_time - old_time) / 1000.0f;
 
-		cout << deltaTime << endl;
-
 		START_FRAME = SDL_GetTicks();
 
 		//////////////////////////////////////////
 		m_sceneManager->EventScene();
-		m_sceneManager->UpdateScene();
+		m_sceneManager->UpdateScene(deltaTime);
 		m_sceneManager->RenderScene();
 
 		m_running = m_sceneManager->getScene()->Running();

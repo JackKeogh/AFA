@@ -16,7 +16,7 @@ public:
 	/// 
 	/// Updates the scene class.
 	/// </summary>
-	virtual void Update() = 0;
+	virtual void Update(float delta_time) = 0;
 
 	/// <summary>
 	/// Render
