@@ -2,7 +2,7 @@
 
 void CollisionSystem::TileCollision(vector<jk::Entity*>& tiles, vector<jk::Entity*>& entities)
 {
-	float num = 2.0f;
+	bool collision = false;
 
 	for (jk::Entity * ent : entities)
 	{
@@ -10,10 +10,18 @@ void CollisionSystem::TileCollision(vector<jk::Entity*>& tiles, vector<jk::Entit
 		{
 			if (AABB(ent->getComponent<RigidbodyComponent>().getCollider(), tile->getComponent<RigidbodyComponent>().getCollider()))
 			{
-				ent->getComponent<RigidbodyComponent>().setGravity(false);
-				ent->getComponent<TransformComponent>().position.y -= 0.1f;
-				ent->getComponent<TransformComponent>().velocity.y = 0.0f;
+				collision = true;
 			}
+		}
+
+		if (collision)
+		{
+			ent->getComponent<RigidbodyComponent>().setGravity(false);
+			ent->getComponent<TransformComponent>().velocity.y = 0;
+		}
+		else
+		{
+			ent->getComponent<RigidbodyComponent>().setGravity(true);
 		}
 	}
 }

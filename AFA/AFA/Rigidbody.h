@@ -16,8 +16,8 @@ public:
 	/// 
 	/// Default constructor.
 	/// </summary>
-	RigidbodyComponent(bool s) :
-		use_gravity(s)
+	RigidbodyComponent(bool s, float o = 0.0f) :
+		use_gravity(s), m_offset(o)
 	{
 		m_collider = SDL_Rect{ 0, 0, 0, 0 };
 	};
@@ -41,7 +41,7 @@ public:
 		m_transform = &m_entity->getComponent<TransformComponent>();
 
 		m_collider.x = m_transform->position.x;
-		m_collider.y = m_transform->position.y;
+		m_collider.y = m_transform->position.y + m_offset;
 		m_collider.w = m_transform->width * m_transform->scale;
 		m_collider.h = m_transform->height * m_transform->scale;
 	};
@@ -54,7 +54,7 @@ public:
 	void Update() override
 	{
 		m_collider.x = m_transform->position.x;
-		m_collider.y = m_transform->position.y;
+		m_collider.y = m_transform->position.y + m_offset;
 		m_collider.w = m_transform->width * m_transform->scale;
 		m_collider.h = m_transform->height * m_transform->scale;
 	};
@@ -95,5 +95,6 @@ public:
 private:
 	TransformComponent * m_transform;
 	SDL_Rect m_collider;
+	float m_offset;
 	bool use_gravity;
 };
