@@ -22,13 +22,20 @@ public:
 		////////////////////////////////////////////
 		
 		auto& ent = m_entityManager->addEntity();
-		ent.addComponent<TransformComponent>(Vector2f(61, 0), 60, 64);
+		ent.addComponent<TransformComponent>(Vector2f(61, 0), 64, 64, 0, 1, 5, 10);
 		ent.addComponent<SpriteComponent>("Assets/Characters/Temp.png", 64, 64);
 		ent.addComponent<CommandComponent>();
 		ent.addComponent<KeyComponent>();
 		ent.addComponent<RigidbodyComponent>(true);
 		ent.addGroup(jk::Groups::PlayerGroup);
 		ent.addLayer(jk::Layers::Foreground);
+
+		auto& a = m_entityManager->addEntity();
+		a.addComponent<TransformComponent>(Vector2f(61, 200), 60, 64);
+		a.addComponent<SpriteComponent>("Assets/Tiles/Top.png", 64, 64);
+		a.addComponent<RigidbodyComponent>(false);
+		a.addLayer(jk::Layers::Middleground);
+		a.addGroup(jk::Groups::TileGroup);
 
 		for (int row = 0; row < 21; row++)
 		{

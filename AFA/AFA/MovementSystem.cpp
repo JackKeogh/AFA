@@ -12,6 +12,13 @@ void MovementSystem::Move(vector<jk::Entity*>& entities, float delta_time)
 			ent->getComponent<TransformComponent>().velocity.y += m_gravity * delta_time;
 		}
 
+		if (ent->getComponent<TransformComponent>().acceleration.x != 0)
+		{
+			ent->getComponent<TransformComponent>().acceleration.x *= m_friction;
+		}
+
+		ent->getComponent<TransformComponent>().velocity.x = (ent->getComponent<TransformComponent>().acceleration.x * ent->getComponent<TransformComponent>().speed);// *delta_time;
+		cout << ent->getComponent<TransformComponent>().velocity.x << endl;
 
 		ent->getComponent<TransformComponent>().position += ent->getComponent<TransformComponent>().velocity;
 	}

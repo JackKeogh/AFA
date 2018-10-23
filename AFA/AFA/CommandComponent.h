@@ -30,7 +30,12 @@ class MoveLeft : public Command
 {
 	void Execute(TransformComponent * T) override
 	{
-		cout << "Moving Left..." << endl;
+		T->acceleration.x -= 0.1f;
+
+		if (T->acceleration.x < -T->MaxAccel)
+		{
+			T->acceleration.x = -T->MaxAccel;
+		}
 	}
 };
 
@@ -38,7 +43,12 @@ class MoveRight : public Command
 {
 	void Execute(TransformComponent * T) override
 	{
-		cout << "Moving Right..." << endl;
+		T->acceleration.x += 0.1f;
+
+		if (T->acceleration.x > T->MaxAccel)
+		{
+			T->acceleration.x = T->MaxAccel;
+		}
 	}
 };
 
