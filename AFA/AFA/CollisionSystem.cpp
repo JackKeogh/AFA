@@ -17,6 +17,7 @@ void CollisionSystem::TileCollision(vector<jk::Entity*>& tiles, vector<jk::Entit
 		if (collision)
 		{
 			ent->getComponent<RigidbodyComponent>().setGravity(false);
+			ent->getComponent<TransformComponent>().in_air = false;
 			ent->getComponent<TransformComponent>().velocity.y = 0;
 		}
 		else

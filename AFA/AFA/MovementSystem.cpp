@@ -9,8 +9,15 @@ void MovementSystem::Move(vector<jk::Entity*>& entities, float delta_time)
 	{
 		if (ent->getComponent<RigidbodyComponent>().UsingGravity())
 		{
-			cout << "Gravity..." << endl;
-			ent->getComponent<TransformComponent>().velocity.y += m_gravity * delta_time;
+			if (!(ent->getComponent<TransformComponent>().in_air))
+			{
+				ent->getComponent<TransformComponent>().velocity.y += m_gravity * delta_time;
+			}
+			else
+			{
+				ent->getComponent<TransformComponent>().jumpSpeed += m_gravity;
+				ent->getComponent<TransformComponent>().velocity.y = ent->getComponent<TransformComponent>().jumpSpeed * delta_time;
+			}
 		}
 
 		if (ent->getComponent<TransformComponent>().acceleration.x != 0)

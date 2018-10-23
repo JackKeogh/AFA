@@ -22,6 +22,8 @@ public:
 	int height;
 	int scale;
 	float speed;
+	bool in_air;
+	float jumpSpeed;
 	float rotation;
 
 	/// <summary>
@@ -45,6 +47,7 @@ public:
 		MaxAccel(a)
 	{
 		acceleration = Vector2f(0, 0);
+		in_air = false;
 	}
 
 	/// <summary>

@@ -68,7 +68,11 @@ void InputSystem::Update(jk::EntityManager * Manager, vector<jk::Entity*>& entit
 		
 		if (m_jump)
 		{
-			ent->getComponent<CommandComponent>().getCommand("Jump")->Execute(&ent->getComponent<TransformComponent>());
+			ent->getComponent<CommandComponent>().getCommand("Jump")->Execute(&ent->getComponent<TransformComponent>(), &ent->getComponent<RigidbodyComponent>());
+		}
+		else
+		{
+			ent->getComponent<TransformComponent>().acceleration.y = 0.0f;
 		}
 	}
 }
