@@ -66,7 +66,7 @@ class Jump : public Command
 	{
 		if (!(T->in_air))
 		{
-			T->jumpSpeed = -120;
+			T->jumpSpeed = -300;
 			T->in_air = true;
 			R->setGravity(true);
 		}
