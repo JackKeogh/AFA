@@ -95,5 +95,8 @@
     <ClInclude Include="Rigidbody.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
+    <ClInclude Include="Factory.h">
+      <Filter>Header Files\Systems</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
