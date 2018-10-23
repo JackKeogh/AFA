@@ -26,7 +26,7 @@ public:
 		ent.addComponent<SpriteComponent>("Assets/Characters/Temp.png", 64, 64);
 		ent.addComponent<CommandComponent>();
 		ent.addComponent<KeyComponent>();
-		ent.addComponent<RigidbodyComponent>(true, 4.0f);
+		ent.addComponent<RigidbodyComponent>(true, 5.0f);
 		ent.addGroup(jk::Groups::PlayerGroup);
 		ent.addLayer(jk::Layers::Foreground);
 
