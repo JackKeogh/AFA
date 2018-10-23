@@ -17,9 +17,16 @@ class Factory
 {
 public:
 	virtual void CreateEntity(EntityManager * EManager, SDL_Texture * Texture = nullptr, float x = 64, float y = 64,
-		float w = 64, float h = 64) {};
+		float w = 32, float h = 32) {};
 
 protected:
 	Factory() {};
 	AssetHandler * m_assets;
+};
+
+class TileFactory : public Factory
+{
+public:
+	TileFactory() {};
+	void CreateEntity(EntityManager * EManager, SDL_Texture * Texture, float x = 64, float y = 64, float w = 32, float h = 32) override;
 };
