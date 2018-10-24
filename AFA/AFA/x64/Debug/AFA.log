@@ -1,13 +1,1 @@
-﻿  MovementSystem.cpp
-c:\users\jack\onedrive\desktop\projects\afa\afa\afa\transformcomponent.h(46): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-c:\users\jack\onedrive\desktop\projects\afa\afa\afa\rigidbody.h(43): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\jack\onedrive\desktop\projects\afa\afa\afa\rigidbody.h(44): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\jack\onedrive\desktop\projects\afa\afa\afa\rigidbody.h(56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\jack\onedrive\desktop\projects\afa\afa\afa\rigidbody.h(57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\jack\onedrive\desktop\projects\afa\afa\afa\commandcomponent.h(45): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\jack\onedrive\desktop\projects\afa\afa\afa\commandcomponent.h(58): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(67): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(68): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(83): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(84): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  AFA.vcxproj -> C:\Users\jack\OneDrive\Desktop\Projects\AFA\AFA\x64\Debug\AFA.exe
+﻿  AFA.vcxproj -> C:\Users\jack\OneDrive\Desktop\Projects\AFA\AFA\x64\Debug\AFA.exe
