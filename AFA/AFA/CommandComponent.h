@@ -6,6 +6,7 @@
 #include "stdafx.h"
 #include <ECS.h>
 #include "TransformComponent.h"
+#include "Rigidbody.h"
 
 class Command
 {
@@ -21,6 +22,13 @@ public:
 	/// </summary>
 	virtual void Execute(TransformComponent * T) {};
 
+	/// <summary>
+	/// Execute
+	/// 
+	/// This function executes the necessary update for the command.
+	/// </summary>
+	virtual void Execute(TransformComponent * T, RigidbodyComponent * R) {};
+
 protected:
 	// Constructor
 	Command() {};
@@ -30,7 +38,12 @@ class MoveLeft : public Command
 {
 	void Execute(TransformComponent * T) override
 	{
-		cout << "Moving Left..." << endl;
+		T->acceleration.x -= 0.1f;
+
+		if (T->acceleration.x < -T->MaxAccel)
+		{
+			T->acceleration.x = -T->MaxAccel;
+		}
 	}
 };
 
@@ -38,15 +51,25 @@ class MoveRight : public Command
 {
 	void Execute(TransformComponent * T) override
 	{
-		cout << "Moving Right..." << endl;
+		T->acceleration.x += 0.1f;
+
+		if (T->acceleration.x > T->MaxAccel)
+		{
+			T->acceleration.x = T->MaxAccel;
+		}
 	}
 };
 
 class Jump : public Command
 {
-	void Execute(TransformComponent * T) override
+	void Execute(TransformComponent * T, RigidbodyComponent * R) override
 	{
-		cout << "Jumping..." << endl;
+		if (!(T->in_air))
+		{
+			T->jumpSpeed = -300;
+			T->in_air = true;
+			R->setGravity(true);
+		}
 	}
 };
 

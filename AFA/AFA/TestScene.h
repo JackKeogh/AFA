@@ -22,13 +22,20 @@ public:
 		////////////////////////////////////////////
 		
 		auto& ent = m_entityManager->addEntity();
-		ent.addComponent<TransformComponent>(Vector2f(61, 0), 60, 64);
+		ent.addComponent<TransformComponent>(Vector2f(60, 136), 64, 64, 0, 1, 5, 5);
 		ent.addComponent<SpriteComponent>("Assets/Characters/Temp.png", 64, 64);
 		ent.addComponent<CommandComponent>();
 		ent.addComponent<KeyComponent>();
-		ent.addComponent<RigidbodyComponent>(true, 4.0f);
+		ent.addComponent<RigidbodyComponent>(true, 5.0f);
 		ent.addGroup(jk::Groups::PlayerGroup);
 		ent.addLayer(jk::Layers::Foreground);
+
+		auto& a = m_entityManager->addEntity();
+		a.addComponent<TransformComponent>(Vector2f(180, 542), 60, 50);
+		a.addComponent<SpriteComponent>("Assets/Tiles/Top.png", 64, 64);
+		a.addComponent<RigidbodyComponent>(false);
+		a.addLayer(jk::Layers::Middleground);
+		a.addGroup(jk::Groups::TileGroup);
 
 		for (int row = 0; row < 21; row++)
 		{
@@ -39,7 +46,7 @@ public:
 					if (row == 0)
 					{
 						auto& ent = m_entityManager->addEntity();
-						ent.addComponent<TransformComponent>(Vector2f(60 * row, 592), 60, 64);
+						ent.addComponent<TransformComponent>(Vector2f(60 * row, 592), 60, 50);
 						ent.addComponent<SpriteComponent>("Assets/Tiles/Left.png", 64, 64);
 						ent.addComponent<RigidbodyComponent>(false);
 						ent.addLayer(jk::Layers::Middleground);
@@ -48,7 +55,7 @@ public:
 					else if (row == 20)
 					{
 						auto& ent = m_entityManager->addEntity();
-						ent.addComponent<TransformComponent>(Vector2f(60 * row, 592), 60, 64);
+						ent.addComponent<TransformComponent>(Vector2f(60 * row, 592), 60, 50);
 						ent.addComponent<SpriteComponent>("Assets/Tiles/Right.png", 64, 64);
 						ent.addComponent<RigidbodyComponent>(false);
 						ent.addLayer(jk::Layers::Middleground);
@@ -57,7 +64,7 @@ public:
 					else
 					{
 						auto& ent = m_entityManager->addEntity();
-						ent.addComponent<TransformComponent>(Vector2f(60 * row, 592), 60, 64);
+						ent.addComponent<TransformComponent>(Vector2f(60 * row, 592), 60, 50);
 						ent.addComponent<SpriteComponent>("Assets/Tiles/Top.png", 64, 64);
 						ent.addComponent<RigidbodyComponent>(false);
 						ent.addLayer(jk::Layers::Middleground);
@@ -67,7 +74,7 @@ public:
 				else
 				{
 					auto& ent = m_entityManager->addEntity();
-					ent.addComponent<TransformComponent>(Vector2f(60 * row, 656), 60, 64);
+					ent.addComponent<TransformComponent>(Vector2f(60 * row, 642), 60, 50);
 					ent.addComponent<SpriteComponent>("Assets/Tiles/Bottom.png", 64, 64);
 					ent.addComponent<RigidbodyComponent>(false);
 					ent.addLayer(jk::Layers::Middleground);
