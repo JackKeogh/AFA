@@ -19,7 +19,11 @@ public:
 	RigidbodyComponent(bool s, float o = 0.0f) :
 		use_gravity(s), m_offset(o)
 	{
-		m_collider = SDL_Rect{ 0, 0, 0, 0 };
+		m_central = SDL_Rect{ 0, 0, 0, 0 };
+		m_left = SDL_Rect{ 0, 0, 0, 0 };
+		m_right = SDL_Rect{ 0, 0, 0, 0 };
+		m_top = SDL_Rect{ 0, 0, 0, 0 };
+		m_bottom = SDL_Rect{ 0, 0, 0, 0 };
 	};
 
 	/// <summary>
@@ -40,10 +44,35 @@ public:
 	{
 		m_transform = &m_entity->getComponent<TransformComponent>();
 
-		m_collider.x = m_transform->position.x;
-		m_collider.y = m_transform->position.y + m_offset;
-		m_collider.w = m_transform->width * m_transform->scale;
-		m_collider.h = m_transform->height * m_transform->scale;
+		// Central collider
+		m_central.x = m_transform->position.x;
+		m_central.y = m_transform->position.y;
+		m_central.w = m_transform->width * m_transform->scale;
+		m_central.h = m_transform->height * m_transform->scale;
+
+		// Left Collider
+		m_left.x = m_transform->position.x - m_offset;
+		m_left.y = m_transform->position.y;
+		m_left.w = m_transform->width * m_transform->scale;
+		m_left.h = m_transform->height * m_transform->scale;
+
+		// Right Collider
+		m_right.x = m_transform->position.x + m_offset;
+		m_right.y = m_transform->position.y;
+		m_right.w = m_transform->width * m_transform->scale;
+		m_right.h = m_transform->height * m_transform->scale;
+
+		// Top Collider
+		m_top.x = m_transform->position.x;
+		m_top.y = m_transform->position.y - m_offset;
+		m_top.w = m_transform->width * m_transform->scale;
+		m_top.h = m_transform->height * m_transform->scale;
+
+		// Bottom Collider
+		m_bottom.x = m_transform->position.x;
+		m_bottom.y = m_transform->position.y + m_offset;
+		m_bottom.w = m_transform->width * m_transform->scale;
+		m_bottom.h = m_transform->height * m_transform->scale;
 	};
 
 	/// <summary>
@@ -53,10 +82,35 @@ public:
 	/// </summary>
 	void Update() override
 	{
-		m_collider.x = m_transform->position.x;
-		m_collider.y = m_transform->position.y + m_offset;
-		m_collider.w = m_transform->width * m_transform->scale;
-		m_collider.h = m_transform->height * m_transform->scale;
+		// Central collider
+		m_central.x = m_transform->position.x;
+		m_central.y = m_transform->position.y;
+		m_central.w = m_transform->width * m_transform->scale;
+		m_central.h = m_transform->height * m_transform->scale;
+
+		// Left Collider
+		m_left.x = m_transform->position.x - m_offset;
+		m_left.y = m_transform->position.y;
+		m_left.w = m_transform->width * m_transform->scale;
+		m_left.h = m_transform->height * m_transform->scale;
+
+		// Right Collider
+		m_right.x = m_transform->position.x + m_offset;
+		m_right.y = m_transform->position.y;
+		m_right.w = m_transform->width * m_transform->scale;
+		m_right.h = m_transform->height * m_transform->scale;
+
+		// Top Collider
+		m_top.x = m_transform->position.x;
+		m_top.y = m_transform->position.y - m_offset;
+		m_top.w = m_transform->width * m_transform->scale;
+		m_top.h = m_transform->height * m_transform->scale;
+
+		// Bottom Collider
+		m_bottom.x = m_transform->position.x;
+		m_bottom.y = m_transform->position.y + m_offset;
+		m_bottom.w = m_transform->width * m_transform->scale;
+		m_bottom.h = m_transform->height * m_transform->scale;
 	};
 
 	/// <summary>
@@ -82,19 +136,67 @@ public:
 	}
 
 	/// <summary>
-	/// Get Collider
+	/// Get Central
 	/// 
 	/// A getter function to get the collider.
 	/// </summary>
 	/// <returns>A SDL_Rect value.</returns>
-	SDL_Rect getCollider()
+	SDL_Rect getCentral()
 	{
-		return m_collider;
+		return m_central;
+	};
+
+	/// <summary>
+	/// Get Left
+	/// 
+	/// A getter function to get the collider.
+	/// </summary>
+	/// <returns>A SDL_Rect value.</returns>
+	SDL_Rect getLeft()
+	{
+		return m_left;
+	};
+
+	/// <summary>
+	/// Get Right
+	/// 
+	/// A getter function to get the collider.
+	/// </summary>
+	/// <returns>A SDL_Rect value.</returns>
+	SDL_Rect getRight()
+	{
+		return m_right;
+	};
+
+	/// <summary>
+	/// Get Top
+	/// 
+	/// A getter function to get the collider.
+	/// </summary>
+	/// <returns>A SDL_Rect value.</returns>
+	SDL_Rect getTop()
+	{
+		return m_top;
+	};
+
+	/// <summary>
+	/// Get Bottom
+	/// 
+	/// A getter function to get the collider.
+	/// </summary>
+	/// <returns>A SDL_Rect value.</returns>
+	SDL_Rect getBottom()
+	{
+		return m_bottom;
 	};
 
 private:
 	TransformComponent * m_transform;
-	SDL_Rect m_collider;
+	SDL_Rect m_bottom;
+	SDL_Rect m_top;
+	SDL_Rect m_left;
+	SDL_Rect m_right;
+	SDL_Rect m_central;
 	float m_offset;
 	bool use_gravity;
 };
