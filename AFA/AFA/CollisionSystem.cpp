@@ -2,20 +2,35 @@
 
 void CollisionSystem::TileCollision(vector<jk::Entity*>& tiles, vector<jk::Entity*>& entities)
 {
-	bool collision = false;
+	bool bottom = false;
+	float diffB = 0.0f;
+
+	bool right = false;
+	float diffR = 0.0f;
 
 	for (jk::Entity * ent : entities)
 	{
 		for (jk::Entity * tile : tiles)
 		{
-			if (AABB(ent->getComponent<RigidbodyComponent>().getCollider(), tile->getComponent<RigidbodyComponent>().getCollider()))
+			if (AABB(ent->getComponent<RigidbodyComponent>().getBottom(), tile->getComponent<RigidbodyComponent>().getTop()))
 			{
-				collision = true;
+				diffB = (ent->getComponent<TransformComponent>().position.y + ent->getComponent<TransformComponent>().height) - tile->getComponent<TransformComponent>().position.y;
+				bottom = true;
+			}
+
+			if (AABB(ent->getComponent<RigidbodyComponent>().getRight(), tile->getComponent<RigidbodyComponent>().getLeft()))
+			{
+				diffR = (ent->getComponent<TransformComponent>().position.x + ent->getComponent<TransformComponent>().width) - tile->getComponent<TransformComponent>().position.x;
+				right = true;
 			}
 		}
 
-		if (collision)
+		if (bottom)
 		{
+			if (!ent->getComponent<TransformComponent>().in_air)
+			{
+				ent->getComponent<TransformComponent>().position.y -= diffB;
+			}
 			ent->getComponent<RigidbodyComponent>().setGravity(false);
 			ent->getComponent<TransformComponent>().in_air = false;
 			ent->getComponent<TransformComponent>().velocity.y = 0;
@@ -23,6 +38,12 @@ void CollisionSystem::TileCollision(vector<jk::Entity*>& tiles, vector<jk::Entit
 		else
 		{
 			ent->getComponent<RigidbodyComponent>().setGravity(true);
+		}
+		
+		if (right)
+		{
+			ent->getComponent<TransformComponent>().position.x += diffR;
+			ent->getComponent<TransformComponent>().velocity.x = 0;
 		}
 	}
 }

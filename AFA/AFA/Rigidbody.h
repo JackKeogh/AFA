@@ -7,6 +7,7 @@
 #include "stdafx.h"
 #include "ECS.h"
 #include "TransformComponent.h"
+#include "RenderSystem.h"
 
 class RigidbodyComponent : public Component
 {
@@ -24,6 +25,8 @@ public:
 		m_right = SDL_Rect{ 0, 0, 0, 0 };
 		m_top = SDL_Rect{ 0, 0, 0, 0 };
 		m_bottom = SDL_Rect{ 0, 0, 0, 0 };
+
+		Show = true;
 	};
 
 	/// <summary>
@@ -52,15 +55,15 @@ public:
 
 		// Left Collider
 		m_left.x = m_transform->position.x - m_offset;
-		m_left.y = m_transform->position.y;
+		m_left.y = m_transform->position.y + m_offset;
 		m_left.w = m_transform->width * m_transform->scale;
-		m_left.h = m_transform->height * m_transform->scale;
+		m_left.h = m_transform->height * m_transform->scale - m_offset;
 
 		// Right Collider
 		m_right.x = m_transform->position.x + m_offset;
-		m_right.y = m_transform->position.y;
+		m_right.y = m_transform->position.y + m_offset;
 		m_right.w = m_transform->width * m_transform->scale;
-		m_right.h = m_transform->height * m_transform->scale;
+		m_right.h = m_transform->height * m_transform->scale - m_offset;
 
 		// Top Collider
 		m_top.x = m_transform->position.x;
@@ -90,15 +93,15 @@ public:
 
 		// Left Collider
 		m_left.x = m_transform->position.x - m_offset;
-		m_left.y = m_transform->position.y;
+		m_left.y = m_transform->position.y + m_offset;
 		m_left.w = m_transform->width * m_transform->scale;
-		m_left.h = m_transform->height * m_transform->scale;
+		m_left.h = m_transform->height * m_transform->scale - m_offset;
 
 		// Right Collider
 		m_right.x = m_transform->position.x + m_offset;
-		m_right.y = m_transform->position.y;
+		m_right.y = m_transform->position.y + m_offset;
 		m_right.w = m_transform->width * m_transform->scale;
-		m_right.h = m_transform->height * m_transform->scale;
+		m_right.h = m_transform->height * m_transform->scale - m_offset;
 
 		// Top Collider
 		m_top.x = m_transform->position.x;
@@ -112,6 +115,15 @@ public:
 		m_bottom.w = m_transform->width * m_transform->scale;
 		m_bottom.h = m_transform->height * m_transform->scale;
 	};
+
+	void Render() override
+	{
+		if (Show)
+		{
+			RenderSystem::Draw(m_right);
+			RenderSystem::Draw(m_left);
+		}
+	}
 
 	/// <summary>
 	/// Using Gravity
@@ -199,4 +211,5 @@ private:
 	SDL_Rect m_central;
 	float m_offset;
 	bool use_gravity;
+	bool Show;
 };

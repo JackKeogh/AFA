@@ -33,7 +33,7 @@ public:
 		auto& a = m_entityManager->addEntity();
 		a.addComponent<TransformComponent>(Vector2f(180, 542), 60, 50);
 		a.addComponent<SpriteComponent>("Assets/Tiles/Top.png", 64, 64);
-		a.addComponent<RigidbodyComponent>(false);
+		a.addComponent<RigidbodyComponent>(false, 2.0f);
 		a.addLayer(jk::Layers::Middleground);
 		a.addGroup(jk::Groups::TileGroup);
 
@@ -48,7 +48,7 @@ public:
 						auto& ent = m_entityManager->addEntity();
 						ent.addComponent<TransformComponent>(Vector2f(60 * row, 592), 60, 50);
 						ent.addComponent<SpriteComponent>("Assets/Tiles/Left.png", 64, 64);
-						ent.addComponent<RigidbodyComponent>(false);
+						ent.addComponent<RigidbodyComponent>(false, 2.0f);
 						ent.addLayer(jk::Layers::Middleground);
 						ent.addGroup(jk::Groups::TileGroup);
 					}
@@ -57,7 +57,7 @@ public:
 						auto& ent = m_entityManager->addEntity();
 						ent.addComponent<TransformComponent>(Vector2f(60 * row, 592), 60, 50);
 						ent.addComponent<SpriteComponent>("Assets/Tiles/Right.png", 64, 64);
-						ent.addComponent<RigidbodyComponent>(false);
+						ent.addComponent<RigidbodyComponent>(false, 2.0f);
 						ent.addLayer(jk::Layers::Middleground);
 						ent.addGroup(jk::Groups::TileGroup);
 					}
@@ -66,7 +66,7 @@ public:
 						auto& ent = m_entityManager->addEntity();
 						ent.addComponent<TransformComponent>(Vector2f(60 * row, 592), 60, 50);
 						ent.addComponent<SpriteComponent>("Assets/Tiles/Top.png", 64, 64);
-						ent.addComponent<RigidbodyComponent>(false);
+						ent.addComponent<RigidbodyComponent>(false, 2.0f);
 						ent.addLayer(jk::Layers::Middleground);
 						ent.addGroup(jk::Groups::TileGroup);
 					}
@@ -76,7 +76,7 @@ public:
 					auto& ent = m_entityManager->addEntity();
 					ent.addComponent<TransformComponent>(Vector2f(60 * row, 642), 60, 50);
 					ent.addComponent<SpriteComponent>("Assets/Tiles/Bottom.png", 64, 64);
-					ent.addComponent<RigidbodyComponent>(false);
+					ent.addComponent<RigidbodyComponent>(false, 2.0f);
 					ent.addLayer(jk::Layers::Middleground);
 					ent.addGroup(jk::Groups::TileGroup);
 				}

@@ -52,6 +52,12 @@ void RenderSystem::Draw(SDL_Texture * Texture, SDL_Rect DstRect)
 	SDL_RenderCopy(m_renderer, Texture, NULL, &DstRect);
 }
 
+void RenderSystem::Draw(SDL_Rect DstRect)
+{
+	RenderColor(SDL_Color{ 0, 255, 255, 255 });
+	SDL_RenderDrawRect(m_renderer, &DstRect);
+}
+
 void RenderSystem::Draw(SDL_Texture * Texture, SDL_Rect SrcRect, SDL_Rect DstRect)
 {
 	SDL_RenderCopy(m_renderer, Texture, &SrcRect, &DstRect);
@@ -69,5 +75,6 @@ void RenderSystem::Draw(SDL_Texture * Texture, SDL_Rect SrcRect, SDL_Rect DstRec
 
 void RenderSystem::Present()
 {
+	RenderColor(SDL_Color{ 0, 0, 0, 255 });
 	SDL_RenderPresent(m_renderer);
 }
