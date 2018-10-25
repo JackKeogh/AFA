@@ -11,6 +11,8 @@ void CollisionSystem::TileCollision(vector<jk::Entity*>& tiles, vector<jk::Entit
 	bool left = false;
 	float diffL = 0.0f;
 
+	bool top = false;
+
 	for (jk::Entity * ent : entities)
 	{
 		for (jk::Entity * tile : tiles)
@@ -53,14 +55,12 @@ void CollisionSystem::TileCollision(vector<jk::Entity*>& tiles, vector<jk::Entit
 		
 		if (right)
 		{
-			cout << diffR << endl;
 			ent->getComponent<TransformComponent>().position.x -= diffR;
 			ent->getComponent<TransformComponent>().velocity.x = 0;
 		}
 
 		if (left)
 		{
-			cout << diffL << endl;
 			ent->getComponent<TransformComponent>().position.x += diffL;
 			ent->getComponent<TransformComponent>().velocity.x = 0;
 		}

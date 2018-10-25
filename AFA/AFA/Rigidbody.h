@@ -71,8 +71,6 @@ public:
 		m_top.w = m_transform->width * m_transform->scale;
 		m_top.h = m_transform->height * m_transform->scale;
 
-		cout << m_top.w << endl;
-
 		// Bottom Collider
 		m_bottom.x = m_transform->position.x;
 		m_bottom.y = m_transform->position.y + m_offset;
@@ -110,8 +108,6 @@ public:
 		m_top.y = m_transform->position.y - m_offset;
 		m_top.w = (m_offset * 2) + m_transform->width * m_transform->scale;
 		m_top.h = m_transform->height * m_transform->scale;
-
-		cout << m_top.w << endl;
 
 		// Bottom Collider
 		m_bottom.x = m_transform->position.x;
