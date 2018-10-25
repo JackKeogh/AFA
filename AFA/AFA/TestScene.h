@@ -22,7 +22,7 @@ public:
 		////////////////////////////////////////////
 		
 		auto& ent = m_entityManager->addEntity();
-		ent.addComponent<TransformComponent>(Vector2f(60, 136), 64, 64, 0, 1, 5, 5);
+		ent.addComponent<TransformComponent>(Vector2f(60, 136), 50, 80, 0, 1, 5, 5);
 		ent.addComponent<SpriteComponent>("Assets/Characters/Temp.png", 64, 64);
 		ent.addComponent<CommandComponent>();
 		ent.addComponent<KeyComponent>();
@@ -31,7 +31,7 @@ public:
 		ent.addLayer(jk::Layers::Foreground);
 
 		auto& a = m_entityManager->addEntity();
-		a.addComponent<TransformComponent>(Vector2f(180, 542), 60, 50);
+		a.addComponent<TransformComponent>(Vector2f(180, 442), 60, 50);
 		a.addComponent<SpriteComponent>("Assets/Tiles/Top.png", 64, 64);
 		a.addComponent<RigidbodyComponent>(false, 2.0f);
 		a.addLayer(jk::Layers::Middleground);
