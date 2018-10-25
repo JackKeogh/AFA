@@ -15,7 +15,7 @@
 class Factory
 {
 public:
-	virtual void CreateEntity(EntityManager * EManager, string Texture = "", float x = 60, float y = 64,
+	virtual void CreateEntity(EntityManager * EManager, const char * Texture = "", float x = 60, float y = 64,
 		float w = 60, float h = 64) {};
 
 protected:
@@ -26,5 +26,5 @@ class TileFactory : public Factory
 {
 public:
 	TileFactory() {};
-	void CreateEntity(EntityManager * EManager, string Texture, float x = 60, float y = 64, float w = 60, float h = 64) override;
+	void CreateEntity(EntityManager * EManager, const char * Texture, float x = 60, float y = 64, float w = 60, float h = 64) override;
 };
