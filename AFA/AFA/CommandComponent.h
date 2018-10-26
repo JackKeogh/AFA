@@ -29,9 +29,27 @@ public:
 	/// </summary>
 	virtual void Execute(TransformComponent * T, RigidbodyComponent * R) {};
 
+	/// <summary>
+	/// Set Enabled
+	/// 
+	/// This function sets the enabled bool.
+	/// </summary>
+	void setEnabled(bool set) { enabled = set; };
+
+	/// <summary>
+	/// Enabled
+	/// 
+	/// This function returns if the command is enabled
+	/// or disabled.
+	/// </summary>
+	bool Enabled() { return enabled; };
+
 protected:
 	// Constructor
 	Command() {};
+
+	// Allow Commands to be disabled/enabled
+	bool enabled;
 };
 
 class MoveLeft : public Command

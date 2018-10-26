@@ -54,7 +54,7 @@ void RenderSystem::Draw(SDL_Texture * Texture, SDL_Rect DstRect)
 
 void RenderSystem::Draw(SDL_Rect DstRect)
 {
-	RenderColor(SDL_Color{ 0, 255, 255, 255 });
+	RenderColor(SDL_Color{ 255, 0, 255, 255 });
 	SDL_RenderDrawRect(m_renderer, &DstRect);
 }
 

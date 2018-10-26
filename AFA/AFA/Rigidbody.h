@@ -57,19 +57,19 @@ public:
 		m_left.x = m_transform->position.x - m_offset;
 		m_left.y = m_transform->position.y + m_offset;
 		m_left.w = m_transform->width * m_transform->scale;
-		m_left.h = m_transform->height * m_transform->scale - m_offset;
+		m_left.h = (m_transform->height * m_transform->scale) - m_offset;
 
 		// Right Collider
 		m_right.x = m_transform->position.x + m_offset;
 		m_right.y = m_transform->position.y + m_offset;
 		m_right.w = m_transform->width * m_transform->scale;
-		m_right.h = m_transform->height * m_transform->scale - m_offset;
+		m_right.h = (m_transform->height * m_transform->scale) - m_offset;
 
 		// Top Collider
 		m_top.x = m_transform->position.x;
 		m_top.y = m_transform->position.y - m_offset;
 		m_top.w = m_transform->width * m_transform->scale;
-		m_top.h = m_transform->height * m_transform->scale;
+		m_top.h = (m_transform->height * m_transform->scale) - (m_offset * 10);
 
 		// Bottom Collider
 		m_bottom.x = m_transform->position.x;
@@ -104,16 +104,16 @@ public:
 		m_right.h = m_transform->height * m_transform->scale - m_offset;
 
 		// Top Collider
-		m_top.x = m_transform->position.x - m_offset;
+		m_top.x = m_transform->position.x;
 		m_top.y = m_transform->position.y - m_offset;
-		m_top.w = (m_offset * 2) + m_transform->width * m_transform->scale;
-		m_top.h = m_transform->height * m_transform->scale;
+		m_top.w = m_transform->width * m_transform->scale;
+		m_top.h = (m_transform->height * m_transform->scale) - (m_offset * 10);
 
 		// Bottom Collider
 		m_bottom.x = m_transform->position.x;
-		m_bottom.y = m_transform->position.y + m_offset;
+		m_bottom.y = m_transform->position.y + (m_offset * 11);
 		m_bottom.w = m_transform->width * m_transform->scale;
-		m_bottom.h = m_transform->height * m_transform->scale;
+		m_bottom.h = (m_transform->height * m_transform->scale) - (m_offset * 8.5);
 	};
 
 	void Render() override

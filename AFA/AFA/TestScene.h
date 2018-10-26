@@ -31,7 +31,7 @@ public:
 		ent.addLayer(jk::Layers::Foreground);
 
 		auto& a = m_entityManager->addEntity();
-		a.addComponent<TransformComponent>(Vector2f(180, 442), 60, 50);
+		a.addComponent<TransformComponent>(Vector2f(180, 492), 60, 50);
 		a.addComponent<SpriteComponent>("Assets/Tiles/Top.png", 64, 64);
 		a.addComponent<RigidbodyComponent>(false, 2.0f);
 		a.addLayer(jk::Layers::Middleground);
@@ -88,12 +88,14 @@ public:
 
 	void Update(float delta_time) override 
 	{
+		CollisionSystem::TileTAB(m_entityManager->getGroup(jk::Groups::TileGroup), m_entityManager->getGroup(jk::Groups::PlayerGroup));
+
 		m_inputSystem->Update(m_entityManager, m_entityManager->getGroup(jk::Groups::PlayerGroup));
 
 		MovementSystem::Move(m_entityManager->getGroup(jk::Groups::PlayerGroup), delta_time);
 
-		CollisionSystem::TileCollision(m_entityManager->getGroup(jk::Groups::TileGroup), m_entityManager->getGroup(jk::Groups::PlayerGroup));
-
+		CollisionSystem::TileLAR(m_entityManager->getGroup(jk::Groups::TileGroup), m_entityManager->getGroup(jk::Groups::PlayerGroup));
+		
 		m_entityManager->Update();
 	};
 

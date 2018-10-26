@@ -10,6 +10,7 @@
 #include <cmath>
 #include <fstream>
 #include <map>
+#include <thread>
 #include <SDL.h>
 #include <AssetHandler.h>
 using namespace std;
