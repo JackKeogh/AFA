@@ -48,7 +48,6 @@ public:
 				{
 					if (row == 0)
 					{
-<<<<<<< HEAD
 						m_tileFactory->CreateEntity(m_entityManager, "Assets/Tiles/Left.png", 60 * row, 592, 60, 64);
 					}
 					else if (row == 20)
@@ -58,46 +57,11 @@ public:
 					else
 					{
 						m_tileFactory->CreateEntity(m_entityManager, "Assets/Tiles/Top.png", 60 * row, 592, 60, 64);
-=======
-						auto& ent = m_entityManager->addEntity();
-						ent.addComponent<TransformComponent>(Vector2f(60 * row, 592), 60, 50);
-						ent.addComponent<SpriteComponent>("Assets/Tiles/Left.png", 64, 64);
-						ent.addComponent<RigidbodyComponent>(false, 2.0f);
-						ent.addLayer(jk::Layers::Middleground);
-						ent.addGroup(jk::Groups::TileGroup);
-					}
-					else if (row == 20)
-					{
-						auto& ent = m_entityManager->addEntity();
-						ent.addComponent<TransformComponent>(Vector2f(60 * row, 592), 60, 50);
-						ent.addComponent<SpriteComponent>("Assets/Tiles/Right.png", 64, 64);
-						ent.addComponent<RigidbodyComponent>(false, 2.0f);
-						ent.addLayer(jk::Layers::Middleground);
-						ent.addGroup(jk::Groups::TileGroup);
-					}
-					else
-					{
-						auto& ent = m_entityManager->addEntity();
-						ent.addComponent<TransformComponent>(Vector2f(60 * row, 592), 60, 50);
-						ent.addComponent<SpriteComponent>("Assets/Tiles/Top.png", 64, 64);
-						ent.addComponent<RigidbodyComponent>(false, 2.0f);
-						ent.addLayer(jk::Layers::Middleground);
-						ent.addGroup(jk::Groups::TileGroup);
->>>>>>> cb8b7cf9b9fc93fa6b2c44fa4dc2319cbcfcc766
 					}
 				}
 				else
 				{
-<<<<<<< HEAD
 					m_tileFactory->CreateEntity(m_entityManager, "Assets/Tiles/Bottom.png", 60 * row, 656, 60, 64);
-=======
-					auto& ent = m_entityManager->addEntity();
-					ent.addComponent<TransformComponent>(Vector2f(60 * row, 642), 60, 50);
-					ent.addComponent<SpriteComponent>("Assets/Tiles/Bottom.png", 64, 64);
-					ent.addComponent<RigidbodyComponent>(false, 2.0f);
-					ent.addLayer(jk::Layers::Middleground);
-					ent.addGroup(jk::Groups::TileGroup);
->>>>>>> cb8b7cf9b9fc93fa6b2c44fa4dc2319cbcfcc766
 				}
 			}
 		}
