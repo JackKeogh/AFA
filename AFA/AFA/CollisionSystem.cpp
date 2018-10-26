@@ -40,6 +40,9 @@ void CollisionSystem::TileTAB(vector<jk::Entity*>& tiles, vector<jk::Entity*>& e
 			{
 				ent->getComponent<TransformComponent>().position.y -= diffB;
 			}
+			ent->getComponent<CommandComponent>().getCommand("Right")->setEnabled(true);
+			ent->getComponent<CommandComponent>().getCommand("Left")->setEnabled(true);
+			ent->getComponent<CommandComponent>().getCommand("Jump")->setEnabled(true);
 			ent->getComponent<RigidbodyComponent>().setGravity(false);
 			ent->getComponent<TransformComponent>().in_air = false;
 			ent->getComponent<TransformComponent>().velocity.y = 0;
@@ -87,12 +90,14 @@ void CollisionSystem::TileLAR(vector<jk::Entity*>& tiles, vector<jk::Entity*>& e
 
 		if (right)
 		{
+			ent->getComponent<CommandComponent>().getCommand("Right")->setEnabled(false);
 			ent->getComponent<TransformComponent>().position.x -= diffR;
 			ent->getComponent<TransformComponent>().velocity.x = 0;
 		}
 
 		if (left)
 		{
+			ent->getComponent<CommandComponent>().getCommand("Left")->setEnabled(false);
 			ent->getComponent<TransformComponent>().position.x += diffL;
 			ent->getComponent<TransformComponent>().velocity.x = 0;
 		}

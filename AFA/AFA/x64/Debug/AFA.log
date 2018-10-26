@@ -27,12 +27,12 @@ c:\users\jack\onedrive\desktop\projects\afa\afa\afa\rigidbody.h(110): warning C4
 c:\users\jack\onedrive\desktop\projects\afa\afa\afa\rigidbody.h(113): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 c:\users\jack\onedrive\desktop\projects\afa\afa\afa\rigidbody.h(114): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 c:\users\jack\onedrive\desktop\projects\afa\afa\afa\rigidbody.h(116): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-c:\users\jack\onedrive\desktop\projects\afa\afa\afa\commandcomponent.h(45): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\jack\onedrive\desktop\projects\afa\afa\afa\commandcomponent.h(58): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\jack\onedrive\desktop\projects\afa\afa\afa\commandcomponent.h(68): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\jack\onedrive\desktop\projects\afa\afa\afa\commandcomponent.h(84): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(67): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(68): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(83): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 c:\users\jack\onedrive\desktop\projects\afa\afa\afa\spritecomponent.h(84): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\jack\onedrive\desktop\projects\afa\afa\afa\collisionsystem.cpp(75): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\jack\onedrive\desktop\projects\afa\afa\afa\collisionsystem.cpp(83): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\jack\onedrive\desktop\projects\afa\afa\afa\collisionsystem.cpp(78): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\jack\onedrive\desktop\projects\afa\afa\afa\collisionsystem.cpp(86): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   AFA.vcxproj -> C:\Users\jack\OneDrive\Desktop\Projects\AFA\AFA\x64\Debug\AFA.exe
