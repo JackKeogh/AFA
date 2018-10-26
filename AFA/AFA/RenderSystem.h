@@ -47,6 +47,12 @@ public:
 	static void Draw(SDL_Texture * Texture, SDL_Rect DstRect);
 
 	/// <summary>
+	/// This method will be used to draw a simple rect.
+	/// </summary>
+	/// <param name="DstRect">SDL_Rect defining parameters on screen.</param>
+	static void Draw(SDL_Rect DstRect);
+
+	/// <summary>
 	/// This method will be used to draw a texture with no rotation.
 	/// </summary>
 	/// <param name="Texture">SDL_Texture ptr of the texture to render.</param>
