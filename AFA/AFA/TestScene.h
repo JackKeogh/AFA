@@ -25,13 +25,20 @@ public:
 		////////////////////////////////////////////
 		
 		auto& ent = m_entityManager->addEntity();
-		ent.addComponent<TransformComponent>(Vector2f(61, 0), 60, 64);
+		ent.addComponent<TransformComponent>(Vector2f(60, 136), 50, 80, 0, 1, 5, 5);
 		ent.addComponent<SpriteComponent>("Assets/Characters/Temp.png", 64, 64);
 		ent.addComponent<CommandComponent>();
 		ent.addComponent<KeyComponent>();
-		ent.addComponent<RigidbodyComponent>(true, 4.0f);
+		ent.addComponent<RigidbodyComponent>(true, 5.0f);
 		ent.addGroup(jk::Groups::PlayerGroup);
 		ent.addLayer(jk::Layers::Foreground);
+
+		auto& a = m_entityManager->addEntity();
+		a.addComponent<TransformComponent>(Vector2f(180, 492), 60, 50);
+		a.addComponent<SpriteComponent>("Assets/Tiles/Top.png", 64, 64);
+		a.addComponent<RigidbodyComponent>(false, 2.0f);
+		a.addLayer(jk::Layers::Middleground);
+		a.addGroup(jk::Groups::TileGroup);
 
 		for (int row = 0; row < 21; row++)
 		{
@@ -41,6 +48,7 @@ public:
 				{
 					if (row == 0)
 					{
+<<<<<<< HEAD
 						m_tileFactory->CreateEntity(m_entityManager, "Assets/Tiles/Left.png", 60 * row, 592, 60, 64);
 					}
 					else if (row == 20)
@@ -50,11 +58,46 @@ public:
 					else
 					{
 						m_tileFactory->CreateEntity(m_entityManager, "Assets/Tiles/Top.png", 60 * row, 592, 60, 64);
+=======
+						auto& ent = m_entityManager->addEntity();
+						ent.addComponent<TransformComponent>(Vector2f(60 * row, 592), 60, 50);
+						ent.addComponent<SpriteComponent>("Assets/Tiles/Left.png", 64, 64);
+						ent.addComponent<RigidbodyComponent>(false, 2.0f);
+						ent.addLayer(jk::Layers::Middleground);
+						ent.addGroup(jk::Groups::TileGroup);
+					}
+					else if (row == 20)
+					{
+						auto& ent = m_entityManager->addEntity();
+						ent.addComponent<TransformComponent>(Vector2f(60 * row, 592), 60, 50);
+						ent.addComponent<SpriteComponent>("Assets/Tiles/Right.png", 64, 64);
+						ent.addComponent<RigidbodyComponent>(false, 2.0f);
+						ent.addLayer(jk::Layers::Middleground);
+						ent.addGroup(jk::Groups::TileGroup);
+					}
+					else
+					{
+						auto& ent = m_entityManager->addEntity();
+						ent.addComponent<TransformComponent>(Vector2f(60 * row, 592), 60, 50);
+						ent.addComponent<SpriteComponent>("Assets/Tiles/Top.png", 64, 64);
+						ent.addComponent<RigidbodyComponent>(false, 2.0f);
+						ent.addLayer(jk::Layers::Middleground);
+						ent.addGroup(jk::Groups::TileGroup);
+>>>>>>> cb8b7cf9b9fc93fa6b2c44fa4dc2319cbcfcc766
 					}
 				}
 				else
 				{
+<<<<<<< HEAD
 					m_tileFactory->CreateEntity(m_entityManager, "Assets/Tiles/Bottom.png", 60 * row, 656, 60, 64);
+=======
+					auto& ent = m_entityManager->addEntity();
+					ent.addComponent<TransformComponent>(Vector2f(60 * row, 642), 60, 50);
+					ent.addComponent<SpriteComponent>("Assets/Tiles/Bottom.png", 64, 64);
+					ent.addComponent<RigidbodyComponent>(false, 2.0f);
+					ent.addLayer(jk::Layers::Middleground);
+					ent.addGroup(jk::Groups::TileGroup);
+>>>>>>> cb8b7cf9b9fc93fa6b2c44fa4dc2319cbcfcc766
 				}
 			}
 		}
@@ -64,12 +107,14 @@ public:
 
 	void Update(float delta_time) override 
 	{
+		CollisionSystem::TileTAB(m_entityManager->getGroup(jk::Groups::TileGroup), m_entityManager->getGroup(jk::Groups::PlayerGroup));
+
 		m_inputSystem->Update(m_entityManager, m_entityManager->getGroup(jk::Groups::PlayerGroup));
 
 		MovementSystem::Move(m_entityManager->getGroup(jk::Groups::PlayerGroup), delta_time);
 
-		CollisionSystem::TileCollision(m_entityManager->getGroup(jk::Groups::TileGroup), m_entityManager->getGroup(jk::Groups::PlayerGroup));
-
+		CollisionSystem::TileLAR(m_entityManager->getGroup(jk::Groups::TileGroup), m_entityManager->getGroup(jk::Groups::PlayerGroup));
+		
 		m_entityManager->Update();
 	};
 

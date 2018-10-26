@@ -10,7 +10,12 @@
 class CollisionSystem
 {
 public:
-	static void TileCollision(vector<jk::Entity*>& tiles, vector<jk::Entity*>& entities);
-	static bool CheckBelow(SDL_Rect A, SDL_Rect B);
+	static bool left;
+	static bool right;
+	static bool top;
+	static bool bottom;
+
+	static void TileTAB(vector<jk::Entity*>& tiles, vector<jk::Entity*>& entities);
+	static void TileLAR(vector<jk::Entity*>& tiles, vector<jk::Entity*>& entities);
 	static bool AABB(SDL_Rect A, SDL_Rect B);
 };
