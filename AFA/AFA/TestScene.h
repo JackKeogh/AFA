@@ -5,6 +5,7 @@
 #include "InputSystem.h"
 #include "MovementSystem.h"
 #include "CollisionSystem.h"
+#include "Factory.h"
 
 class TestScene : public Scene
 {
@@ -19,6 +20,8 @@ public:
 
 		m_entityManager = new jk::EntityManager;
 
+		m_tileFactory = new TileFactory;
+
 		////////////////////////////////////////////
 		
 		auto& ent = m_entityManager->addEntity();
@@ -31,11 +34,18 @@ public:
 		ent.addLayer(jk::Layers::Foreground);
 
 		auto& a = m_entityManager->addEntity();
-		a.addComponent<TransformComponent>(Vector2f(180, 492), 60, 50);
+		a.addComponent<TransformComponent>(Vector2f(180, 442), 60, 50);
 		a.addComponent<SpriteComponent>("Assets/Tiles/Top.png", 64, 64);
 		a.addComponent<RigidbodyComponent>(false, 2.0f);
 		a.addLayer(jk::Layers::Middleground);
 		a.addGroup(jk::Groups::TileGroup);
+	
+		auto& b = m_entityManager->addEntity();
+		b.addComponent<TransformComponent>(Vector2f(700, 492), 60, 50);
+		b.addComponent<SpriteComponent>("Assets/Tiles/Top.png", 64, 64);
+		b.addComponent<RigidbodyComponent>(false, 2.0f);
+		b.addLayer(jk::Layers::Middleground);
+		b.addGroup(jk::Groups::TileGroup);
 
 		for (int row = 0; row < 21; row++)
 		{
@@ -45,40 +55,20 @@ public:
 				{
 					if (row == 0)
 					{
-						auto& ent = m_entityManager->addEntity();
-						ent.addComponent<TransformComponent>(Vector2f(60 * row, 592), 60, 50);
-						ent.addComponent<SpriteComponent>("Assets/Tiles/Left.png", 64, 64);
-						ent.addComponent<RigidbodyComponent>(false, 2.0f);
-						ent.addLayer(jk::Layers::Middleground);
-						ent.addGroup(jk::Groups::TileGroup);
+						m_tileFactory->CreateEntity(m_entityManager, "Assets/Tiles/Left.png", 60 * row, 592, 60, 64);
 					}
 					else if (row == 20)
 					{
-						auto& ent = m_entityManager->addEntity();
-						ent.addComponent<TransformComponent>(Vector2f(60 * row, 592), 60, 50);
-						ent.addComponent<SpriteComponent>("Assets/Tiles/Right.png", 64, 64);
-						ent.addComponent<RigidbodyComponent>(false, 2.0f);
-						ent.addLayer(jk::Layers::Middleground);
-						ent.addGroup(jk::Groups::TileGroup);
+						m_tileFactory->CreateEntity(m_entityManager, "Assets/Tiles/Right.png", 60 * row, 592, 60, 64);
 					}
 					else
 					{
-						auto& ent = m_entityManager->addEntity();
-						ent.addComponent<TransformComponent>(Vector2f(60 * row, 592), 60, 50);
-						ent.addComponent<SpriteComponent>("Assets/Tiles/Top.png", 64, 64);
-						ent.addComponent<RigidbodyComponent>(false, 2.0f);
-						ent.addLayer(jk::Layers::Middleground);
-						ent.addGroup(jk::Groups::TileGroup);
+						m_tileFactory->CreateEntity(m_entityManager, "Assets/Tiles/Top.png", 60 * row, 592, 60, 64);
 					}
 				}
 				else
 				{
-					auto& ent = m_entityManager->addEntity();
-					ent.addComponent<TransformComponent>(Vector2f(60 * row, 642), 60, 50);
-					ent.addComponent<SpriteComponent>("Assets/Tiles/Bottom.png", 64, 64);
-					ent.addComponent<RigidbodyComponent>(false, 2.0f);
-					ent.addLayer(jk::Layers::Middleground);
-					ent.addGroup(jk::Groups::TileGroup);
+					m_tileFactory->CreateEntity(m_entityManager, "Assets/Tiles/Bottom.png", 60 * row, 656, 60, 64);
 				}
 			}
 		}
@@ -145,4 +135,7 @@ public:
 private:
 	InputSystem * m_inputSystem;
 	jk::EntityManager * m_entityManager;
+
+	//Create the factories
+	TileFactory * m_tileFactory;
 };

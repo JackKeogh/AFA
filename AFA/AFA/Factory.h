@@ -1,6 +1,5 @@
 #pragma once
-#include <iostream>
-#include "AssetHandler.h"
+#include "stdafx.h"
 #include "Components.h"
 
 /// <class>Factory</class>
@@ -16,10 +15,16 @@
 class Factory
 {
 public:
-	virtual void CreateEntity(EntityManager * EManager, SDL_Texture * Texture = nullptr, float x = 64, float y = 64,
-		float w = 64, float h = 64) {};
+	virtual void CreateEntity(EntityManager * EManager, const char * Texture = "", float x = 60, float y = 64,
+		float w = 60, float h = 64) {};
 
 protected:
 	Factory() {};
-	AssetHandler * m_assets;
+};
+
+class TileFactory : public Factory
+{
+public:
+	TileFactory() {};
+	void CreateEntity(EntityManager * EManager, const char * Texture, float x = 60, float y = 64, float w = 60, float h = 64) override;
 };
