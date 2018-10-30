@@ -34,11 +34,18 @@ public:
 		ent.addLayer(jk::Layers::Foreground);
 
 		auto& a = m_entityManager->addEntity();
-		a.addComponent<TransformComponent>(Vector2f(180, 492), 60, 50);
+		a.addComponent<TransformComponent>(Vector2f(180, 442), 60, 50);
 		a.addComponent<SpriteComponent>("Assets/Tiles/Top.png", 64, 64);
 		a.addComponent<RigidbodyComponent>(false, 2.0f);
 		a.addLayer(jk::Layers::Middleground);
 		a.addGroup(jk::Groups::TileGroup);
+	
+		auto& b = m_entityManager->addEntity();
+		b.addComponent<TransformComponent>(Vector2f(700, 492), 60, 50);
+		b.addComponent<SpriteComponent>("Assets/Tiles/Top.png", 64, 64);
+		b.addComponent<RigidbodyComponent>(false, 2.0f);
+		b.addLayer(jk::Layers::Middleground);
+		b.addGroup(jk::Groups::TileGroup);
 
 		for (int row = 0; row < 21; row++)
 		{
