@@ -30,6 +30,7 @@ public:
 		ent.addComponent<CommandComponent>();
 		ent.addComponent<KeyComponent>();
 		ent.addComponent<RigidbodyComponent>(true, 5.0f);
+		ent.addComponent<StatComponent>();
 		ent.addGroup(jk::Groups::PlayerGroup);
 		ent.addLayer(jk::Layers::Foreground);
 
@@ -78,6 +79,11 @@ public:
 
 	void Update(float delta_time) override 
 	{
+		for (jk::Entity * e : m_entityManager->getGroup(jk::Groups::PlayerGroup))
+		{
+			e->getComponent<StatComponent>().setDeltaTime(delta_time);
+		}
+
 		CollisionSystem::TileTAB(m_entityManager->getGroup(jk::Groups::TileGroup), m_entityManager->getGroup(jk::Groups::PlayerGroup));
 
 		m_inputSystem->Update(m_entityManager, m_entityManager->getGroup(jk::Groups::PlayerGroup));
