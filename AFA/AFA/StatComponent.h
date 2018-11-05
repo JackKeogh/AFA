@@ -42,9 +42,37 @@ public:
 	/// <summary>
 	/// setDeltaTime
 	/// 
-	/// function used to set delta time;
+	/// function used to set delta time.
 	/// </summary>
 	void setDeltaTime(float set) { m_deltaTime = set; };
+
+	/// <summary>
+	/// setHeat
+	/// 
+	/// function used to set heat.
+	/// </summary>
+	void setHeat(float set) { m_heat = set; };
+
+	/// <summary>
+	/// setLives
+	/// 
+	/// function used to set lives.
+	/// </summary>
+	void setLives(int set) { m_lives = set; };
+
+	/// <summary>
+	/// getHeat
+	/// 
+	/// function used to get heat.
+	/// </summary>
+	float getHeat() { return m_heat; };
+
+	/// <summary>
+	/// getLives
+	/// 
+	/// function used to get lives.
+	/// </summary>
+	int getLives() { return m_lives; };
 
 private:
 	int m_lives;
