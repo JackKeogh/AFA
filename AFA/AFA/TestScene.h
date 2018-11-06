@@ -91,14 +91,22 @@ public:
 
 	void Initialise() override 
 	{
-		cout << "Initialising Scene..." << endl;
-		
+		m_entityManager->Clear();
+
+		LoadLevel();
+
+		m_playerFactory->CreateEntity(m_entityManager, "Assets/Characters/Temp.png", 60, 136, 64, 64);
+
+		currentLives = m_entityManager->getGroup(jk::Groups::PlayerGroup).at(0)->getComponent<StatComponent>().getLives();
 	};
+
+	void Reset()
+	{
+		m_entityManager->getGroup(jk::Groups::TileGroup).clear();
+	}
 
 	void LoadLevel() override 
 	{
-		m_playerFactory->CreateEntity(m_entityManager, "Assets/Characters/Temp.png", 60, 136, 64, 64);
-
 		m_tileFactory->CreateEntity(m_entityManager, "Assets/Tiles/Top.png", 180, 442, 64, 64);
 		m_tileFactory->CreateEntity(m_entityManager, "Assets/Tiles/Top.png", 700, 492, 64, 64);
 
