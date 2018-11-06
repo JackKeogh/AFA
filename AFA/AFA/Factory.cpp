@@ -18,6 +18,7 @@ void PlayerFactory::CreateEntity(EntityManager * EManager, const char * Texture,
 	ent.addComponent<SpriteComponent>(Texture, w, h);
 	ent.addComponent<CommandComponent>();
 	ent.addComponent<KeyComponent>();
+	ent.addComponent<StatComponent>();
 	ent.addComponent<RigidbodyComponent>(true, 1.0f);
 	ent.addGroup(jk::Groups::PlayerGroup);
 	ent.addLayer(jk::Layers::Middleground);

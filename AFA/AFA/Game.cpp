@@ -31,6 +31,7 @@ bool Game::Initialiser()
 	{
 		return false;
 	}
+	m_sceneManager->LoadNextLevel();
 
 	return true;
 }

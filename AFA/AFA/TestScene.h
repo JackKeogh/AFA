@@ -25,38 +25,7 @@ public:
 		m_playerFactory = new PlayerFactory;
 
 		////////////////////////////////////////////
-		ent.addComponent<StatComponent>();
-
-		m_playerFactory->CreateEntity(m_entityManager, "Assets/Characters/Temp.png", 60, 136, 64, 64);
-
-		m_tileFactory->CreateEntity(m_entityManager, "Assets/Tiles/Top.png", 180, 442, 64, 64);
-		m_tileFactory->CreateEntity(m_entityManager, "Assets/Tiles/Top.png", 700, 492, 64, 64);
-
-		for (int row = 0; row < 21; row++)
-		{
-			for (int col = 0; col < 2; col++)
-			{
-				if (col == 0)
-				{
-					if (row == 0)
-					{
-						m_tileFactory->CreateEntity(m_entityManager, "Assets/Tiles/Left.png", 60 * row, 592, 60, 64);
-					}
-					else if (row == 20)
-					{
-						m_tileFactory->CreateEntity(m_entityManager, "Assets/Tiles/Right.png", 60 * row, 592, 60, 64);
-					}
-					else
-					{
-						m_tileFactory->CreateEntity(m_entityManager, "Assets/Tiles/Top.png", 60 * row, 592, 60, 64);
-					}
-				}
-				else
-				{
-					m_tileFactory->CreateEntity(m_entityManager, "Assets/Tiles/Bottom.png", 60 * row, 656, 60, 64);
-				}
-			}
-		}
+		
 		////////////////////////////////////////////
 	};
 	~TestScene() {};
@@ -119,12 +88,53 @@ public:
 	};
 
 	bool Running() override { return m_running; };
-	void Initialise() override {};
-	void LoadLevel() override {};
+
+	void Initialise() override 
+	{
+		cout << "Initialising Scene..." << endl;
+		
+	};
+
+	void LoadLevel() override 
+	{
+		m_playerFactory->CreateEntity(m_entityManager, "Assets/Characters/Temp.png", 60, 136, 64, 64);
+
+		m_tileFactory->CreateEntity(m_entityManager, "Assets/Tiles/Top.png", 180, 442, 64, 64);
+		m_tileFactory->CreateEntity(m_entityManager, "Assets/Tiles/Top.png", 700, 492, 64, 64);
+
+		for (int row = 0; row < 21; row++)
+		{
+			for (int col = 0; col < 2; col++)
+			{
+				if (col == 0)
+				{
+					if (row == 0)
+					{
+						m_tileFactory->CreateEntity(m_entityManager, "Assets/Tiles/Left.png", 60 * row, 592, 60, 64);
+					}
+					else if (row == 20)
+					{
+						m_tileFactory->CreateEntity(m_entityManager, "Assets/Tiles/Right.png", 60 * row, 592, 60, 64);
+					}
+					else
+					{
+						m_tileFactory->CreateEntity(m_entityManager, "Assets/Tiles/Top.png", 60 * row, 592, 60, 64);
+					}
+				}
+				else
+				{
+					m_tileFactory->CreateEntity(m_entityManager, "Assets/Tiles/Bottom.png", 60 * row, 656, 60, 64);
+				}
+			}
+		}
+	};
 
 private:
 	InputSystem * m_inputSystem;
 	jk::EntityManager * m_entityManager;
+	
+	// Lives
+	int currentLives;
 
 	//Create the factories
 	PlayerFactory * m_playerFactory;
