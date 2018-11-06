@@ -24,9 +24,7 @@ public:
 
 		m_playerFactory = new PlayerFactory;
 
-		////////////////////////////////////////////
-		
-		////////////////////////////////////////////
+		m_assets = AssetHandler::Instance();
 	};
 	~TestScene() {};
 
@@ -46,6 +44,11 @@ public:
 		CollisionSystem::TileLAR(m_entityManager->getGroup(jk::Groups::TileGroup), m_entityManager->getGroup(jk::Groups::PlayerGroup));
 		
 		m_entityManager->Update();
+
+		if (m_entityManager->getGroup(jk::Groups::PlayerGroup).at(0)->getComponent<StatComponent>().getLives() != currentLives)
+		{
+			ResetLevel();
+		}
 	};
 
 	void Render() override
@@ -100,9 +103,20 @@ public:
 		currentLives = m_entityManager->getGroup(jk::Groups::PlayerGroup).at(0)->getComponent<StatComponent>().getLives();
 	};
 
-	void Reset()
+	void ResetLevel()
 	{
-		m_entityManager->getGroup(jk::Groups::TileGroup).clear();
+		for (jk::Entity * e : m_entityManager->getGroup(jk::Groups::TileGroup))
+		{
+			e->setActive(false);
+		}
+
+		m_entityManager->Refresh();
+
+		currentLives--;
+
+		m_entityManager->getGroup(jk::Groups::PlayerGroup).at(0)->getComponent<StatComponent>().setLives(currentLives);
+
+		LoadLevel();
 	}
 
 	void LoadLevel() override 
@@ -126,7 +140,7 @@ public:
 					}
 					else
 					{
-						m_tileFactory->CreateEntity(m_entityManager, "Assets/Tiles/Top.png", 60 * row, 592, 60, 64);
+						m_tileFactory->CreateEntity(m_entityManager, m_assets->getTexture("Top"), 60 * row, 592, 60, 64);
 					}
 				}
 				else
@@ -138,6 +152,9 @@ public:
 	};
 
 private:
+	// Asset Handler
+	AssetHandler * m_assets;
+
 	InputSystem * m_inputSystem;
 	jk::EntityManager * m_entityManager;
 	

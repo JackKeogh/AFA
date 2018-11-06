@@ -26,6 +26,13 @@ public:
 	bool Initialiser();
 
 	/// <summary>
+	/// LoadAssets
+	/// 
+	/// This function is used to load in assets.
+	/// </summary>
+	void LoadAssets();
+
+	/// <summary>
 	/// Run
 	/// 
 	/// Runs the game loop.
@@ -41,6 +48,7 @@ public:
 
 private:
 	bool m_running;
+	AssetHandler * m_assetLoader;
 	RenderSystem * m_renderer;
 	SceneManager * m_sceneManager;
 };
