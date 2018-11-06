@@ -25,6 +25,7 @@ public:
 		m_playerFactory = new PlayerFactory;
 
 		////////////////////////////////////////////
+		ent.addComponent<StatComponent>();
 
 		m_playerFactory->CreateEntity(m_entityManager, "Assets/Characters/Temp.png", 60, 136, 64, 64);
 
@@ -62,6 +63,11 @@ public:
 
 	void Update(float delta_time) override 
 	{
+		for (jk::Entity * e : m_entityManager->getGroup(jk::Groups::PlayerGroup))
+		{
+			e->getComponent<StatComponent>().setDeltaTime(delta_time);
+		}
+
 		CollisionSystem::TileTAB(m_entityManager->getGroup(jk::Groups::TileGroup), m_entityManager->getGroup(jk::Groups::PlayerGroup));
 
 		m_inputSystem->Update(m_entityManager, m_entityManager->getGroup(jk::Groups::PlayerGroup));
