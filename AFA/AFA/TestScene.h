@@ -22,31 +22,15 @@ public:
 
 		m_tileFactory = new TileFactory;
 
-		////////////////////////////////////////////
-		
-		auto& ent = m_entityManager->addEntity();
-		ent.addComponent<TransformComponent>(Vector2f(60, 136), 50, 80, 0, 1, 5, 5);
-		ent.addComponent<SpriteComponent>("Assets/Characters/Temp.png", 64, 64);
-		ent.addComponent<CommandComponent>();
-		ent.addComponent<KeyComponent>();
-		ent.addComponent<RigidbodyComponent>(true, 5.0f);
-		ent.addComponent<StatComponent>();
-		ent.addGroup(jk::Groups::PlayerGroup);
-		ent.addLayer(jk::Layers::Foreground);
+		m_playerFactory = new PlayerFactory;
 
-		auto& a = m_entityManager->addEntity();
-		a.addComponent<TransformComponent>(Vector2f(180, 442), 60, 50);
-		a.addComponent<SpriteComponent>("Assets/Tiles/Top.png", 64, 64);
-		a.addComponent<RigidbodyComponent>(false, 2.0f);
-		a.addLayer(jk::Layers::Middleground);
-		a.addGroup(jk::Groups::TileGroup);
-	
-		auto& b = m_entityManager->addEntity();
-		b.addComponent<TransformComponent>(Vector2f(700, 492), 60, 50);
-		b.addComponent<SpriteComponent>("Assets/Tiles/Top.png", 64, 64);
-		b.addComponent<RigidbodyComponent>(false, 2.0f);
-		b.addLayer(jk::Layers::Middleground);
-		b.addGroup(jk::Groups::TileGroup);
+		////////////////////////////////////////////
+		ent.addComponent<StatComponent>();
+
+		m_playerFactory->CreateEntity(m_entityManager, "Assets/Characters/Temp.png", 60, 136, 64, 64);
+
+		m_tileFactory->CreateEntity(m_entityManager, "Assets/Tiles/Top.png", 180, 442, 64, 64);
+		m_tileFactory->CreateEntity(m_entityManager, "Assets/Tiles/Top.png", 700, 492, 64, 64);
 
 		for (int row = 0; row < 21; row++)
 		{
@@ -143,5 +127,6 @@ private:
 	jk::EntityManager * m_entityManager;
 
 	//Create the factories
+	PlayerFactory * m_playerFactory;
 	TileFactory * m_tileFactory;
 };

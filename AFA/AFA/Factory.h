@@ -28,3 +28,10 @@ public:
 	TileFactory() {};
 	void CreateEntity(EntityManager * EManager, const char * Texture, float x = 60, float y = 64, float w = 60, float h = 64) override;
 };
+
+class PlayerFactory : public Factory
+{
+public:
+	PlayerFactory() {};
+	void CreateEntity(EntityManager * EManager, const char * Texture, float x = 60, float y = 64, float w = 60, float h = 64) override;
+};
