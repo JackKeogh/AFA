@@ -19,19 +19,19 @@ bool Game::Initialiser()
 	// Initialise bool
 	m_running = true;
 
-	// Create Asset Handler
-	m_assetLoader = AssetHandler::Instance();
-	if (!m_assetLoader)
-	{
-		return false;
-	}
-	LoadAssets();
-
 	// Initial RenderSystem
 	if (!(RenderSystem::Init("Awnie's Frosty Adventure", 0, 0, 1260, 720)))
 	{
 		return false;
 	}
+
+	// Create Asset Handler
+	m_assetLoader = AssetHandler::getInstance();
+	if (!m_assetLoader)
+	{
+		return false;
+	}
+	LoadAssets();
 
 	// Create SceneManager
 	m_sceneManager = new SceneManager;
@@ -48,6 +48,8 @@ void Game::LoadAssets()
 {
 	m_assetLoader->addTexture("Top", "Assets/Tiles/Top.png", RenderSystem::Renderer());
 	m_assetLoader->addTexture("Bottom", "Assets/Tiles/Bottom.png", RenderSystem::Renderer());
+	m_assetLoader->addTexture("Left", "Assets/Tiles/Left.png", RenderSystem::Renderer());
+	m_assetLoader->addTexture("Right", "Assets/Tiles/Right.png", RenderSystem::Renderer());
 }
 
 void Game::Run()

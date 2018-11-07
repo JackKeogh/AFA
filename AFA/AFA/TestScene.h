@@ -24,7 +24,7 @@ public:
 
 		m_playerFactory = new PlayerFactory;
 
-		m_assets = AssetHandler::Instance();
+		m_assets = AssetHandler::getInstance();
 	};
 	~TestScene() {};
 
@@ -121,8 +121,8 @@ public:
 
 	void LoadLevel() override 
 	{
-		m_tileFactory->CreateEntity(m_entityManager, "Assets/Tiles/Top.png", 180, 442, 64, 64);
-		m_tileFactory->CreateEntity(m_entityManager, "Assets/Tiles/Top.png", 700, 492, 64, 64);
+		m_tileFactory->CreateEntity(m_entityManager, m_assets->getTexture("Top"), 180, 442, 64, 64);
+		m_tileFactory->CreateEntity(m_entityManager, m_assets->getTexture("Top"), 700, 492, 64, 64);
 
 		for (int row = 0; row < 21; row++)
 		{
@@ -132,11 +132,11 @@ public:
 				{
 					if (row == 0)
 					{
-						m_tileFactory->CreateEntity(m_entityManager, "Assets/Tiles/Left.png", 60 * row, 592, 60, 64);
+						m_tileFactory->CreateEntity(m_entityManager, m_assets->getTexture("Left"), 60 * row, 592, 60, 64);
 					}
 					else if (row == 20)
 					{
-						m_tileFactory->CreateEntity(m_entityManager, "Assets/Tiles/Right.png", 60 * row, 592, 60, 64);
+						m_tileFactory->CreateEntity(m_entityManager, m_assets->getTexture("Right"), 60 * row, 592, 60, 64);
 					}
 					else
 					{
@@ -145,7 +145,7 @@ public:
 				}
 				else
 				{
-					m_tileFactory->CreateEntity(m_entityManager, "Assets/Tiles/Bottom.png", 60 * row, 656, 60, 64);
+					m_tileFactory->CreateEntity(m_entityManager, m_assets->getTexture("Bottom"), 60 * row, 656, 60, 64);
 				}
 			}
 		}
