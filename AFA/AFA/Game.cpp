@@ -25,14 +25,31 @@ bool Game::Initialiser()
 		return false;
 	}
 
+	// Create Asset Handler
+	m_assetLoader = AssetHandler::getInstance();
+	if (!m_assetLoader)
+	{
+		return false;
+	}
+	LoadAssets();
+
 	// Create SceneManager
 	m_sceneManager = new SceneManager;
 	if (m_sceneManager == nullptr)
 	{
 		return false;
 	}
+	m_sceneManager->LoadNextLevel();
 
 	return true;
+}
+
+void Game::LoadAssets()
+{
+	m_assetLoader->addTexture("Top", "Assets/Tiles/Top.png", RenderSystem::Renderer());
+	m_assetLoader->addTexture("Bottom", "Assets/Tiles/Bottom.png", RenderSystem::Renderer());
+	m_assetLoader->addTexture("Left", "Assets/Tiles/Left.png", RenderSystem::Renderer());
+	m_assetLoader->addTexture("Right", "Assets/Tiles/Right.png", RenderSystem::Renderer());
 }
 
 void Game::Run()

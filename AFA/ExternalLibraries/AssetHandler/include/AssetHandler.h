@@ -1,91 +1,133 @@
+/// <summary>
+/// AssetHandler
+/// 
+/// An external library that works with the SDL2.0 image, mixer
+/// and font libraries. The library will be used to load and store
+/// textures, sounds and fonts. This is to prevent multiples of the
+/// same file continously being loaded in and causing memory leaks.
+/// It is a singleton class so that there will only ever be one
+/// instance of the class.
+/// </summary>
+/// <author> Jack Keogh </author>
+
 #pragma once
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_mixer.h>
 #include <SDL_ttf.h>
 #include <iostream>
-#include <map>
 #include <string>
+#include <map>
 
 using namespace std;
 
-/// <summary>
-/// This library works as storage for
-/// .wav, .png and .ttf files. It uses
-/// a map structer for storage and the
-/// identifying value is a string so
-/// music, fonts and images are easily
-/// accessible through using tags.
-/// </summary>
-/// <author>Jack Keogh</author>
-
 class AssetHandler
 {
-private:
-	static AssetHandler * m_instance;
-	map<string, SDL_Texture*> Textures;
-	map<string, Mix_Chunk*> Sounds;
-	map<string, TTF_Font*> Fonts;
-
-	AssetHandler()
-	{
-		Textures = map<string, SDL_Texture*>();
-		Sounds = map<string, Mix_Chunk*>();
-		Fonts = map<string, TTF_Font*>();
-	}
-
 public:
-	static AssetHandler * Instance()
+	/// <summary>
+	/// getInstance
+	/// 
+	/// Checks if an instance of the asset handler exists and creates one
+	/// if it doesn't. 
+	/// </summary>
+	/// <returns>A ptr to the instance of the asset handler.</returns>
+	static AssetHandler * getInstance()
 	{
 		if (!m_instance)
 		{
-			m_instance = new AssetHandler();
+			m_instance = new AssetHandler;
 		}
 
 		return m_instance;
 	}
 
 	/// <summary>
-	/// Loads in a texture and adds it to the texture storage.
+	/// addTexture
+	/// 
+	/// Loads in a SDL_Texture ptr and stores it.
 	/// </summary>
-	/// <param name="Tag">string which will be used as an ID value.</param>
-	/// <param name="Path">string to define the location of the texture.</param>
-	/// <param name="Renderer">SDL_Renderer ptr to use to load an IMG.</param>
-	void addTexture(string Tag, string Path, SDL_Renderer * Renderer);
+	/// <param name="tag">A tag to reference the texture later.</param>
+	/// <param name="filepath">The location of the desired image.</param>
+	/// <param name="renderer">SDL_Renderer used to load in the image.</param>
+	void addTexture(string tag, string filepath, SDL_Renderer * renderer);
 
 	/// <summary>
-	/// Loads in a sound and adds it to the sound storage.
+	/// getTexture
+	/// 
+	/// Used to retreive a ptr to a specific texture.
 	/// </summary>
-	/// <param name="Tag">string which will be used as an ID value.</param>
-	/// <param name="Path">string to define file location of the sound.</param>
-	void addSound(string Tag, string Path);
+	/// <param name="tag">A string value of the desired texture.</param>
+	/// <returns>A SDL_Texture ptr.</returns>
+	SDL_Texture * getTexture(string tag);
 
 	/// <summary>
-	/// Loads in a font and adds it to the font storage.
+	/// addSound
+	/// 
+	/// Loads in a Mix_Chunk ptr and stores it.
 	/// </summary>
-	/// <param name="Tag">string which will be used as an ID value.</param>
-	/// <param name="Path">string to define file location of the font.</param>
-	/// <param name="size">int defining the size of the font.</param>
-	void addFont(string Tag, string Path, int size);
+	/// <param name="tag">A tag to reference the sound later.</param>
+	/// <param name="filepath">The location of the desired sound.</param>
+	void addSound(string tag, string filepath);
 
 	/// <summary>
-	/// Gets a texture from the texture storage.
+	/// getSound
+	/// 
+	/// Used to retrevie a ptr a specific sound.
 	/// </summary>
-	/// <param name="Tag">string ID</param>
-	/// <returns>An SDL_Texture.</returns>
-	SDL_Texture * getTexture(string Tag);
+	/// <param name="tag">A string value of the desired sound.</param>
+	/// <returns>A Mix_Chunk ptr.</returns>
+	Mix_Chunk * getSound(string tag);
 
 	/// <summary>
-	/// Gets a Mix_Chunk from the sound storage.
+	/// addFont
+	/// 
+	/// Loads in a TTF_Font ptr and stores it.
 	/// </summary>
-	/// <param name="Tag">string ID</param>
-	/// <returns>A Mix_Chunk.</returns>
-	Mix_Chunk * getSound(string Tag);
+	/// <param name="tag">A tag to reference the font later.</param>
+	/// <param name="filepath">The location of the desired font.</param>
+	/// <param name="size">The size of the desired font.</param>
+	void addFont(string tag, string filepath, int size);
 
 	/// <summary>
-	/// Gets a TTF_Font from the font storage.
+	/// ClearTextures
+	/// 
+	/// Clears the AssetHandler of all SDL_Texture ptrs.
 	/// </summary>
-	/// <param name="Tag">string ID</param>
-	/// <returns>A TTF_Font.</returns>
-	TTF_Font * getFont(string Tag);
+	void ClearTextures();
+
+	/// <summary>
+	/// ClearSounds
+	/// 
+	/// Clears the AssetHandler of all Mix_Chunk ptrs.
+	/// </summary>
+	void ClearSounds();
+
+	/// <summary>
+	/// ClearFonts
+	/// 
+	/// Clears the AssetHandler of all TTF_Font ptrs.
+	/// </summary>
+	void ClearFonts();
+
+	/// <summary>
+	/// Clear
+	/// 
+	/// Clears the AssetHandler of all SDL_Texture, Mix_Chunk and
+	/// TTF_Font ptrs.
+	/// </summary>
+	void Clear();
+
+private:
+	AssetHandler()
+	{
+		m_textures = map<string, SDL_Texture*>();
+		m_sounds = map<string, Mix_Chunk*>();
+		m_fonts = map<string, TTF_Font*>();
+	}
+
+	static AssetHandler * m_instance;
+
+	map<string, SDL_Texture*> m_textures;
+	map<string, Mix_Chunk*> m_sounds;
+	map<string, TTF_Font*> m_fonts;
 };

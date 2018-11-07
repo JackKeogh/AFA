@@ -16,7 +16,9 @@ class Factory
 {
 public:
 	virtual void CreateEntity(EntityManager * EManager, const char * Texture = "", float x = 60, float y = 64,
-		float w = 60, float h = 64) {};
+		float w = 60, float h = 64, int lives = 3) {};
+	virtual void CreateEntity(EntityManager * EManager, SDL_Texture * Texture, float x = 60, float y = 64,
+		float w = 60, float h = 64, int lives = 3) {};
 
 protected:
 	Factory() {};
@@ -26,12 +28,13 @@ class TileFactory : public Factory
 {
 public:
 	TileFactory() {};
-	void CreateEntity(EntityManager * EManager, const char * Texture, float x = 60, float y = 64, float w = 60, float h = 64) override;
+	void CreateEntity(EntityManager * EManager, const char * Texture, float x = 60, float y = 64, float w = 60, float h = 64, int lives = 3) override;
+	void CreateEntity(EntityManager * EManager, SDL_Texture * Texture, float x = 60, float y = 64, float w = 60, float h = 64, int lives = 3) override;
 };
 
 class PlayerFactory : public Factory
 {
 public:
 	PlayerFactory() {};
-	void CreateEntity(EntityManager * EManager, const char * Texture, float x = 60, float y = 64, float w = 60, float h = 64) override;
+	void CreateEntity(EntityManager * EManager, const char * Texture, float x = 60, float y = 64, float w = 60, float h = 64, int lives = 3) override;
 };

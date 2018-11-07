@@ -37,6 +37,11 @@ public:
 	void Update() override
 	{
 		m_heat -= 1.0f * m_deltaTime;
+
+		if (m_heat < 0.f)
+		{
+			m_lives--;
+		}
 	}
 
 	/// <summary>
