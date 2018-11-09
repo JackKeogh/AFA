@@ -18,6 +18,13 @@ public:
 	~InputSystem();
 
 	/// <summary>
+	/// Reset
+	/// 
+	/// This function resets all key presses.
+	/// </summary>
+	void Reset();
+
+	/// <summary>
 	/// Checks key down event and if the key pressed corresponds
 	/// to a keycode belonging to a player entity.
 	/// </summary>

@@ -2,11 +2,16 @@
 
 InputSystem::InputSystem()
 {
-	m_jump = m_left = m_right = false;
+	Reset();
 }
 
 InputSystem::~InputSystem()
 {}
+
+void InputSystem::Reset()
+{
+	m_jump = m_left = m_right = false;
+}
 
 void InputSystem::KeyPressed(SDL_Event e, vector<jk::Entity *>& entities)
 {

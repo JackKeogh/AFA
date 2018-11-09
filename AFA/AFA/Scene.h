@@ -5,6 +5,15 @@
 #pragma once
 #include "stdafx.h"
 
+enum class States
+{
+	Start_Transition,
+	Play,
+	Pause,
+	Reset_Transition,
+	Play_Transition
+};
+
 class Scene
 {
 public:
@@ -56,4 +65,5 @@ public:
 
 protected:
 	bool m_running;
+	States m_state;
 };
