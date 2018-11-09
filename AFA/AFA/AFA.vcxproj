@@ -173,6 +173,7 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TransformComponent.h" />
     <ClInclude Include="TestScene.h" />
+    <ClInclude Include="TransitionSystem.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
