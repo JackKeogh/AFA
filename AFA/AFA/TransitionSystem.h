@@ -3,30 +3,6 @@
 #include "RenderSystem.h"
 
 /// <summary>
-/// This struct contains a SDL_Rect and a Color variables.
-/// </summary>
-
-struct Color
-{
-	Uint8 r, g, b, a;
-};
-
-struct Box
-{
-	SDL_Rect rect;
-	Color color;
-
-	/// <summary>
-	/// Default constructor
-	/// </summary>
-	Box()
-	{
-		rect = SDL_Rect{ 0, 0, 0, 0 };
-		color = Color{ 0, 0, 0, 0 };
-	}
-};
-
-/// <summary>
 /// This class will be used to handle timings and transitions.
 /// </summary>
 
@@ -38,7 +14,11 @@ public:
 	/// </summary>
 	TransitionSystem() :
 		m_complete(false)
-	{};
+	{
+		m_box = new Box;
+		m_box->rect = SDL_Rect{0, 0, 1260, 720};
+		m_box->color.a = 255;
+	};
 
 	/// <summary>
 	/// Default Deconstructor
@@ -52,7 +32,7 @@ public:
 	/// of the window and reduces it's alpha over time.
 	/// </summary>
 	/// <param name="delta_time">A float variable for delta time.</param>
-	void FadeIn(float delta_time);
+	void FadeIn();
 
 	/// <summary>
 	/// FadeOut
@@ -61,7 +41,7 @@ public:
 	/// the window and increases it's alpha over time.
 	/// </summary>
 	/// <param name="delta_time">A float variable for delta time.</param>
-	void FadeOut(float delta_time);
+	void FadeOut();
 
 	/// <summary>
 	/// Reset
@@ -77,6 +57,14 @@ public:
 	/// </summary>
 	bool Transition() { return m_complete; };
 
+	/// <summary>
+	/// setAlpha
+	/// 
+	/// This functions sets the alpha of the box's colour.
+	/// </summary>
+	void setAlpha(Uint8 a) { m_box->color.a = a; };
+
 private:
 	bool m_complete;
+	Box * m_box;
 };

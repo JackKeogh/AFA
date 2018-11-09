@@ -26,6 +26,8 @@ bool RenderSystem::Init(string title, int x, int y, int w, int h)
 
 	m_renderer = SDL_CreateRenderer(m_window, -1, NULL);
 
+	SDL_SetRenderDrawBlendMode(m_renderer, SDL_BLENDMODE_BLEND);
+
 	if (m_renderer == nullptr)
 		return false;
 	else
@@ -61,6 +63,12 @@ void RenderSystem::Draw(SDL_Rect DstRect)
 void RenderSystem::Draw(SDL_Texture * Texture, SDL_Rect SrcRect, SDL_Rect DstRect)
 {
 	SDL_RenderCopy(m_renderer, Texture, &SrcRect, &DstRect);
+}
+
+void RenderSystem::Draw(Box * box)
+{
+	RenderColor(box->color);
+	SDL_RenderFillRect(m_renderer, &box->rect);
 }
 
 void RenderSystem::Draw(SDL_Texture * Texture, SDL_Rect SrcRect, SDL_Rect DstRect, float Rotation)

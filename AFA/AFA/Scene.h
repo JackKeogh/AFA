@@ -7,10 +7,11 @@
 
 enum class States
 {
+	Start_Transition,
 	Play,
 	Pause,
-	Reset_Transmistion,
-	Play_Transmistion
+	Reset_Transition,
+	Play_Transition
 };
 
 class Scene

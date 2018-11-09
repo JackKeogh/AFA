@@ -5,6 +5,7 @@
 #include "InputSystem.h"
 #include "MovementSystem.h"
 #include "CollisionSystem.h"
+#include "TransitionSystem.h"
 #include "Factory.h"
 
 class TestScene : public Scene
@@ -18,6 +19,8 @@ public:
 		
 		m_inputSystem = new InputSystem;
 
+		m_transition = new TransitionSystem;
+
 		m_entityManager = new jk::EntityManager;
 
 		m_tileFactory = new TileFactory;
@@ -26,13 +29,21 @@ public:
 
 		m_assets = AssetHandler::getInstance();
 
-		m_state = States::Play;
+		m_state = States::Start_Transition;
 	};
 	~TestScene() {};
 
 	void Update(float delta_time) override 
 	{
-		if (m_state == States::Play)
+		if (m_state == States::Start_Transition)
+		{
+			if (m_transition->Transition())
+			{
+				m_transition->Reset();
+				m_state = States::Play;
+			}
+		}
+		else if (m_state == States::Play)
 		{
 			for (jk::Entity * e : m_entityManager->getGroup(jk::Groups::PlayerGroup))
 			{
@@ -51,16 +62,35 @@ public:
 
 			if (m_entityManager->getGroup(jk::Groups::PlayerGroup).at(0)->getComponent<StatComponent>().getLives() != currentLives)
 			{
-				if (m_entityManager->getGroup(jk::Groups::PlayerGroup).at(0)->getComponent<StatComponent>().getLives() > 0)
+				if (m_entityManager->getGroup(jk::Groups::PlayerGroup).at(0)->getComponent<StatComponent>().getLives() >= 0)
 				{
-					m_state = States::Reset_Transmistion;
+					m_state = States::Reset_Transition;
+					m_transition->setAlpha(0);
 					ResetLevel();
+					ResetPlayer();
+					ResetSystems();
+				}
+				else
+				{
+					m_running = false;
 				}
 			}
 		}
-		else if (m_state == States::Reset_Transmistion)
+		else if (m_state == States::Reset_Transition)
 		{
-			cout << "Reset" << endl;
+			if (m_transition->Transition())
+			{
+				m_transition->Reset();
+				m_state = States::Play_Transition;
+			}
+		}
+		else if (m_state == States::Play_Transition)
+		{
+			if (m_transition->Transition())
+			{
+				m_transition->Reset();
+				m_state = States::Play;
+			}
 		}
 	};
 
@@ -83,6 +113,19 @@ public:
 			ent->Render();
 		}
 
+		if (m_state == States::Start_Transition)
+		{
+			m_transition->FadeIn();
+		}
+		else if (m_state == States::Reset_Transition)
+		{
+			m_transition->FadeOut();
+		}
+		else if (m_state == States::Play_Transition)
+		{
+			m_transition->FadeIn();
+		}
+
 		RenderSystem::Present();
 	};
 
@@ -98,8 +141,11 @@ public:
 				break;
 			}
 
-			m_inputSystem->KeyPressed(LocalEvent, m_entityManager->getGroup(jk::Groups::PlayerGroup));
-			m_inputSystem->KeyReleased(LocalEvent, m_entityManager->getGroup(jk::Groups::PlayerGroup));
+			if (m_state == States::Play)
+			{
+				m_inputSystem->KeyPressed(LocalEvent, m_entityManager->getGroup(jk::Groups::PlayerGroup));
+				m_inputSystem->KeyReleased(LocalEvent, m_entityManager->getGroup(jk::Groups::PlayerGroup));
+			}
 		}
 	};
 
@@ -125,12 +171,24 @@ public:
 
 		m_entityManager->Refresh();
 
+		LoadLevel();
+	}
+
+	void ResetPlayer()
+	{
 		currentLives--;
 
+		m_entityManager->getGroup(jk::Groups::PlayerGroup).at(0)->getComponent<TransformComponent>().position.x = 60;
+		m_entityManager->getGroup(jk::Groups::PlayerGroup).at(0)->getComponent<TransformComponent>().position.y = 136;
+		m_entityManager->getGroup(jk::Groups::PlayerGroup).at(0)->getComponent<TransformComponent>().velocity = jk::Vector2f(0, 0);
+		m_entityManager->getGroup(jk::Groups::PlayerGroup).at(0)->getComponent<TransformComponent>().acceleration = jk::Vector2f(0, 0);
 		m_entityManager->getGroup(jk::Groups::PlayerGroup).at(0)->getComponent<StatComponent>().setLives(currentLives);
 		m_entityManager->getGroup(jk::Groups::PlayerGroup).at(0)->getComponent<StatComponent>().setHeat(30.0f);
+	}
 
-		LoadLevel();
+	void ResetSystems()
+	{
+		m_inputSystem->Reset();
 	}
 
 	void LoadLevel() override 
@@ -169,8 +227,10 @@ private:
 	// Asset Handler
 	AssetHandler * m_assets;
 
+	// Systems
 	InputSystem * m_inputSystem;
 	jk::EntityManager * m_entityManager;
+	TransitionSystem * m_transition;
 	
 	// Lives
 	int currentLives;
