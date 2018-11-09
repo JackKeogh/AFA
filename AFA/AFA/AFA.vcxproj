@@ -154,6 +154,7 @@
     <ClCompile Include="MovementSystem.cpp" />
     <ClCompile Include="RenderSystem.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="TransitionSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionSystem.h" />

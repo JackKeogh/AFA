@@ -1,10 +1,34 @@
-/// <summary>
-/// This class will be used to handle timings and transitions.
-/// </summary>
-
 #pragma once
 #include "stdafx.h"
 #include "RenderSystem.h"
+
+/// <summary>
+/// This struct contains a SDL_Rect and a Color variables.
+/// </summary>
+
+struct Color
+{
+	Uint8 r, g, b, a;
+};
+
+struct Box
+{
+	SDL_Rect rect;
+	Color color;
+
+	/// <summary>
+	/// Default constructor
+	/// </summary>
+	Box()
+	{
+		rect = SDL_Rect{ 0, 0, 0, 0 };
+		color = Color{ 0, 0, 0, 0 };
+	}
+};
+
+/// <summary>
+/// This class will be used to handle timings and transitions.
+/// </summary>
 
 class TransitionSystem
 {
