@@ -25,29 +25,42 @@ public:
 		m_playerFactory = new PlayerFactory;
 
 		m_assets = AssetHandler::getInstance();
+
+		m_state = States::Play;
 	};
 	~TestScene() {};
 
 	void Update(float delta_time) override 
 	{
-		for (jk::Entity * e : m_entityManager->getGroup(jk::Groups::PlayerGroup))
+		if (m_state == States::Play)
 		{
-			e->getComponent<StatComponent>().setDeltaTime(delta_time);
+			for (jk::Entity * e : m_entityManager->getGroup(jk::Groups::PlayerGroup))
+			{
+				e->getComponent<StatComponent>().setDeltaTime(delta_time);
+			}
+
+			CollisionSystem::TileTAB(m_entityManager->getGroup(jk::Groups::TileGroup), m_entityManager->getGroup(jk::Groups::PlayerGroup));
+
+			m_inputSystem->Update(m_entityManager, m_entityManager->getGroup(jk::Groups::PlayerGroup));
+
+			MovementSystem::Move(m_entityManager->getGroup(jk::Groups::PlayerGroup), delta_time);
+
+			CollisionSystem::TileLAR(m_entityManager->getGroup(jk::Groups::TileGroup), m_entityManager->getGroup(jk::Groups::PlayerGroup));
+
+			m_entityManager->Update();
+
+			if (m_entityManager->getGroup(jk::Groups::PlayerGroup).at(0)->getComponent<StatComponent>().getLives() != currentLives)
+			{
+				if (m_entityManager->getGroup(jk::Groups::PlayerGroup).at(0)->getComponent<StatComponent>().getLives() > 0)
+				{
+					m_state = States::Reset_Transmistion;
+					ResetLevel();
+				}
+			}
 		}
-
-		CollisionSystem::TileTAB(m_entityManager->getGroup(jk::Groups::TileGroup), m_entityManager->getGroup(jk::Groups::PlayerGroup));
-
-		m_inputSystem->Update(m_entityManager, m_entityManager->getGroup(jk::Groups::PlayerGroup));
-
-		MovementSystem::Move(m_entityManager->getGroup(jk::Groups::PlayerGroup), delta_time);
-
-		CollisionSystem::TileLAR(m_entityManager->getGroup(jk::Groups::TileGroup), m_entityManager->getGroup(jk::Groups::PlayerGroup));
-		
-		m_entityManager->Update();
-
-		if (m_entityManager->getGroup(jk::Groups::PlayerGroup).at(0)->getComponent<StatComponent>().getLives() != currentLives)
+		else if (m_state == States::Reset_Transmistion)
 		{
-			ResetLevel();
+			cout << "Reset" << endl;
 		}
 	};
 
@@ -115,6 +128,7 @@ public:
 		currentLives--;
 
 		m_entityManager->getGroup(jk::Groups::PlayerGroup).at(0)->getComponent<StatComponent>().setLives(currentLives);
+		m_entityManager->getGroup(jk::Groups::PlayerGroup).at(0)->getComponent<StatComponent>().setHeat(30.0f);
 
 		LoadLevel();
 	}
