@@ -157,6 +157,7 @@
     <ClCompile Include="TransitionSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CameraSystem.h" />
     <ClInclude Include="CollisionSystem.h" />
     <ClInclude Include="CommandComponent.h" />
     <ClInclude Include="Components.h" />
