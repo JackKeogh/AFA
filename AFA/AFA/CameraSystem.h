@@ -4,7 +4,6 @@
 
 #pragma once
 #include "stdafx.h"
-#include "Components.h"
 
 class CameraSystem
 {
@@ -28,7 +27,7 @@ public:
 	/// 
 	/// This function is to initialise the camera system.
 	/// </summary>
-	static void Initialiser(int w, int h);
+	static bool Initialiser(int w, int h);
 
 	/// <summary>
 	/// Update
@@ -37,7 +36,7 @@ public:
 	/// to follow an entity.
 	/// </summary>
 	/// <param name="e">Entity to follow.</param>
-	static void Update(jk::Entity * e);
+	static void Update(float px);
 
 	/// <summary>
 	/// Reset

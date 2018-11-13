@@ -60,6 +60,8 @@ public:
 
 			m_entityManager->Update();
 
+			CameraSystem::Update(m_entityManager->getGroup(jk::Groups::PlayerGroup).at(0)->getComponent<TransformComponent>().position.x);
+
 			if (m_entityManager->getGroup(jk::Groups::PlayerGroup).at(0)->getComponent<StatComponent>().getLives() != currentLives)
 			{
 				if (m_entityManager->getGroup(jk::Groups::PlayerGroup).at(0)->getComponent<StatComponent>().getLives() >= 0)
@@ -196,7 +198,7 @@ public:
 		m_tileFactory->CreateEntity(m_entityManager, m_assets->getTexture("Top"), 180, 442, 64, 64);
 		m_tileFactory->CreateEntity(m_entityManager, m_assets->getTexture("Top"), 700, 492, 64, 64);
 
-		for (int row = 0; row < 21; row++)
+		for (int row = 0; row < 30; row++)
 		{
 			for (int col = 0; col < 2; col++)
 			{
@@ -206,7 +208,7 @@ public:
 					{
 						m_tileFactory->CreateEntity(m_entityManager, m_assets->getTexture("Left"), 60 * row, 592, 60, 64);
 					}
-					else if (row == 20)
+					else if (row == 29)
 					{
 						m_tileFactory->CreateEntity(m_entityManager, m_assets->getTexture("Right"), 60 * row, 592, 60, 64);
 					}

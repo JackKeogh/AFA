@@ -1,34 +1,38 @@
 #include "CameraSystem.h"
 
-SDL_Rect CameraSystem::m_camera = { 0, 0, 0, 0 };
+SDL_Rect CameraSystem::m_camera = SDL_Rect{ 0,0,0,0 };
 
 CameraSystem::CameraSystem()
 {
-	m_camera = SDL_Rect{ 0,0,0,0 };
+
 }
 
 CameraSystem::~CameraSystem()
 {
 }
 
-void CameraSystem::Initialiser(int w, int h)
+bool CameraSystem::Initialiser(int w, int h)
 {
 	m_camera.w = w;
 	m_camera.h = h;
+
+	return true;
 }
 
-void CameraSystem::Update(jk::Entity * e)
+void CameraSystem::Update(float px)
 {
-	jk::Vector2f position = e->getComponent<TransformComponent>().position;
-
-	if (position.x >= (m_camera.w / 2))
+	if (px >= (m_camera.w / 2))
 	{
-		m_camera.x = position.x - m_camera.w;
+		m_camera.x = px - (m_camera.w / 2);
 	}
-	else if (position.x < (m_camera.w / 2))
+	else if (px < (m_camera.w / 2))
 	{
 		m_camera.x = 0;
 	}
+
+#if _DEBUG
+	cout << m_camera.x << endl;
+#endif
 }
 
 void CameraSystem::Reset()
