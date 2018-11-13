@@ -1,5 +1,6 @@
 #pragma once
 #include "stdafx.h"
+#include "CameraSystem.h"
 
 /// <summary>
 /// This struct contains a SDL_Rect and a Color variables.
