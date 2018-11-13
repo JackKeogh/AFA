@@ -224,7 +224,7 @@ public:
 			}
 		}
 
-		m_itemFactory->CreateEntity(m_entityManager, "Assets/Items/Item.png", 500, 528, 60, 64);
+		m_itemFactory->CreateEntity(m_entityManager, "Assets/Items/Item.png", 500, 560, 22, 25);
 	};
 
 private:

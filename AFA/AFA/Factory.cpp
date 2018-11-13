@@ -39,7 +39,7 @@ void PlayerFactory::CreateEntity(EntityManager * EManager, const char * Texture,
 void ItemFactory::CreateEntity(EntityManager * EManager, const char * Texture, float x, float y, float w, float h, int lives)
 {
 	auto& ent = EManager->addEntity();
-	ent.addComponent<TransformComponent>(Vector2f(x, y), 60, 64);
+	ent.addComponent<TransformComponent>(Vector2f(x, y), 22, 25);
 	ent.addComponent<SpriteComponent>(Texture, w, h);
 	ent.addComponent<RigidbodyComponent>(false, 1.0f);
 	ent.addLayer(jk::Layers::Middleground);
@@ -49,7 +49,7 @@ void ItemFactory::CreateEntity(EntityManager * EManager, const char * Texture, f
 void ItemFactory::CreateEntity(EntityManager * EManager, SDL_Texture * Texture, float x, float y, float w, float h, int lives)
 {
 	auto& ent = EManager->addEntity();
-	ent.addComponent<TransformComponent>(Vector2f(x, y), 60, 64);
+	ent.addComponent<TransformComponent>(Vector2f(x, y), 22, 25);
 	ent.addComponent<SpriteComponent>(Texture, w, h);
 	ent.addComponent<RigidbodyComponent>(false, 1.0f);
 	ent.addLayer(jk::Layers::Middleground);
