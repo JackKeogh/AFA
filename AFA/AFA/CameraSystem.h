@@ -4,7 +4,7 @@
 
 #pragma once
 #include "stdafx.h"
-#include <ECS.h>
+#include "Components.h"
 
 class CameraSystem
 {
@@ -28,7 +28,7 @@ public:
 	/// 
 	/// This function is to initialise the camera system.
 	/// </summary>
-	static void Initialiser();
+	static void Initialiser(int w, int h);
 
 	/// <summary>
 	/// Update
@@ -38,6 +38,22 @@ public:
 	/// </summary>
 	/// <param name="e">Entity to follow.</param>
 	static void Update(jk::Entity * e);
+
+	/// <summary>
+	/// Reset
+	/// 
+	/// This function will be used to reset the camera
+	/// to its original position.
+	/// </summary>
+	static void Reset();
+
+	/// <summary>
+	/// Camera
+	/// 
+	/// This is a getter function to return the camera's
+	/// rectangle
+	/// </summary>
+	static SDL_Rect Camera() { return m_camera; };
 
 private:
 	static SDL_Rect m_camera;
