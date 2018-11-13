@@ -38,3 +38,11 @@ public:
 	PlayerFactory() {};
 	void CreateEntity(EntityManager * EManager, const char * Texture, float x = 60, float y = 64, float w = 60, float h = 64, int lives = 3) override;
 };
+
+class ItemFactory : public Factory
+{
+public:
+	ItemFactory() {};
+	void CreateEntity(EntityManager * EManager, const char * Texture, float x = 60, float y = 64, float w = 60, float h = 64, int lives = 3) override;
+	void CreateEntity(EntityManager * EManager, SDL_Texture * Texture, float x = 60, float y = 64, float w = 60, float h = 64, int lives = 3) override;
+};

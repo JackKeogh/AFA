@@ -27,6 +27,8 @@ public:
 
 		m_playerFactory = new PlayerFactory;
 
+		m_itemFactory = new ItemFactory;
+
 		m_assets = AssetHandler::getInstance();
 
 		m_state = States::Start_Transition;
@@ -221,6 +223,8 @@ public:
 				}
 			}
 		}
+
+		m_itemFactory->CreateEntity(m_entityManager, "Assets/Items/Item.png", 500, 528, 60, 64);
 	};
 
 private:
@@ -238,4 +242,5 @@ private:
 	//Create the factories
 	PlayerFactory * m_playerFactory;
 	TileFactory * m_tileFactory;
+	ItemFactory * m_itemFactory;
 };
