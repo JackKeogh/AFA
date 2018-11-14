@@ -41,9 +41,9 @@ void ItemFactory::CreateEntity(EntityManager * EManager, const char * Texture, f
 	auto& ent = EManager->addEntity();
 	ent.addComponent<TransformComponent>(Vector2f(x, y), 22, 25);
 	ent.addComponent<SpriteComponent>(Texture, w, h);
-	ent.addComponent<RigidbodyComponent>(false, 1.0f);
+	ent.addComponent<RigidbodyComponent>(true, 1.0f);
 	ent.addLayer(jk::Layers::Middleground);
-	ent.addGroup(jk::Groups::TileGroup);
+	ent.addGroup(jk::Groups::ItemGroup);
 }
 
 void ItemFactory::CreateEntity(EntityManager * EManager, SDL_Texture * Texture, float x, float y, float w, float h, int lives)
