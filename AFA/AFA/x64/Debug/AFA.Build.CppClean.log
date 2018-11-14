@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 c:\users\jason_000\documents\afa game\afa\afa\x64\debug\afa.lib
 c:\users\jason_000\documents\afa game\afa\afa\x64\debug\afa.exp
 c:\users\jason_000\documents\afa game\afa\afa\afa\x64\debug\vc141.pdb
@@ -29,9 +30,28 @@ c:\users\jack\onedrive\desktop\work\projects\afa\afa\x64\debug\afa.pdb
 c:\users\jack\onedrive\desktop\work\projects\afa\afa\x64\debug\afa.exe
 c:\users\jack\onedrive\desktop\work\projects\afa\afa\x64\debug\afa.ilk
 c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\x64\debug\afa.tlog\afa.write.1u.tlog
+=======
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\x64\debug\vc141.pdb
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\x64\debug\vc141.idb
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\x64\debug\transitionsystem.obj
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\x64\debug\scenemanager.obj
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\x64\debug\rendersystem.obj
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\x64\debug\movementsystem.obj
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\x64\debug\main.obj
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\x64\debug\inputsystem.obj
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\x64\debug\game.obj
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\x64\debug\factory.obj
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\x64\debug\collisionsystem.obj
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\x64\debug\camerasystem.obj
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\x64\debug\afa.pdb
+>>>>>>> 2ba4c151e9c88a6ffa373437f5d5c54a45e43330
 c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\x64\debug\afa.tlog\cl.command.1.tlog
 c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\x64\debug\afa.tlog\cl.read.1.tlog
 c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\x64\debug\afa.tlog\cl.write.1.tlog
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\x64\debug\afa.tlog\link-cvtres.read.1.tlog
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\x64\debug\afa.tlog\link-cvtres.write.1.tlog
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\x64\debug\afa.tlog\link-rc.read.1.tlog
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\x64\debug\afa.tlog\link-rc.write.1.tlog
 c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\x64\debug\afa.tlog\link.command.1.tlog
 c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\x64\debug\afa.tlog\link.delete.1.tlog
 c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\x64\debug\afa.tlog\link.read.1.tlog

@@ -30,8 +30,11 @@ bool RenderSystem::Init(string title, int x, int y, int w, int h)
 
 	if (m_renderer == nullptr)
 		return false;
-	else
+
+	if (CameraSystem::Initialiser(w, h))
 		return true;
+	else
+		return false;
 }
 
 SDL_Renderer * RenderSystem::Renderer()
@@ -57,6 +60,9 @@ void RenderSystem::Draw(SDL_Texture * Texture, SDL_Rect DstRect)
 void RenderSystem::Draw(SDL_Rect DstRect)
 {
 	RenderColor(SDL_Color{ 255, 0, 255, 255 });
+
+	DstRect.x -= CameraSystem::Camera().x;
+
 	SDL_RenderDrawRect(m_renderer, &DstRect);
 }
 
@@ -73,6 +79,8 @@ void RenderSystem::Draw(Box * box)
 
 void RenderSystem::Draw(SDL_Texture * Texture, SDL_Rect SrcRect, SDL_Rect DstRect, float Rotation)
 {
+	DstRect.x -= CameraSystem::Camera().x;
+
 	SDL_RenderCopyEx(m_renderer, Texture, &SrcRect, &DstRect, Rotation, NULL, SDL_FLIP_NONE);
 }
 
