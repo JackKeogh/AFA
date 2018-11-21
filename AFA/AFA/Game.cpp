@@ -13,6 +13,7 @@ bool Game::Initialiser()
 	// Initialise SDL
 	if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
 	{
+		cout << "Failed to initialise SDL." << endl;
 		return false;
 	}
 
@@ -22,6 +23,7 @@ bool Game::Initialiser()
 	// Initial RenderSystem
 	if (!(RenderSystem::Init("Awnie's Frosty Adventure", 0, 0, 1260, 720)))
 	{
+		cout << "Failed to initialise render system." << endl;
 		return false;
 	}
 
@@ -29,6 +31,7 @@ bool Game::Initialiser()
 	m_assetLoader = AssetHandler::getInstance();
 	if (!m_assetLoader)
 	{
+		cout << "Failed to get asset handler instance." << endl;
 		return false;
 	}
 	LoadAssets();
@@ -37,9 +40,16 @@ bool Game::Initialiser()
 	m_sceneManager = new SceneManager;
 	if (m_sceneManager == nullptr)
 	{
+		cout << "Failed to create Scene Manager." << endl;
 		return false;
 	}
 	m_sceneManager->LoadNextLevel();
+
+	if (Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 4096) == -1)
+	{
+		cout << "Failed to open audio channel." << endl;
+		return false;
+	}
 
 	return true;
 }
