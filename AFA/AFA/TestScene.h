@@ -7,6 +7,7 @@
 #include "CollisionSystem.h"
 #include "TransitionSystem.h"
 #include "Factory.h"
+#include "SoundSystem.h"
 
 class TestScene : public Scene
 {
@@ -27,14 +28,20 @@ public:
 
 		m_playerFactory = new PlayerFactory;
 
+		m_musicPlayer = new SoundSystem;
+
 		m_assets = AssetHandler::getInstance();
 
 		m_state = States::Start_Transition;
 	};
+
 	~TestScene() {};
 
 	void Update(float delta_time) override 
 	{
+		// Stateless systems
+		m_musicPlayer->Update();
+
 		if (m_state == States::Start_Transition)
 		{
 			if (m_transition->Transition())
@@ -159,6 +166,9 @@ public:
 
 		LoadLevel();
 
+		m_musicPlayer->addMusic(Mix_LoadMUS("Assets/Music/Track_01.wav"));
+		m_musicPlayer->addMusic(Mix_LoadMUS("Assets/Music/Track_02.wav"));
+
 		m_playerFactory->CreateEntity(m_entityManager, "Assets/Characters/Temp.png", 60, 136, 64, 64);
 
 		currentLives = m_entityManager->getGroup(jk::Groups::PlayerGroup).at(0)->getComponent<StatComponent>().getLives();
@@ -233,7 +243,8 @@ private:
 	InputSystem * m_inputSystem;
 	jk::EntityManager * m_entityManager;
 	TransitionSystem * m_transition;
-	
+	SoundSystem * m_musicPlayer;
+
 	// Lives
 	int currentLives;
 

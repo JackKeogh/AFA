@@ -17,6 +17,13 @@ bool Game::Initialiser()
 		return false;
 	}
 
+	// Initialise Audio
+	if (Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 4096) == -1)
+	{
+		cout << "Failed to open audio channel." << endl;
+		return false;
+	}
+
 	// Initialise bool
 	m_running = true;
 
@@ -44,12 +51,6 @@ bool Game::Initialiser()
 		return false;
 	}
 	m_sceneManager->LoadNextLevel();
-
-	if (Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 4096) == -1)
-	{
-		cout << "Failed to open audio channel." << endl;
-		return false;
-	}
 
 	return true;
 }

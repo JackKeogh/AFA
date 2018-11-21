@@ -15,7 +15,7 @@ public:
 	/// Default constructor for the sound system object.
 	/// </summary>
 	SoundSystem() :
-		m_volume(100), m_current(0)
+		m_volume(20), m_current(0)
 	{
 		Mix_VolumeMusic(m_volume);
 	};
@@ -28,12 +28,19 @@ public:
 	~SoundSystem();
 
 	/// <summary>
-	/// Add Sound
+	/// Update
+	/// 
+	/// This function updates the sound system.
+	/// </summary>
+	void Update();
+
+	/// <summary>
+	/// Add Music
 	/// 
 	/// This function adds music to the track list.
 	/// </summary>
-	/// <param name="sound">Mix_Chunk pointer to the music.</param>
-	void addSound(Mix_Music * track);
+	/// <param name="track">Mix_Chunk pointer to the music.</param>
+	void addMusic(Mix_Music * track);
 
 	/// <summary>
 	/// Play

@@ -10,17 +10,31 @@ SoundSystem::~SoundSystem()
 	m_track.clear();
 }
 
-void SoundSystem::addSound(Mix_Music * track)
+void SoundSystem::Update()
+{
+	if (Mix_PlayingMusic() == 0)
+	{
+		if (m_current < (m_track.size() - 1))
+		{
+			m_current++;
+		}
+		else
+		{
+			m_current = 0;
+		}
+
+		play();
+	}
+}
+
+void SoundSystem::addMusic(Mix_Music * track)
 {
 	m_track.push_back(track);
 }
 
 void SoundSystem::play()
 {
-	if (Mix_PlayingMusic() == 0)
-	{
-		Mix_PlayMusic(m_track.at(m_current), 0);
-	}
+	Mix_PlayMusic(m_track.at(m_current), 0);
 }
 
 void SoundSystem::pause()
