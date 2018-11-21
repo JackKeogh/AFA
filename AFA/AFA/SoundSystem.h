@@ -15,8 +15,9 @@ public:
 	/// Default constructor for the sound system object.
 	/// </summary>
 	SoundSystem() :
-		m_volume(100)
+		m_volume(100), m_current(0)
 	{
+		Mix_VolumeMusic(m_volume);
 	};
 
 	/// <summary>
@@ -32,7 +33,7 @@ public:
 	/// This function adds music to the track list.
 	/// </summary>
 	/// <param name="sound">Mix_Chunk pointer to the music.</param>
-	void addSound(Mix_Chunk * track);
+	void addSound(Mix_Music * track);
 
 	/// <summary>
 	/// Play
@@ -69,7 +70,15 @@ public:
 	/// </summary>
 	void increaseVolume();
 
+	/// <summary>
+	/// Set Volume
+	/// 
+	/// This function sets the volume to a specific value.
+	/// </summary>
+	void setVolume(int vol);
+
 private:
-	vector<Mix_Chunk *> m_track;
+	vector<Mix_Music *> m_track;
 	int m_volume;
+	int m_current;
 };

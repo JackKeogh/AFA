@@ -29,10 +29,6 @@ void CameraSystem::Update(float px)
 	{
 		m_camera.x = 0;
 	}
-
-#if _DEBUG
-	cout << m_camera.x << endl;
-#endif
 }
 
 void CameraSystem::Reset()
