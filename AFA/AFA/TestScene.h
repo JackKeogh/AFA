@@ -29,6 +29,8 @@ public:
 		m_playerFactory = new PlayerFactory;
 
 		m_musicPlayer = new SoundSystem;
+		
+		m_itemFactory = new ItemFactory;
 
 		m_assets = AssetHandler::getInstance();
 
@@ -233,6 +235,8 @@ public:
 				}
 			}
 		}
+
+		m_itemFactory->CreateEntity(m_entityManager, "Assets/Items/Item.png", 500, 560, 22, 25);
 	};
 
 private:
@@ -251,4 +255,5 @@ private:
 	//Create the factories
 	PlayerFactory * m_playerFactory;
 	TileFactory * m_tileFactory;
+	ItemFactory * m_itemFactory;
 };
