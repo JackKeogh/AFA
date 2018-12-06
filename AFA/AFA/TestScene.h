@@ -59,13 +59,13 @@ public:
 				e->getComponent<StatComponent>().setDeltaTime(delta_time);
 			}
 
-			CollisionSystem::TileTAB(m_entityManager->getGroup(jk::Groups::TileGroup), m_entityManager->getGroup(jk::Groups::PlayerGroup));
-
 			m_inputSystem->Update(m_entityManager, m_entityManager->getGroup(jk::Groups::PlayerGroup));
 
 			MovementSystem::Move(m_entityManager->getGroup(jk::Groups::PlayerGroup), delta_time);
 
 			CollisionSystem::TileLAR(m_entityManager->getGroup(jk::Groups::TileGroup), m_entityManager->getGroup(jk::Groups::PlayerGroup));
+
+			CollisionSystem::TileTAB(m_entityManager->getGroup(jk::Groups::TileGroup), m_entityManager->getGroup(jk::Groups::PlayerGroup));
 
 			m_entityManager->Update();
 
