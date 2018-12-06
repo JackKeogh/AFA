@@ -171,7 +171,7 @@ public:
 		m_musicPlayer->addMusic(Mix_LoadMUS("Assets/Music/Track_01.wav"));
 		m_musicPlayer->addMusic(Mix_LoadMUS("Assets/Music/Track_02.wav"));
 
-		m_playerFactory->CreateEntity(m_entityManager, "Assets/Characters/Temp.png", 60, 136, 64, 64);
+		m_playerFactory->CreateEntity(m_entityManager, "Assets/Characters/Temp.png", 60, 136, 30, 46);
 
 		currentLives = m_entityManager->getGroup(jk::Groups::PlayerGroup).at(0)->getComponent<StatComponent>().getLives();
 	};

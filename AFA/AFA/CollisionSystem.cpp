@@ -71,13 +71,13 @@ void CollisionSystem::TileLAR(vector<jk::Entity*>& tiles, vector<jk::Entity*>& e
 			if (AABB(ent->getComponent<RigidbodyComponent>().getRight(), tile->getComponent<RigidbodyComponent>().getLeft()))
 			{
 				right = true;
-				position = tile->getComponent<RigidbodyComponent>().getLeft().x - ent->getComponent<TransformComponent>().width;
+				position = tile->getComponent<RigidbodyComponent>().getLeft().x - ent->getComponent<TransformComponent>().width - 4.0f;
 			}
 
 			else if (AABB(ent->getComponent<RigidbodyComponent>().getLeft(), tile->getComponent<RigidbodyComponent>().getRight()))
 			{
 				left = true;
-				position = tile->getComponent<RigidbodyComponent>().getRight().x + tile->getComponent<RigidbodyComponent>().getRight().w;
+				position = tile->getComponent<RigidbodyComponent>().getRight().x + tile->getComponent<RigidbodyComponent>().getRight().w + 4.0f;
 			}
 		}
 
