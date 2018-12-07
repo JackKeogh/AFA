@@ -25,6 +25,7 @@ public:
 		m_right = SDL_Rect{ 0, 0, 0, 0 };
 		m_top = SDL_Rect{ 0, 0, 0, 0 };
 		m_bottom = SDL_Rect{ 0, 0, 0, 0 };
+		m_smallCentral = SDL_Rect{ 0, 0, 0, 0 };
 
 		Show = true;
 	};
@@ -55,27 +56,33 @@ public:
 
 		// Left Collider
 		m_left.x = m_transform->position.x - m_offset;
-		m_left.y = m_transform->position.y + m_offset;
-		m_left.w = m_transform->width * m_transform->scale;
-		m_left.h = (m_transform->height * m_transform->scale) - m_offset;
+		m_left.y = m_transform->position.y + 2.0f;
+		m_left.w = m_offset;
+		m_left.h = (m_transform->height * m_transform->scale) - 4.0f;
 
 		// Right Collider
-		m_right.x = m_transform->position.x + m_offset;
-		m_right.y = m_transform->position.y + m_offset;
-		m_right.w = m_transform->width * m_transform->scale;
-		m_right.h = (m_transform->height * m_transform->scale) - m_offset;
+		m_right.x = (m_transform->position.x + m_transform->width) + m_offset;
+		m_right.y = m_transform->position.y + 2.0f;
+		m_right.w = m_offset;
+		m_right.h = (m_transform->height * m_transform->scale) - 4.0f;
 
 		// Top Collider
-		m_top.x = m_transform->position.x;
+		m_top.x = m_transform->position.x + 2.0f;
 		m_top.y = m_transform->position.y - m_offset;
-		m_top.w = m_transform->width * m_transform->scale;
-		m_top.h = (m_transform->height * m_transform->scale) - (m_offset * 10);
+		m_top.w = (m_transform->width * m_transform->scale) - 4.0f;
+		m_top.h = m_offset;
 
 		// Bottom Collider
-		m_bottom.x = m_transform->position.x;
-		m_bottom.y = m_transform->position.y + m_offset;
-		m_bottom.w = m_transform->width * m_transform->scale;
-		m_bottom.h = m_transform->height * m_transform->scale;
+		m_bottom.x = m_transform->position.x + 2.0f;
+		m_bottom.y = (m_transform->position.y + m_transform->height) + m_offset;
+		m_bottom.w = (m_transform->width * m_transform->scale) - 4.0f;
+		m_bottom.h = m_offset;
+
+		// Small Collider
+		m_smallCentral.x = m_transform->position.x;
+		m_smallCentral.y = m_transform->position.y + (m_transform->height * 0.25f);
+		m_smallCentral.w = m_transform->width;
+		m_smallCentral.h = m_transform->height - (m_transform->height * 0.25f) * 2.0f;
 	};
 
 	/// <summary>
@@ -93,27 +100,33 @@ public:
 
 		// Left Collider
 		m_left.x = m_transform->position.x - m_offset;
-		m_left.y = m_transform->position.y + m_offset;
-		m_left.w = m_transform->width * m_transform->scale;
-		m_left.h = m_transform->height * m_transform->scale - m_offset;
+		m_left.y = m_transform->position.y + 2.0f;
+		m_left.w = m_offset;
+		m_left.h = (m_transform->height * m_transform->scale) - 4.0f;
 
 		// Right Collider
-		m_right.x = m_transform->position.x + m_offset;
-		m_right.y = m_transform->position.y + m_offset;
-		m_right.w = m_transform->width * m_transform->scale;
-		m_right.h = m_transform->height * m_transform->scale - m_offset;
+		m_right.x = (m_transform->position.x + m_transform->width) + m_offset;
+		m_right.y = m_transform->position.y + 2.0f;
+		m_right.w = m_offset;
+		m_right.h = (m_transform->height * m_transform->scale) - 4.0f;
 
 		// Top Collider
-		m_top.x = m_transform->position.x;
+		m_top.x = m_transform->position.x + 2.0f;
 		m_top.y = m_transform->position.y - m_offset;
-		m_top.w = m_transform->width * m_transform->scale;
-		m_top.h = (m_transform->height * m_transform->scale) - (m_offset * 10);
+		m_top.w = (m_transform->width * m_transform->scale) - 4.0f;
+		m_top.h = m_offset;
 
 		// Bottom Collider
-		m_bottom.x = m_transform->position.x;
-		m_bottom.y = m_transform->position.y + (m_offset * 11);
-		m_bottom.w = m_transform->width * m_transform->scale;
-		m_bottom.h = (m_transform->height * m_transform->scale) - (m_offset * 8.5);
+		m_bottom.x = m_transform->position.x + 2.0f;
+		m_bottom.y = (m_transform->position.y + m_transform->height) + m_offset;
+		m_bottom.w = (m_transform->width * m_transform->scale) - 4.0f;
+		m_bottom.h = m_offset;
+
+		// Small Collider
+		m_smallCentral.x = m_transform->position.x;
+		m_smallCentral.y = m_transform->position.y + (m_transform->height * 0.25f);
+		m_smallCentral.w = m_transform->width;
+		m_smallCentral.h = m_transform->height - (m_transform->height * 0.25f) * 2.0f;
 	};
 
 	void Render() override
@@ -124,6 +137,8 @@ public:
 			RenderSystem::Draw(m_right);
 			RenderSystem::Draw(m_left);
 			RenderSystem::Draw(m_bottom);
+			RenderSystem::Draw(m_central);
+			RenderSystem::Draw(m_smallCentral);
 		}
 	}
 
@@ -204,6 +219,17 @@ public:
 		return m_bottom;
 	};
 
+	/// <summary>
+	/// Get Small
+	/// 
+	/// A getter function to get the collider.
+	/// </summary>
+	/// <returns>A SDL_Rect value.</returns>
+	SDL_Rect getSmall()
+	{
+		return m_smallCentral;
+	}
+
 private:
 	TransformComponent * m_transform;
 	SDL_Rect m_bottom;
@@ -211,6 +237,7 @@ private:
 	SDL_Rect m_left;
 	SDL_Rect m_right;
 	SDL_Rect m_central;
+	SDL_Rect m_smallCentral;
 	float m_offset;
 	bool use_gravity;
 	bool Show;

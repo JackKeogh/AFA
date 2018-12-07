@@ -7,29 +7,26 @@ bool CollisionSystem::bottom = false;
 
 void CollisionSystem::TileTAB(vector<jk::Entity*>& tiles, vector<jk::Entity*>& entities)
 {
-	bottom = false;
-	float diffB = 0.0f;
-
 	top = false;
-	float diffT = 0.0f;
+	bottom = false;
+	float position = 0.0f;
 
 	for (jk::Entity * ent : entities)
 	{
 		for (jk::Entity * tile : tiles)
 		{
-			if (AABB(ent->getComponent<RigidbodyComponent>().getBottom(), tile->getComponent<RigidbodyComponent>().getTop()))
+			if (AABB(ent->getComponent<RigidbodyComponent>().getBottom(), tile->getComponent<RigidbodyComponent>().getCentral()))
 			{
-				diffB = (ent->getComponent<TransformComponent>().position.y + ent->getComponent<TransformComponent>().height) - tile->getComponent<TransformComponent>().position.y;
+				position = tile->getComponent<RigidbodyComponent>().getTop().y - ent->getComponent<TransformComponent>().height;
 				bottom = true;
 			}
 
 			if (!left || !right)
 			{
-				if (AABB(ent->getComponent<RigidbodyComponent>().getTop(), tile->getComponent<RigidbodyComponent>().getBottom()))
+				if (AABB(ent->getComponent<RigidbodyComponent>().getTop(), tile->getComponent<RigidbodyComponent>().getCentral()))
 				{
 					top = true;
-					diffT = ent->getComponent<TransformComponent>().position.y - 
-						(tile->getComponent<TransformComponent>().position.y + tile->getComponent<TransformComponent>().height);
+					position = tile->getComponent<RigidbodyComponent>().getBottom().y + tile->getComponent<RigidbodyComponent>().getBottom().h;
 				}
 			}
 		}
@@ -38,7 +35,7 @@ void CollisionSystem::TileTAB(vector<jk::Entity*>& tiles, vector<jk::Entity*>& e
 		{
 			if (!ent->getComponent<TransformComponent>().in_air)
 			{
-				ent->getComponent<TransformComponent>().position.y -= diffB;
+				ent->getComponent<TransformComponent>().position.y = position;
 			}
 			ent->getComponent<CommandComponent>().getCommand("Right")->setEnabled(true);
 			ent->getComponent<CommandComponent>().getCommand("Left")->setEnabled(true);
@@ -54,7 +51,8 @@ void CollisionSystem::TileTAB(vector<jk::Entity*>& tiles, vector<jk::Entity*>& e
 		
 		if (top)
 		{
-			ent->getComponent<TransformComponent>().position.y += diffT;
+			ent->getComponent<TransformComponent>().position.y = position;
+			ent->getComponent<TransformComponent>().jumpSpeed = 0.0f;
 			ent->getComponent<TransformComponent>().velocity.y = 0;
 		}
 		
@@ -64,41 +62,39 @@ void CollisionSystem::TileTAB(vector<jk::Entity*>& tiles, vector<jk::Entity*>& e
 void CollisionSystem::TileLAR(vector<jk::Entity*>& tiles, vector<jk::Entity*>& entities)
 {
 	right = false;
-	float diffR = 0.0f;
-
 	left = false;
-	float diffL = 0.0f;
+	float position = 0.0f;
 
 	for (jk::Entity * ent : entities)
 	{
 		for (jk::Entity * tile : tiles)
 		{
-			if (AABB(ent->getComponent<RigidbodyComponent>().getRight(), tile->getComponent<RigidbodyComponent>().getLeft()))
+			if (AABB(ent->getComponent<RigidbodyComponent>().getRight(), tile->getComponent<RigidbodyComponent>().getLeft()) ||
+				AABB(ent->getComponent<RigidbodyComponent>().getRight(), tile->getComponent<RigidbodyComponent>().getSmall()))
 			{
-				diffR = (ent->getComponent<RigidbodyComponent>().getRight().x + ent->getComponent<RigidbodyComponent>().getRight().w) -
-					tile->getComponent<RigidbodyComponent>().getLeft().x;
 				right = true;
+				position = tile->getComponent<RigidbodyComponent>().getLeft().x - ent->getComponent<TransformComponent>().width - 4.0f;
 			}
 
-			else if (AABB(ent->getComponent<RigidbodyComponent>().getLeft(), tile->getComponent<RigidbodyComponent>().getRight()))
+			else if (AABB(ent->getComponent<RigidbodyComponent>().getLeft(), tile->getComponent<RigidbodyComponent>().getRight()) ||
+				AABB(ent->getComponent<RigidbodyComponent>().getLeft(), tile->getComponent<RigidbodyComponent>().getSmall()))
 			{
-				diffL = (tile->getComponent<RigidbodyComponent>().getRight().x + tile->getComponent<RigidbodyComponent>().getRight().w)
-					- ent->getComponent<RigidbodyComponent>().getLeft().x;
 				left = true;
+				position = tile->getComponent<RigidbodyComponent>().getRight().x + tile->getComponent<RigidbodyComponent>().getRight().w + 4.0f;
 			}
 		}
 
 		if (right)
 		{
 			ent->getComponent<CommandComponent>().getCommand("Right")->setEnabled(false);
-			ent->getComponent<TransformComponent>().position.x -= diffR;
+			ent->getComponent<TransformComponent>().position.x = position;
 			ent->getComponent<TransformComponent>().velocity.x = 0;
 		}
 
 		if (left)
 		{
 			ent->getComponent<CommandComponent>().getCommand("Left")->setEnabled(false);
-			ent->getComponent<TransformComponent>().position.x += diffL;
+			ent->getComponent<TransformComponent>().position.x = position;
 			ent->getComponent<TransformComponent>().velocity.x = 0;
 		}
 	}

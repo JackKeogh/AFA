@@ -59,13 +59,13 @@ public:
 				e->getComponent<StatComponent>().setDeltaTime(delta_time);
 			}
 
-			CollisionSystem::TileTAB(m_entityManager->getGroup(jk::Groups::TileGroup), m_entityManager->getGroup(jk::Groups::PlayerGroup));
-
 			m_inputSystem->Update(m_entityManager, m_entityManager->getGroup(jk::Groups::PlayerGroup));
 
 			MovementSystem::Move(m_entityManager->getGroup(jk::Groups::PlayerGroup), delta_time);
 
 			CollisionSystem::TileLAR(m_entityManager->getGroup(jk::Groups::TileGroup), m_entityManager->getGroup(jk::Groups::PlayerGroup));
+
+			CollisionSystem::TileTAB(m_entityManager->getGroup(jk::Groups::TileGroup), m_entityManager->getGroup(jk::Groups::PlayerGroup));
 
 			m_entityManager->Update();
 
@@ -171,7 +171,7 @@ public:
 		m_musicPlayer->addMusic(Mix_LoadMUS("Assets/Music/Track_01.wav"));
 		m_musicPlayer->addMusic(Mix_LoadMUS("Assets/Music/Track_02.wav"));
 
-		m_playerFactory->CreateEntity(m_entityManager, "Assets/Characters/Temp.png", 60, 136, 64, 64);
+		m_playerFactory->CreateEntity(m_entityManager, "Assets/Characters/Temp.png", 60, 136, 30, 46);
 
 		currentLives = m_entityManager->getGroup(jk::Groups::PlayerGroup).at(0)->getComponent<StatComponent>().getLives();
 	};
@@ -208,7 +208,7 @@ public:
 	void LoadLevel() override 
 	{
 		m_tileFactory->CreateEntity(m_entityManager, m_assets->getTexture("Top"), 180, 442, 64, 64);
-		m_tileFactory->CreateEntity(m_entityManager, m_assets->getTexture("Top"), 700, 492, 64, 64);
+		m_tileFactory->CreateEntity(m_entityManager, m_assets->getTexture("Top"), 240, 442, 64, 64);
 
 		for (int row = 0; row < 30; row++)
 		{

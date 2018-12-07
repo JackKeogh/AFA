@@ -24,7 +24,7 @@ void TileFactory::CreateEntity(EntityManager * EManager, SDL_Texture * Texture, 
 void PlayerFactory::CreateEntity(EntityManager * EManager, const char * Texture, float x, float y, float w, float h, int lives)
 {
 	auto& ent = EManager->addEntity();
-	ent.addComponent<TransformComponent>(Vector2f(x, y), 32, 32, 0, 1, 5, 5);
+	ent.addComponent<TransformComponent>(Vector2f(x, y), 35, 58, 0, 1, 5, 5);
 	ent.addComponent<SpriteComponent>(Texture, w, h);
 	ent.addComponent<CommandComponent>();
 	ent.addComponent<KeyComponent>();
