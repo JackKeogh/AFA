@@ -25,6 +25,7 @@ public:
 		m_right = SDL_Rect{ 0, 0, 0, 0 };
 		m_top = SDL_Rect{ 0, 0, 0, 0 };
 		m_bottom = SDL_Rect{ 0, 0, 0, 0 };
+		m_smallCentral = SDL_Rect{ 0, 0, 0, 0 };
 
 		Show = true;
 	};
@@ -76,6 +77,12 @@ public:
 		m_bottom.y = (m_transform->position.y + m_transform->height) + m_offset;
 		m_bottom.w = (m_transform->width * m_transform->scale) - 4.0f;
 		m_bottom.h = m_offset;
+
+		// Small Collider
+		m_smallCentral.x = m_transform->position.x;
+		m_smallCentral.y = m_transform->position.y + (m_transform->height * 0.25f);
+		m_smallCentral.w = m_transform->width;
+		m_smallCentral.h = m_transform->height - (m_transform->height * 0.25f) * 2.0f;
 	};
 
 	/// <summary>
@@ -114,6 +121,12 @@ public:
 		m_bottom.y = (m_transform->position.y + m_transform->height) + m_offset;
 		m_bottom.w = (m_transform->width * m_transform->scale) - 4.0f;
 		m_bottom.h = m_offset;
+
+		// Small Collider
+		m_smallCentral.x = m_transform->position.x;
+		m_smallCentral.y = m_transform->position.y + (m_transform->height * 0.25f);
+		m_smallCentral.w = m_transform->width;
+		m_smallCentral.h = m_transform->height - (m_transform->height * 0.25f) * 2.0f;
 	};
 
 	void Render() override
@@ -125,6 +138,7 @@ public:
 			RenderSystem::Draw(m_left);
 			RenderSystem::Draw(m_bottom);
 			RenderSystem::Draw(m_central);
+			RenderSystem::Draw(m_smallCentral);
 		}
 	}
 
@@ -205,6 +219,17 @@ public:
 		return m_bottom;
 	};
 
+	/// <summary>
+	/// Get Small
+	/// 
+	/// A getter function to get the collider.
+	/// </summary>
+	/// <returns>A SDL_Rect value.</returns>
+	SDL_Rect getSmall()
+	{
+		return m_smallCentral;
+	}
+
 private:
 	TransformComponent * m_transform;
 	SDL_Rect m_bottom;
@@ -212,6 +237,7 @@ private:
 	SDL_Rect m_left;
 	SDL_Rect m_right;
 	SDL_Rect m_central;
+	SDL_Rect m_smallCentral;
 	float m_offset;
 	bool use_gravity;
 	bool Show;

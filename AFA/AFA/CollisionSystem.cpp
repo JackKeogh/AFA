@@ -52,6 +52,7 @@ void CollisionSystem::TileTAB(vector<jk::Entity*>& tiles, vector<jk::Entity*>& e
 		if (top)
 		{
 			ent->getComponent<TransformComponent>().position.y = position;
+			ent->getComponent<TransformComponent>().jumpSpeed = 0.0f;
 			ent->getComponent<TransformComponent>().velocity.y = 0;
 		}
 		
@@ -68,13 +69,15 @@ void CollisionSystem::TileLAR(vector<jk::Entity*>& tiles, vector<jk::Entity*>& e
 	{
 		for (jk::Entity * tile : tiles)
 		{
-			if (AABB(ent->getComponent<RigidbodyComponent>().getRight(), tile->getComponent<RigidbodyComponent>().getLeft()))
+			if (AABB(ent->getComponent<RigidbodyComponent>().getRight(), tile->getComponent<RigidbodyComponent>().getLeft()) ||
+				AABB(ent->getComponent<RigidbodyComponent>().getRight(), tile->getComponent<RigidbodyComponent>().getSmall()))
 			{
 				right = true;
 				position = tile->getComponent<RigidbodyComponent>().getLeft().x - ent->getComponent<TransformComponent>().width - 4.0f;
 			}
 
-			else if (AABB(ent->getComponent<RigidbodyComponent>().getLeft(), tile->getComponent<RigidbodyComponent>().getRight()))
+			else if (AABB(ent->getComponent<RigidbodyComponent>().getLeft(), tile->getComponent<RigidbodyComponent>().getRight()) ||
+				AABB(ent->getComponent<RigidbodyComponent>().getLeft(), tile->getComponent<RigidbodyComponent>().getSmall()))
 			{
 				left = true;
 				position = tile->getComponent<RigidbodyComponent>().getRight().x + tile->getComponent<RigidbodyComponent>().getRight().w + 4.0f;

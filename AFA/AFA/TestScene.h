@@ -208,7 +208,7 @@ public:
 	void LoadLevel() override 
 	{
 		m_tileFactory->CreateEntity(m_entityManager, m_assets->getTexture("Top"), 180, 442, 64, 64);
-		m_tileFactory->CreateEntity(m_entityManager, m_assets->getTexture("Top"), 700, 492, 64, 64);
+		m_tileFactory->CreateEntity(m_entityManager, m_assets->getTexture("Top"), 240, 442, 64, 64);
 
 		for (int row = 0; row < 30; row++)
 		{
