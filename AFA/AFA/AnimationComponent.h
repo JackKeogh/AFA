@@ -187,11 +187,11 @@ public:
 	/// <param name="A">Animation playing.</param>
 	void Animate(SpriteComponent * S, TransformComponent * T, Animation * A, AnimationComponent * AC) override
 	{
-		if (T->velocity.x > 0.01f)
+		if (T->acceleration.x > 0.0f)
 		{
 			RunRight(AC);
 		}
-		else if (T->velocity.x < -0.01f)
+		else if (T->acceleration.x < 0.0f)
 		{
 			RunLeft(AC);
 		}
@@ -259,11 +259,11 @@ public:
 	/// <param name="A">Animation playing.</param>
 	void Animate(SpriteComponent * S, TransformComponent * T, Animation * A, AnimationComponent * AC) override
 	{
-		if (T->velocity.x > 0.01f)
+		if (T->acceleration.x > 0.0f)
 		{
 			RunRight(AC);
 		}
-		else if (T->velocity.x < -0.01f)
+		else if (T->acceleration.x < -0.0f)
 		{
 			RunLeft(AC);
 		}
@@ -329,7 +329,7 @@ public:
 			IdleRight(AC);
 		}
 
-		if (T->velocity.x < -0.01f)
+		if (T->acceleration.x < -0.0f)
 		{
 			RunLeft(AC);
 		}
@@ -395,7 +395,7 @@ public:
 			IdleLeft(AC);
 		}
 
-		if (T->velocity.x > 0.01f)
+		if (T->acceleration.x > 0.0f)
 		{
 			RunRight(AC);
 		}

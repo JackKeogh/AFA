@@ -1,4 +1,4 @@
-﻿  Factory.cpp
+﻿  MovementSystem.cpp
 c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\transformcomponent.h(46): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
 c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\spritecomponent.h(67): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\spritecomponent.h(68): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
@@ -50,20 +50,4 @@ c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\commandcomponent.h(84):
 c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\commandcomponent.h(99): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\commandcomponent.h(115): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\commandcomponent.h(130): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\jack\onedrive\desktop\work\projects\afa\afa\externallibraries\ecs\include\ecs.h(220): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\factory.cpp(8): note: see reference to function template instantiation 'T &jk::Entity::addComponent<SpriteComponent,const char*&,float&,float&>(const char *&,float &,float &)' being compiled
-          with
-          [
-              T=SpriteComponent
-          ]
-c:\users\jack\onedrive\desktop\work\projects\afa\afa\externallibraries\ecs\include\ecs.h(220): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
-          with
-          [
-              _Ty=int
-          ]
-  c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\factory.cpp(27): note: see reference to function template instantiation 'T &jk::Entity::addComponent<TransformComponent,jk::Vector2f,int,int,int,int,int,int>(jk::Vector2f &&,int &&,int &&,int &&,int &&,int &&,int &&)' being compiled
-          with
-          [
-              T=TransformComponent
-          ]
   AFA.vcxproj -> C:\Users\jack\OneDrive\Desktop\Work\Projects\AFA\AFA\x64\Debug\AFA.exe
