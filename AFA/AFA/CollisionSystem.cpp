@@ -100,6 +100,20 @@ void CollisionSystem::TileLAR(vector<jk::Entity*>& tiles, vector<jk::Entity*>& e
 	}
 }
 
+void CollisionSystem::Item(vector<jk::Entity*>& items, vector<jk::Entity*>& entities)
+{
+	for (jk::Entity * ent : entities)
+	{
+		for (jk::Entity * item : items)
+		{
+			if (AABB(item->getComponent<RigidbodyComponent>().getCentral(), ent->getComponent<RigidbodyComponent>().getCentral()))
+			{
+				item->setActive(false);
+			}
+		}
+	}
+}
+
 bool CollisionSystem::AABB(SDL_Rect A, SDL_Rect B)
 {
 	if ((A.x >= B.x && A.x <= B.x + B.w) ||

@@ -17,5 +17,6 @@ public:
 
 	static void TileTAB(vector<jk::Entity*>& tiles, vector<jk::Entity*>& entities); // Top And Bottom
 	static void TileLAR(vector<jk::Entity*>& tiles, vector<jk::Entity*>& entities); // Left And Right
+	static void Item(vector<jk::Entity*>& items, vector<jk::Entity*>& entities);
 	static bool AABB(SDL_Rect A, SDL_Rect B);
 };
