@@ -133,12 +133,12 @@ public:
 	{
 		if (Show)
 		{
-			RenderSystem::Draw(m_top);
+			/*RenderSystem::Draw(m_top);
 			RenderSystem::Draw(m_right);
 			RenderSystem::Draw(m_left);
 			RenderSystem::Draw(m_bottom);
 			RenderSystem::Draw(m_central);
-			RenderSystem::Draw(m_smallCentral);
+			RenderSystem::Draw(m_smallCentral);*/
 		}
 	}
 

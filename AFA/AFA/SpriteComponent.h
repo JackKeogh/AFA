@@ -98,4 +98,16 @@ public:
 	{
 		RenderSystem::Draw(m_texture, m_srcRect, m_distRect, rotation);
 	}
+
+	/// <summary>
+	/// Set Sheet Position
+	/// 
+	/// Sets the source rectangle position.
+	/// </summary>
+	/// <param name="x"></param>
+	void setSheetPosition(int x, int y)
+	{
+		m_srcRect.x = x;
+		m_srcRect.y = y;
+	}
 };

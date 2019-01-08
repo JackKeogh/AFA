@@ -7,6 +7,7 @@
 #include <ECS.h>
 #include "TransformComponent.h"
 #include "Rigidbody.h"
+#include "AnimationComponent.h"
 
 class Command
 {
@@ -25,9 +26,24 @@ public:
 	/// <summary>
 	/// Execute
 	/// 
+	/// This function executes the necessary update for
+	/// the command.
+	/// </summary>
+	virtual void Execute(TransformComponent * T, AnimationComponent * A) {};
+
+	/// <summary>
+	/// Execute
+	/// 
 	/// This function executes the necessary update for the command.
 	/// </summary>
 	virtual void Execute(TransformComponent * T, RigidbodyComponent * R) {};
+
+	/// <summary>
+	/// Execute
+	/// 
+	/// This function executes the necessary update for the command.
+	/// </summary>
+	virtual void Execute(TransformComponent * T, RigidbodyComponent * R, AnimationComponent * A) {};
 
 	/// <summary>
 	/// Set Enabled
@@ -69,6 +85,21 @@ class MoveLeft : public Command
 			}
 		}
 	}
+
+	void Execute(TransformComponent * T, AnimationComponent * A) override
+	{
+		if (enabled)
+		{
+			A->IdleLeft();
+
+			T->acceleration.x -= 0.1f;
+
+			if (T->acceleration.x < -T->MaxAccel)
+			{
+				T->acceleration.x = -T->MaxAccel;
+			}
+		}
+	}
 };
 
 class MoveRight : public Command
@@ -85,6 +116,21 @@ class MoveRight : public Command
 			}
 		}
 	}
+
+	void Execute(TransformComponent * T, AnimationComponent * A) override
+	{
+		if (enabled)
+		{
+			A->IdleRight();
+
+			T->acceleration.x += 0.1f;
+
+			if (T->acceleration.x > T->MaxAccel)
+			{
+				T->acceleration.x = T->MaxAccel;
+			}
+		}
+	};
 };
 
 class Jump : public Command
