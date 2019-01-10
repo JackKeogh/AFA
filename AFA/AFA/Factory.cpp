@@ -61,3 +61,11 @@ void ItemFactory::CreateEntity(EntityManager * EManager, SDL_Texture * Texture, 
 	ent.addLayer(jk::Layers::Middleground);
 	ent.addGroup(jk::Groups::TileGroup);
 }
+
+void ImageFactory::CreateEntity(EntityManager * EManager, SDL_Texture * Texture, float x, float y, float w, float h, int lives)
+{
+	auto& ent = EManager->addEntity();
+	ent.addComponent<TransformComponent>(Vector2f(x, y), w, h);
+	ent.addComponent<SpriteComponent>(Texture, w, h);
+	ent.addLayer(jk::Layers::Background);
+}

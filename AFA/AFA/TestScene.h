@@ -32,6 +32,8 @@ public:
 		
 		m_itemFactory = new ItemFactory;
 
+		m_imageFactory = new ImageFactory;
+
 		m_assets = AssetHandler::getInstance();
 
 		m_state = States::Start_Transition;
@@ -210,6 +212,8 @@ public:
 
 	void LoadLevel() override 
 	{
+		m_imageFactory->CreateEntity(m_entityManager, m_assets->getTexture("Background"), 0, 0, 1800, 720);
+
 		m_tileFactory->CreateEntity(m_entityManager, m_assets->getTexture("Top"), 180, 442, 64, 64);
 		m_tileFactory->CreateEntity(m_entityManager, m_assets->getTexture("Top"), 240, 442, 64, 64);
 
@@ -259,4 +263,5 @@ private:
 	PlayerFactory * m_playerFactory;
 	TileFactory * m_tileFactory;
 	ItemFactory * m_itemFactory;
+	ImageFactory * m_imageFactory;
 };

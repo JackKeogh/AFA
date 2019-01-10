@@ -46,3 +46,10 @@ public:
 	void CreateEntity(EntityManager * EManager, const char * Texture, float x = 60, float y = 64, float w = 60, float h = 64, int lives = 3) override;
 	void CreateEntity(EntityManager * EManager, SDL_Texture * Texture, float x = 60, float y = 64, float w = 60, float h = 64, int lives = 3) override;
 };
+
+class ImageFactory : public Factory
+{
+public:
+	void CreateEntity(EntityManager * EManager, SDL_Texture * Texture, float x = 60, float y = 64,
+		float w = 60, float h = 64, int lives = 3);
+};
