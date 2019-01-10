@@ -30,8 +30,14 @@ void PlayerFactory::CreateEntity(EntityManager * EManager, const char * Texture,
 	ent.addComponent<KeyComponent>();
 	ent.addComponent<StatComponent>();
 	ent.addComponent<RigidbodyComponent>(true, 1.0f);
+	ent.addComponent<AnimationComponent>();
 	ent.addGroup(jk::Groups::PlayerGroup);
 	ent.addLayer(jk::Layers::Middleground);
+
+	ent.getComponent<AnimationComponent>().addAnimation(Animations::IdleRight, 3, 30, 0, 0.3f);
+	ent.getComponent<AnimationComponent>().addAnimation(Animations::IdleLeft, 3, 30, 46, 0.3f);
+	ent.getComponent<AnimationComponent>().addAnimation(Animations::RunRight, 5, 30, 92, 0.2f);
+	ent.getComponent<AnimationComponent>().addAnimation(Animations::RunLeft, 5, 30, 138, 0.2f);
 
 	ent.getComponent<StatComponent>().setLives(lives);
 }

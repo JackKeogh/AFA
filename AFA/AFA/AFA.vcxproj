@@ -146,6 +146,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AnimationComponent.cpp" />
     <ClCompile Include="CameraSystem.cpp" />
     <ClCompile Include="CollisionSystem.cpp" />
     <ClCompile Include="Factory.cpp" />
@@ -159,6 +160,7 @@
     <ClCompile Include="TransitionSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AnimationComponent.h" />
     <ClInclude Include="CameraSystem.h" />
     <ClInclude Include="CollisionSystem.h" />
     <ClInclude Include="CommandComponent.h" />
