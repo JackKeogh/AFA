@@ -67,7 +67,10 @@ public:
 
 			CollisionSystem::TileTAB(m_entityManager->getGroup(jk::Groups::TileGroup), m_entityManager->getGroup(jk::Groups::PlayerGroup));
 
+			CollisionSystem::Item(m_entityManager->getGroup(jk::Groups::ItemGroup), m_entityManager->getGroup(jk::Groups::PlayerGroup));
+
 			m_entityManager->Update();
+			m_entityManager->Refresh();
 
 			CameraSystem::Update(m_entityManager->getGroup(jk::Groups::PlayerGroup).at(0)->getComponent<TransformComponent>().position.x);
 
