@@ -178,6 +178,7 @@
     <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="StatComponent.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TagComponent.h" />
     <ClInclude Include="TransformComponent.h" />
     <ClInclude Include="TestScene.h" />
     <ClInclude Include="TransitionSystem.h" />

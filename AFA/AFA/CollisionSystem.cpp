@@ -109,6 +109,12 @@ void CollisionSystem::Item(vector<jk::Entity*>& items, vector<jk::Entity*>& enti
 			if (AABB(item->getComponent<RigidbodyComponent>().getCentral(), ent->getComponent<RigidbodyComponent>().getCentral()))
 			{
 				item->setActive(false);
+
+				if (item->getComponent<TagComponent>().getTag() == "Hot_Coco")
+				{
+					float value = ent->getComponent<StatComponent>().getHeat() + 15.f;
+					ent->getComponent<StatComponent>().setHeat(value);
+				}
 			}
 		}
 	}

@@ -234,7 +234,7 @@ public:
 			}
 		}
 
-		m_itemFactory->CreateEntity(m_entityManager, "Assets/Items/Item.png", 500, 560, 22, 25);
+		m_itemFactory->CreateEntity(m_entityManager, m_assets->getTexture("Item"), 500, 560, 22, 25, "Hot_Coco");
 	};
 
 private:

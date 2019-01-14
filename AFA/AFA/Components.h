@@ -6,3 +6,4 @@
 #include "AnimationComponent.h"
 #include "CommandComponent.h"
 #include "KeyComponent.h"
+#include "TagComponent.h"
