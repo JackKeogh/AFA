@@ -212,34 +212,25 @@ public:
 
 	void LoadLevel() override 
 	{
-		m_imageFactory->CreateEntity(m_entityManager, m_assets->getTexture("Background"), 0, 0, 1800, 720);
+		m_imageFactory->CreateEntity(m_entityManager, m_assets->getTexture("Background"), 0, 0, 1800, 720, jk::Layers::Background);
+		m_imageFactory->CreateEntity(m_entityManager, m_assets->getTexture("Foreground"), 0, 0, 1800, 720, jk::Layers::Foreground);
 
 		m_tileFactory->CreateEntity(m_entityManager, m_assets->getTexture("Top"), 180, 442, 64, 64);
 		m_tileFactory->CreateEntity(m_entityManager, m_assets->getTexture("Top"), 240, 442, 64, 64);
 
 		for (int row = 0; row < 30; row++)
 		{
-			for (int col = 0; col < 2; col++)
+			if (row == 0)
 			{
-				if (col == 0)
-				{
-					if (row == 0)
-					{
-						m_tileFactory->CreateEntity(m_entityManager, m_assets->getTexture("Left"), 60 * row, 592, 60, 64);
-					}
-					else if (row == 29)
-					{
-						m_tileFactory->CreateEntity(m_entityManager, m_assets->getTexture("Right"), 60 * row, 592, 60, 64);
-					}
-					else
-					{
-						m_tileFactory->CreateEntity(m_entityManager, m_assets->getTexture("Top"), 60 * row, 592, 60, 64);
-					}
-				}
-				else
-				{
-					m_tileFactory->CreateEntity(m_entityManager, m_assets->getTexture("Bottom"), 60 * row, 656, 60, 64);
-				}
+				m_tileFactory->CreateEntity(m_entityManager, m_assets->getTexture("Left"), 60 * row, 592, 60, 64);
+			}
+			else if (row == 29)
+			{
+				m_tileFactory->CreateEntity(m_entityManager, m_assets->getTexture("Right"), 60 * row, 592, 60, 64);
+			}
+			else
+			{
+				m_tileFactory->CreateEntity(m_entityManager, m_assets->getTexture("Top"), 60 * row, 592, 60, 64);
 			}
 		}
 

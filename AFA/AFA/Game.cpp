@@ -62,6 +62,7 @@ void Game::LoadAssets()
 	m_assetLoader->addTexture("Left", "Assets/Tiles/Left.png", RenderSystem::Renderer());
 	m_assetLoader->addTexture("Right", "Assets/Tiles/Right.png", RenderSystem::Renderer());
 	m_assetLoader->addTexture("Background", "Assets/Tiles/Background.png", RenderSystem::Renderer());
+	m_assetLoader->addTexture("Foreground", "Assets/Tiles/Foreground.png", RenderSystem::Renderer());
 }
 
 void Game::Run()
