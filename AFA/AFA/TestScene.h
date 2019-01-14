@@ -8,6 +8,7 @@
 #include "TransitionSystem.h"
 #include "Factory.h"
 #include "SoundSystem.h"
+#include "GUISystem.h"
 
 class TestScene : public Scene
 {
@@ -35,6 +36,8 @@ public:
 		m_imageFactory = new ImageFactory;
 
 		m_assets = AssetHandler::getInstance();
+
+		m_gui = new GUISystem;
 
 		m_state = States::Start_Transition;
 	};
@@ -75,6 +78,9 @@ public:
 			m_entityManager->Refresh();
 
 			CameraSystem::Update(m_entityManager->getGroup(jk::Groups::PlayerGroup).at(0)->getComponent<TransformComponent>().position.x);
+
+			auto& ent = m_entityManager->getGroup(jk::Groups::PlayerGroup).at(0);
+			m_gui->Update(ent->getComponent<StatComponent>().getOrg(), ent->getComponent<StatComponent>().getHeat());
 
 			if (m_entityManager->getGroup(jk::Groups::PlayerGroup).at(0)->getComponent<StatComponent>().getLives() != currentLives)
 			{
@@ -128,6 +134,8 @@ public:
 		{
 			ent->Render();
 		}
+
+		m_gui->Render();
 
 		if (m_state == States::Start_Transition)
 		{
@@ -246,6 +254,7 @@ private:
 	jk::EntityManager * m_entityManager;
 	TransitionSystem * m_transition;
 	SoundSystem * m_musicPlayer;
+	GUISystem * m_gui;
 
 	// Lives
 	int currentLives;

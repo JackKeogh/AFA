@@ -167,6 +167,7 @@
     <ClInclude Include="Components.h" />
     <ClInclude Include="Factory.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GUISystem.h" />
     <ClInclude Include="InputSystem.h" />
     <ClInclude Include="KeyComponent.h" />
     <ClInclude Include="MovementSystem.h" />
