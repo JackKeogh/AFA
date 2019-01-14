@@ -19,6 +19,8 @@ public:
 		float w = 60, float h = 64, int lives = 3) {};
 	virtual void CreateEntity(EntityManager * EManager, SDL_Texture * Texture, float x = 60, float y = 64,
 		float w = 60, float h = 64, int lives = 3) {};
+	virtual void CreateEntity(EntityManager * EManager, SDL_Texture * Texture, float x = 60, float y = 64,
+		float w = 60, float h = 64, jk::Layers layer = jk::Layers::Background) {};
 
 protected:
 	Factory() {};
@@ -51,5 +53,5 @@ class ImageFactory : public Factory
 {
 public:
 	void CreateEntity(EntityManager * EManager, SDL_Texture * Texture, float x = 60, float y = 64,
-		float w = 60, float h = 64, int lives = 3);
+		float w = 60, float h = 64, jk::Layers layer = jk::Layers::Background);
 };
