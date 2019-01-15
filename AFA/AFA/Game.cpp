@@ -64,6 +64,8 @@ void Game::LoadAssets()
 	m_assetLoader->addTexture("Item", "Assets/Items/Item.png", RenderSystem::Renderer());
 	m_assetLoader->addTexture("Background", "Assets/Tiles/Background.png", RenderSystem::Renderer());
 	m_assetLoader->addTexture("Foreground", "Assets/Tiles/Foreground.png", RenderSystem::Renderer());
+	m_assetLoader->addTexture("Holder", "Assets/GUI/Holder.png", RenderSystem::Renderer());
+	m_assetLoader->addTexture("Heat", "Assets/GUI/HeatBar.png", RenderSystem::Renderer());
 }
 
 void Game::Run()

@@ -172,9 +172,13 @@ c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\commandcomponent.h(84):
 c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\commandcomponent.h(99): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\commandcomponent.h(115): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\commandcomponent.h(130): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\testscene.h(225): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\testscene.h(229): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\guisystem.h(25): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\guisystem.h(26): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\guisystem.h(35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\guisystem.h(44): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\testscene.h(233): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\testscene.h(237): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\testscene.h(241): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   InputSystem.cpp
 c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\transformcomponent.h(46): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
 c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\spritecomponent.h(67): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
@@ -279,9 +283,13 @@ c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\commandcomponent.h(84):
 c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\commandcomponent.h(99): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\commandcomponent.h(115): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\commandcomponent.h(130): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\testscene.h(225): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\testscene.h(229): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\guisystem.h(25): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\guisystem.h(26): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\guisystem.h(35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\guisystem.h(44): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\testscene.h(233): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\testscene.h(237): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\testscene.h(241): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   MovementSystem.cpp
 c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\transformcomponent.h(46): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
 c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\spritecomponent.h(67): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
@@ -386,8 +394,12 @@ c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\commandcomponent.h(84):
 c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\commandcomponent.h(99): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\commandcomponent.h(115): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\commandcomponent.h(130): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\testscene.h(225): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\testscene.h(229): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\guisystem.h(25): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\guisystem.h(26): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\guisystem.h(35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\guisystem.h(44): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\testscene.h(233): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\testscene.h(237): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jack\onedrive\desktop\work\projects\afa\afa\afa\testscene.h(241): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Generating Code...
   AFA.vcxproj -> C:\Users\jack\OneDrive\Desktop\Work\Projects\AFA\AFA\x64\Debug\AFA.exe

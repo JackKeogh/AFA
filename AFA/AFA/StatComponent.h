@@ -26,7 +26,8 @@ public:
 	void Init() override
 	{
 		m_lives = 3;
-		m_heat = 20.f;
+		m_heat = 30.f;
+		m_orginal = m_heat;
 	}
 
 	/// <summary>
@@ -36,10 +37,15 @@ public:
 	/// </summary>
 	void Update() override
 	{
-		//m_heat -= 1.0f * m_deltaTime;
+		m_heat -= 1.0f * m_deltaTime;
 
-		if (m_heat < 0.f)
+		if (m_heat >= m_orginal)
 		{
+			m_heat = m_orginal;
+		}
+		else if (m_heat < 0.f)
+		{
+			m_heat = 0.f;
 			m_lives--;
 		}
 	}
@@ -73,6 +79,13 @@ public:
 	float getHeat() { return m_heat; };
 
 	/// <summary>
+	/// getOrg
+	/// 
+	/// function used to get the original value for the heat.
+	/// </summary>
+	float getOrg() { return m_orginal; };
+
+	/// <summary>
 	/// getLives
 	/// 
 	/// function used to get lives.
@@ -82,5 +95,6 @@ public:
 private:
 	int m_lives;
 	float m_heat;
+	float m_orginal;
 	float m_deltaTime;
 };
