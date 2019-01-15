@@ -181,6 +181,8 @@ public:
 
 		LoadLevel();
 
+		CameraSystem::setEndPoint(1800);
+
 		m_musicPlayer->addMusic(Mix_LoadMUS("Assets/Music/Track_01.wav"));
 		m_musicPlayer->addMusic(Mix_LoadMUS("Assets/Music/Track_02.wav"));
 

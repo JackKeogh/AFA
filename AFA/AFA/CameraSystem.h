@@ -47,6 +47,15 @@ public:
 	static void Reset();
 
 	/// <summary>
+	/// setEndPoint
+	/// 
+	/// This function allows the end point for the 
+	/// camera to be set.
+	/// </summary>
+	/// <param name="value">An int value.</param>
+	static void setEndPoint(int value);
+
+	/// <summary>
 	/// Camera
 	/// 
 	/// This is a getter function to return the camera's
@@ -56,4 +65,5 @@ public:
 
 private:
 	static SDL_Rect m_camera;
+	static int m_endpoint;
 };

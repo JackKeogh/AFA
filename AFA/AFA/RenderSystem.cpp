@@ -54,6 +54,8 @@ void RenderSystem::Clear()
 
 void RenderSystem::Draw(SDL_Texture * Texture, SDL_Rect DstRect)
 {
+	DstRect.x -= CameraSystem::Camera().x;
+
 	SDL_RenderCopy(m_renderer, Texture, NULL, &DstRect);
 }
 

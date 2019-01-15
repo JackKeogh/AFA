@@ -24,6 +24,13 @@ bool Game::Initialiser()
 		return false;
 	}
 
+	// Initialise Text
+	if (TTF_Init() < 0)
+	{
+		cout << "Failed to initialise Font" << endl;
+		return false;
+	}
+
 	// Initialise bool
 	m_running = true;
 
@@ -66,6 +73,7 @@ void Game::LoadAssets()
 	m_assetLoader->addTexture("Foreground", "Assets/Tiles/Foreground.png", RenderSystem::Renderer());
 	m_assetLoader->addTexture("Holder", "Assets/GUI/Holder.png", RenderSystem::Renderer());
 	m_assetLoader->addTexture("Heat", "Assets/GUI/HeatBar.png", RenderSystem::Renderer());
+	m_assetLoader->addFont("Arial", "Assets/Fonts/arial.ttf", 32);
 }
 
 void Game::Run()

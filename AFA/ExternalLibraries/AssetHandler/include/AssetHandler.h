@@ -72,7 +72,7 @@ public:
 	/// <summary>
 	/// getSound
 	/// 
-	/// Used to retrevie a ptr a specific sound.
+	/// Used to retrevie a ptr of a specific sound.
 	/// </summary>
 	/// <param name="tag">A string value of the desired sound.</param>
 	/// <returns>A Mix_Chunk ptr.</returns>
@@ -87,6 +87,15 @@ public:
 	/// <param name="filepath">The location of the desired font.</param>
 	/// <param name="size">The size of the desired font.</param>
 	void addFont(string tag, string filepath, int size);
+
+	/// <summary>
+	/// getFont
+	/// 
+	/// Used to retrevie a ptr of a specific font.
+	/// </summary>
+	/// <param name="tag">A string value of the desired font.</param>
+	/// <returns>A TTF_Font ptr.</returns>
+	TTF_Font * getFont(string tag);
 
 	/// <summary>
 	/// ClearTextures
