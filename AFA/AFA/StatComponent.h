@@ -26,7 +26,7 @@ public:
 	void Init() override
 	{
 		m_lives = 3;
-		m_heat = 20.f;
+		m_heat = 30.f;
 		m_orginal = m_heat;
 	}
 
@@ -46,7 +46,7 @@ public:
 		else if (m_heat < 0.f)
 		{
 			m_heat = 0.f;
-			//m_lives--;
+			m_lives--;
 		}
 	}
 
