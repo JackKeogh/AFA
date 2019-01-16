@@ -91,6 +91,8 @@ public:
 					ResetLevel();
 					ResetPlayer();
 					ResetSystems();
+
+					m_gui->setText(m_entityManager->getGroup(jk::Groups::PlayerGroup).at(0)->getComponent<StatComponent>().getLives());
 				}
 				else
 				{
@@ -180,6 +182,8 @@ public:
 		m_entityManager->Clear();
 
 		LoadLevel();
+
+		CameraSystem::setEndPoint(1800);
 
 		m_musicPlayer->addMusic(Mix_LoadMUS("Assets/Music/Track_01.wav"));
 		m_musicPlayer->addMusic(Mix_LoadMUS("Assets/Music/Track_02.wav"));

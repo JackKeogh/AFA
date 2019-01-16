@@ -45,6 +45,61 @@ public:
 	};
 };
 
+class Text
+{
+public:
+	Text() {};
+
+	Text(TTF_Font * font, SDL_Rect destination, SDL_Color colour, string text)
+	{
+		m_text = text;
+		m_destination = destination;
+		m_colour = colour;
+		m_offset = destination.x;
+		m_font = font;
+
+		SDL_Surface * surface = TTF_RenderText_Solid(m_font, m_text.c_str(), m_colour);
+		m_texture = SDL_CreateTextureFromSurface(RenderSystem::Renderer(), surface);
+
+		m_destination.w = surface->w;
+		m_destination.h = surface->h;
+
+		SDL_FreeSurface(surface);
+	}
+
+	void setText(string value)
+	{
+		m_text = value;
+
+		SDL_DestroyTexture(m_texture);
+
+		SDL_Surface * surface = TTF_RenderText_Solid(m_font, m_text.c_str(), m_colour);
+		m_texture = SDL_CreateTextureFromSurface(RenderSystem::Renderer(), surface);
+
+		m_destination.w = surface->w;
+		m_destination.h = surface->h;
+
+		SDL_FreeSurface(surface);
+	}
+
+	void Render()
+	{
+		SDL_Rect camera = CameraSystem::Camera();
+
+		m_destination.x = camera.x + m_offset;
+
+		RenderSystem::Draw(m_texture, m_destination);
+	}
+
+private:
+	SDL_Texture * m_texture;
+	SDL_Color m_colour;
+	SDL_Rect m_destination;
+	string m_text;
+	TTF_Font * m_font;
+	int m_offset;
+};
+
 class GUISystem
 {
 public:
@@ -54,6 +109,8 @@ public:
 
 		m_holder = new Sprite(assets->getTexture("Holder"), SDL_Rect{ 0, 0, 170, 34 }, SDL_Rect{ 10, 10, 170, 34 });
 		m_heatBar = new Sprite(assets->getTexture("Heat"), SDL_Rect{ 0, 0, 32, 32 }, SDL_Rect{ 11, 11, 168, 32 });
+		m_livesSprite = new Sprite(assets->getTexture("Avatar"), SDL_Rect{ 0, 0, 32, 32 }, SDL_Rect{ 1154, 8, 40, 40 });
+		m_livesText = new Text(assets->getFont("Arial"), SDL_Rect{ 1200, 10, 0,0 }, SDL_Color{ 0, 0, 0, 0 }, "x 3");
 	};
 
 	void Update(float org, float current)
@@ -66,9 +123,19 @@ public:
 	{
 		m_holder->Render();
 		m_heatBar->Render();
+		m_livesSprite->Render();
+		m_livesText->Render();
+	}
+
+	void setText(int value)
+	{
+		string text = "x " + to_string(value);
+		m_livesText->setText(text);
 	}
 
 private:
 	Sprite * m_holder;
 	Sprite * m_heatBar;
+	Sprite * m_livesSprite;
+	Text * m_livesText;
 };
