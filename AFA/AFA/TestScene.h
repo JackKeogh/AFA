@@ -91,6 +91,8 @@ public:
 					ResetLevel();
 					ResetPlayer();
 					ResetSystems();
+
+					m_gui->setText(m_entityManager->getGroup(jk::Groups::PlayerGroup).at(0)->getComponent<StatComponent>().getLives());
 				}
 				else
 				{
