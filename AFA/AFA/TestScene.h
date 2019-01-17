@@ -119,6 +119,10 @@ public:
 				m_state = States::Play;
 			}
 		}
+		else if (m_state == States::Exit)
+		{
+			m_running = false;
+		}
 	};
 
 	void Render() override
