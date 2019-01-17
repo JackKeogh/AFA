@@ -4,15 +4,7 @@
 
 #pragma once
 #include "stdafx.h"
-
-enum class States
-{
-	Start_Transition,
-	Play,
-	Pause,
-	Reset_Transition,
-	Play_Transition
-};
+#include "States.h"
 
 class Scene
 {

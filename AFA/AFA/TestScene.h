@@ -9,6 +9,7 @@
 #include "Factory.h"
 #include "SoundSystem.h"
 #include "GUISystem.h"
+#include "PauseMenu.h"
 
 class TestScene : public Scene
 {
@@ -38,6 +39,8 @@ public:
 		m_assets = AssetHandler::getInstance();
 
 		m_gui = new GUISystem;
+
+		m_pause = new PauseMenu;
 
 		m_state = States::Start_Transition;
 	};
@@ -151,6 +154,10 @@ public:
 		{
 			m_transition->FadeIn();
 		}
+		else if (m_state == States::Pause)
+		{
+			m_pause->Render();
+		}
 
 		RenderSystem::Present();
 	};
@@ -169,6 +176,10 @@ public:
 
 			if (m_state == States::Play)
 			{
+				if (LocalEvent.key.keysym.sym == SDLK_ESCAPE)
+				{
+					m_state = States::Pause;
+				}
 				m_inputSystem->KeyPressed(LocalEvent, m_entityManager->getGroup(jk::Groups::PlayerGroup));
 				m_inputSystem->KeyReleased(LocalEvent, m_entityManager->getGroup(jk::Groups::PlayerGroup));
 			}
@@ -259,6 +270,7 @@ private:
 	TransitionSystem * m_transition;
 	SoundSystem * m_musicPlayer;
 	GUISystem * m_gui;
+	Menu * m_pause;
 
 	// Lives
 	int currentLives;

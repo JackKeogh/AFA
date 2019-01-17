@@ -161,6 +161,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimationComponent.h" />
+    <ClInclude Include="Basics.h" />
+    <ClInclude Include="Buttons.h" />
     <ClInclude Include="CameraSystem.h" />
     <ClInclude Include="CollisionSystem.h" />
     <ClInclude Include="CommandComponent.h" />
@@ -170,11 +172,14 @@
     <ClInclude Include="GUISystem.h" />
     <ClInclude Include="InputSystem.h" />
     <ClInclude Include="KeyComponent.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="MovementSystem.h" />
+    <ClInclude Include="PauseMenu.h" />
     <ClInclude Include="RenderSystem.h" />
     <ClInclude Include="Rigidbody.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="States.h" />
     <ClInclude Include="SoundSystem.h" />
     <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="StatComponent.h" />
