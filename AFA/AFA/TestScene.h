@@ -103,6 +103,12 @@ public:
 				}
 			}
 		}
+		else if (m_state == States::Pause)
+		{
+			SDL_Rect mouse{ 0, 0, 2, 2 };
+			SDL_GetMouseState(&mouse.x, &mouse.y);
+
+		}
 		else if (m_state == States::Reset_Transition)
 		{
 			if (m_transition->Transition())
