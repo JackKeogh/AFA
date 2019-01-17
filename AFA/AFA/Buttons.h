@@ -10,6 +10,8 @@ public:
 	virtual void onClick(States & state) = 0;
 	virtual void Render() = 0;
 	virtual SDL_Rect Collider() = 0;
+	virtual void Hightlight() = 0;
+	virtual void Reset() = 0;
 
 protected:
 	Sprite * m_button;
@@ -39,5 +41,51 @@ public:
 	SDL_Rect Collider() override
 	{
 		return m_button->getRect();
+	}
+
+	void Hightlight() override
+	{
+		m_button->setSourceX(250);
+	}
+
+	void Reset() override
+	{
+		m_button->setSourceX(0);
+	}
+};
+
+class ExitButton : public Button
+{
+public:
+	ExitButton()
+	{
+		AssetHandler * assets = AssetHandler::getInstance();
+		m_button = new Sprite(assets->getTexture("ExitButton"), SDL_Rect{ 0, 0, 250, 50 }, SDL_Rect{ 505, 540, 250, 50 });
+		m_state = States::Exit;
+	}
+
+	void onClick(States & state) override
+	{
+		state = m_state;
+	}
+
+	void Render() override
+	{
+		m_button->Render();
+	}
+
+	SDL_Rect Collider() override
+	{
+		return m_button->getRect();
+	}
+
+	void Hightlight() override
+	{
+		m_button->setSourceX(250);
+	}
+
+	void Reset() override
+	{
+		m_button->setSourceX(0);
 	}
 };

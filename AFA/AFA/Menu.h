@@ -18,6 +18,8 @@ public:
 	{
 		for (Button * button : m_buttons)
 		{
+			button->Reset();
+
 			if (CollisionSystem::AABB(mouse, button->Collider()))
 			{
 				return button;

@@ -192,6 +192,7 @@ public:
 
 				if (button != nullptr)
 				{
+					button->Hightlight();
 					cout << "We Have Life" << endl;
 				}
 				else
