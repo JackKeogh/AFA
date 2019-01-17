@@ -7,5 +7,6 @@ public:
 	PauseMenu()
 	{
 		m_buttons.push_back(new ResumeButton);
+		m_buttons.push_back(new ExitButton);
 	}
 };

@@ -44,6 +44,16 @@ public:
 		m_destination.w = w;
 	};
 
+	void setSourceX(int x)
+	{
+		m_source.x = x;
+	}
+
+	void setSourceY(int y)
+	{
+		m_source.y = y;
+	}
+
 	SDL_Rect getRect()
 	{
 		return m_destination;

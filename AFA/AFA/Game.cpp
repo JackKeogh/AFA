@@ -75,6 +75,7 @@ void Game::LoadAssets()
 	m_assetLoader->addTexture("Heat", "Assets/GUI/HeatBar.png", RenderSystem::Renderer());
 	m_assetLoader->addTexture("Avatar", "Assets/GUI/Avatar.png", RenderSystem::Renderer());
 	m_assetLoader->addTexture("ResumeButton", "Assets/GUI/Resume.png", RenderSystem::Renderer());
+	m_assetLoader->addTexture("ExitButton", "Assets/GUI/Exit.png", RenderSystem::Renderer());
 	m_assetLoader->addFont("Arial", "Assets/Fonts/arial.ttf", 32);
 }
 
