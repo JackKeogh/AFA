@@ -193,12 +193,15 @@ public:
 				if (button != nullptr)
 				{
 					button->Hightlight();
-					cout << "We Have Life" << endl;
+					
+					if (LocalEvent.type == SDL_MOUSEBUTTONDOWN)
+					{
+						button->onClick(m_state);
+					}
+
 				}
-				else
-				{
-					cout << "Button is void of life" << endl;
-				}
+
+				m_inputSystem->Reset();
 			}
 		}
 	};
