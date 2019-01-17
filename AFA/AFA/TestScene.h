@@ -103,12 +103,6 @@ public:
 				}
 			}
 		}
-		else if (m_state == States::Pause)
-		{
-			SDL_Rect mouse{ 0, 0, 2, 2 };
-			SDL_GetMouseState(&mouse.x, &mouse.y);
-
-		}
 		else if (m_state == States::Reset_Transition)
 		{
 			if (m_transition->Transition())
@@ -188,6 +182,22 @@ public:
 				}
 				m_inputSystem->KeyPressed(LocalEvent, m_entityManager->getGroup(jk::Groups::PlayerGroup));
 				m_inputSystem->KeyReleased(LocalEvent, m_entityManager->getGroup(jk::Groups::PlayerGroup));
+			}
+			else if (m_state == States::Pause)
+			{
+				SDL_Rect mouse{ 0, 0, 2, 2 };
+				SDL_GetMouseState(&mouse.x, &mouse.y);
+
+				Button * button = m_pause->getButton(mouse);
+
+				if (button != nullptr)
+				{
+					cout << "We Have Life" << endl;
+				}
+				else
+				{
+					cout << "Button is void of life" << endl;
+				}
 			}
 		}
 	};
