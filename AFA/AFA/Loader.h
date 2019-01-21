@@ -32,6 +32,13 @@ public:
 		if (!LoadSprites(current))
 		{
 			cout << "Failed to load sprites" << endl;
+			return false;
+		}
+
+		if (!LoadFonts(current))
+		{
+			cout << "Failed to load fonts" << endl;
+			return false;
 		}
 
 		return true;
@@ -125,6 +132,40 @@ private:
 			}
 		}
 
+		return true;
+	}
+	bool LoadFonts(wstring level)
+	{
+		// Get Asset Handler
+		AssetHandler * assets = AssetHandler::getInstance();
+
+		// Get root of Object
+		JSONObject root = getTopLevelJSONObject();
+
+		// Navigate to chosen level
+		JSONObject gameData = root[L"Levels"]->AsObject();
+		JSONObject levelObj = gameData[level]->AsObject();
+
+		// Get Array of sprites
+		JSONArray fonts = levelObj[L"Fonts"]->AsArray();
+
+		if (fonts.size() == 0)
+		{
+			return false;
+		}
+		else
+		{
+			for (int i = 0; i < fonts.size(); i++)
+			{
+				JSONObject obj = fonts[i]->AsObject();
+
+				string tag = wstring_to_string(obj[L"Tag"]->AsString());
+				string location = wstring_to_string(obj[L"Location"]->AsString());
+				string size = wstring_to_string(obj[L"Size"]->AsString());
+
+				assets->addFont(tag, location, stoi(size));
+			}
+		}
 
 		return true;
 	}

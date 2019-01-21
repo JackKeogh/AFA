@@ -50,6 +50,13 @@
           "Tag": "ExitButton",
           "Location": "Assets/GUI/Exit.png"
         }
+      ],
+      "Fonts": [
+        {
+          "Tag": "Arial",
+          "Location": "Assets/Fonts/arial.ttf",
+          "Size" : "32"
+        }
       ]
     }
   }

@@ -64,7 +64,7 @@ bool Game::Initialiser()
 
 void Game::LoadAssets()
 {
-	m_assetLoader->addFont("Arial", "Assets/Fonts/arial.ttf", 32);
+
 }
 
 void Game::Run()
