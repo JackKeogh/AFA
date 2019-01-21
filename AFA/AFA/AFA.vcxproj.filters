@@ -181,7 +181,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="GameData.txt">
+    <None Include="Assets\Resources\GameData.json">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

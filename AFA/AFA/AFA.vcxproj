@@ -196,7 +196,7 @@
     <ClInclude Include="TransitionSystem.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="GameData.txt" />
+    <None Include="Assets\Resources\GameData.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

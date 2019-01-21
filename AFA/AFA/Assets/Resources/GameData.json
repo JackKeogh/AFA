@@ -1,0 +1,56 @@
+{
+  "Levels": {
+    "Level_01": {
+      "Sprites": [
+        {
+          "Tag": "Top",
+          "Location": "Assets/Tiles/Top.png"
+        },
+        {
+          "Tag": "Bottom",
+          "Location": "Assets/Tiles/Bottom.png"
+        },
+        {
+          "Tag": "Left",
+          "Location": "Assets/Tiles/Left.png"
+        },
+        {
+          "Tag": "Right",
+          "Location": "Assets/Tiles/Right.png"
+        },
+        {
+          "Tag": "Background",
+          "Location": "Assets/Tiles/Background.png"
+        },
+        {
+          "Tag": "Foreground",
+          "Location": "Assets/Tiles/Foreground.png"
+        },
+        {
+          "Tag": "Item",
+          "Location": "Assets/Items/Item.png"
+        },
+        {
+          "Tag": "Holder",
+          "Location": "Assets/GUI/Holder.png"
+        },
+        {
+          "Tag": "Heat",
+          "Location": "Assets/GUI/HeatBar.png"
+        },
+        {
+          "Tag": "Avatar",
+          "Location": "Assets/GUI/Avatar.png"
+        },
+        {
+          "Tag": "ResumeButton",
+          "Location": "Assets/GUI/Resume.png"
+        },
+        {
+          "Tag": "ExitButton",
+          "Location": "Assets/GUI/Exit.png"
+        }
+      ]
+    }
+  }
+}

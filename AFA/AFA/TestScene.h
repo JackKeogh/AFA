@@ -39,14 +39,13 @@ public:
 
 		m_assets = AssetHandler::getInstance();
 
-		m_gui = new GUISystem;
-
 		m_pause = new PauseMenu;
 
 		m_state = States::Start_Transition;
 
 		//////////////////////////////////////////////////////////
-		
+		Loader * load = new Loader;
+		load->Load("Assets/Resources/GameData.json", "Level_01");
 		////////////////////////////////////////////////////////// 
 	};
 
@@ -222,6 +221,8 @@ public:
 		m_entityManager->Clear();
 
 		LoadLevel();
+
+		m_gui = new GUISystem;
 
 		CameraSystem::setEndPoint(1800);
 
