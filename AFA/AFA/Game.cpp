@@ -119,5 +119,7 @@ void Game::Run()
 
 void Game::Clean()
 {
+	m_assetLoader->Clear();
+
 	SDL_Quit();
 }

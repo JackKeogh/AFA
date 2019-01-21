@@ -1,6 +1,7 @@
 #pragma once
 #include "Scene.h"
 #include <ECS.h>
+#include "Loader.h"
 #include "Components.h"
 #include "InputSystem.h"
 #include "MovementSystem.h"
@@ -43,6 +44,10 @@ public:
 		m_pause = new PauseMenu;
 
 		m_state = States::Start_Transition;
+
+		//////////////////////////////////////////////////////////
+		
+		////////////////////////////////////////////////////////// 
 	};
 
 	~TestScene() {};
