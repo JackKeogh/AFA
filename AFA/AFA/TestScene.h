@@ -227,7 +227,7 @@ public:
 		CameraSystem::setEndPoint(1800);
 
 		m_musicPlayer->addMusic(Mix_LoadMUS("Assets/Music/Track_01.wav"));
-		//m_musicPlayer->addMusic(Mix_LoadMUS("Assets/Music/Track_02.wav"));
+		m_musicPlayer->addMusic(Mix_LoadMUS("Assets/Music/Track_02.wav"));
 
 		m_playerFactory->CreateEntity(m_entityManager, "Assets/Characters/Temp.png", 60, 136, 30, 46);
 

@@ -29,14 +29,14 @@ void SoundSystem::Update()
 
 void SoundSystem::addMusic(Mix_Music * track)
 {
-	m_track.push_back(track);
-}
-
-void SoundSystem::addMusic(string tag)
-{
-	AssetHandler * assets = AssetHandler::getInstance();
-
-	m_track.push_back(assets->getMusic(tag));
+	if (m_track.empty())
+	{
+		m_track.insert(m_track.end(), track);
+	}
+	else
+	{
+		m_track.insert(m_track.begin(), track);
+	}
 }
 
 void SoundSystem::play()
