@@ -32,6 +32,13 @@ void SoundSystem::addMusic(Mix_Music * track)
 	m_track.push_back(track);
 }
 
+void SoundSystem::addMusic(string tag)
+{
+	AssetHandler * assets = AssetHandler::getInstance();
+
+	m_track.push_back(assets->getMusic(tag));
+}
+
 void SoundSystem::play()
 {
 	Mix_PlayMusic(m_track.at(m_current), 0);

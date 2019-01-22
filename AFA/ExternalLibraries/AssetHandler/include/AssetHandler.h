@@ -79,6 +79,24 @@ public:
 	Mix_Chunk * getSound(string tag);
 
 	/// <summary>
+	/// addMusic
+	/// 
+	/// Loads in a Mix_Music ptr and stores it.
+	/// </summary>
+	/// <param name="tag">A tag to reference the track later.</param>
+	/// <param name="filepath">The location of the desired track.</param>
+	void addMusic(string tag, string filepath);
+
+	/// <summary>
+	/// getMusic
+	/// 
+	/// Used to retrevie a ptr of a specific music track.
+	/// </summary>
+	/// <param name="tag">A string value of the desired track.</param>
+	/// <returns>A Mix_Music ptr.</returns>
+	Mix_Music * getMusic(string tag);
+
+	/// <summary>
 	/// addFont
 	/// 
 	/// Loads in a TTF_Font ptr and stores it.
@@ -112,6 +130,13 @@ public:
 	void ClearSounds();
 
 	/// <summary>
+	/// ClearSounds
+	/// 
+	/// Clears the AssetHandler of all Mix_Chunk ptrs.
+	/// </summary>
+	void ClearMusic();
+
+	/// <summary>
 	/// ClearFonts
 	/// 
 	/// Clears the AssetHandler of all TTF_Font ptrs.
@@ -132,11 +157,13 @@ private:
 		m_textures = map<string, SDL_Texture*>();
 		m_sounds = map<string, Mix_Chunk*>();
 		m_fonts = map<string, TTF_Font*>();
+		m_tracks = map<string, Mix_Music*>();
 	}
 
 	static AssetHandler * m_instance;
 
 	map<string, SDL_Texture*> m_textures;
 	map<string, Mix_Chunk*> m_sounds;
+	map<string, Mix_Music*> m_tracks;
 	map<string, TTF_Font*> m_fonts;
 };

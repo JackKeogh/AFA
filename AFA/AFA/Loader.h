@@ -41,6 +41,12 @@ public:
 			return false;
 		}
 
+		if (!LoadSounds(current))
+		{
+			cout << "Failed to load music" << endl;
+			return false;
+		}
+
 		return true;
 	}
 	wstring string_to_wstring(string obj)
@@ -146,7 +152,7 @@ private:
 		JSONObject gameData = root[L"Levels"]->AsObject();
 		JSONObject levelObj = gameData[level]->AsObject();
 
-		// Get Array of sprites
+		// Get Array of fonts
 		JSONArray fonts = levelObj[L"Fonts"]->AsArray();
 
 		if (fonts.size() == 0)
@@ -164,6 +170,40 @@ private:
 				string size = wstring_to_string(obj[L"Size"]->AsString());
 
 				assets->addFont(tag, location, stoi(size));
+			}
+		}
+
+		return true;
+	}
+	bool LoadSounds(wstring level)
+	{
+		// Get Asset Handler
+		AssetHandler * assets = AssetHandler::getInstance();
+
+		// Get root of Object
+		JSONObject root = getTopLevelJSONObject();
+
+		// Navigate to chosen level
+		JSONObject gameData = root[L"Levels"]->AsObject();
+		JSONObject levelObj = gameData[level]->AsObject();
+
+		// Get Array of fonts
+		JSONArray tracks = levelObj[L"Sounds"]->AsArray();
+
+		if (tracks.size() == 0)
+		{
+			return false;
+		}
+		else
+		{
+			for (int i = 0; i < tracks.size(); i++)
+			{
+				JSONObject obj = tracks[i]->AsObject();
+
+				string tag = wstring_to_string(obj[L"Tag"]->AsString());
+				string location = wstring_to_string(obj[L"Location"]->AsString());
+
+				assets->addSound(tag, location);
 			}
 		}
 

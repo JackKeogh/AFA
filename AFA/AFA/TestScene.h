@@ -17,6 +17,11 @@ class TestScene : public Scene
 public:
 	TestScene() 
 	{
+		//////////////////////////////////////////////////////////
+		Loader * load = new Loader;
+		load->Load("Assets/Resources/GameData.json", "Level_01");
+		////////////////////////////////////////////////////////// 
+
 		RenderSystem::RenderColor(SDL_Color{ 0, 0, 0, 255 });
 
 		m_running = true;
@@ -41,12 +46,9 @@ public:
 
 		m_pause = new PauseMenu;
 
-		m_state = States::Start_Transition;
+		m_gui = new GUISystem;
 
-		//////////////////////////////////////////////////////////
-		Loader * load = new Loader;
-		load->Load("Assets/Resources/GameData.json", "Level_01");
-		////////////////////////////////////////////////////////// 
+		m_state = States::Start_Transition;
 	};
 
 	~TestScene() {};
@@ -222,12 +224,10 @@ public:
 
 		LoadLevel();
 
-		m_gui = new GUISystem;
-
 		CameraSystem::setEndPoint(1800);
 
 		m_musicPlayer->addMusic(Mix_LoadMUS("Assets/Music/Track_01.wav"));
-		m_musicPlayer->addMusic(Mix_LoadMUS("Assets/Music/Track_02.wav"));
+		//m_musicPlayer->addMusic(Mix_LoadMUS("Assets/Music/Track_02.wav"));
 
 		m_playerFactory->CreateEntity(m_entityManager, "Assets/Characters/Temp.png", 60, 136, 30, 46);
 

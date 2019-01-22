@@ -55,7 +55,17 @@
         {
           "Tag": "Arial",
           "Location": "Assets/Fonts/arial.ttf",
-          "Size" : "32"
+          "Size": "32"
+        }
+      ],
+      "Sounds": [
+        {
+          "Tag": "Track_01",
+          "Location": "Assets/Music/Track01.wav"
+        },
+        {
+          "Tag": "Track_02",
+          "Location": "Assets/Music/Track02.wav"
         }
       ]
     }
