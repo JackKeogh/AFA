@@ -116,6 +116,24 @@ public:
 	TTF_Font * getFont(string tag);
 
 	/// <summary>
+	/// addFilePath
+	/// 
+	/// Stores a reference to a filepath.
+	/// </summary>
+	/// <param name="tag">A tag to reference the filepath later.</param>
+	/// <param name="filepath">The desired filepath.</param>
+	void addFilePath(string tag, string filepath);
+
+	/// <summary>
+	/// getFilePath
+	/// 
+	/// Retrieves a reference to a filepath.
+	/// </summary>
+	/// <param name="tag">A string value of the desired filepath.</param>
+	/// <returns>A string value.</returns>
+	string getFilePath(string tag);
+
+	/// <summary>
 	/// ClearTextures
 	/// 
 	/// Clears the AssetHandler of all SDL_Texture ptrs.
@@ -144,6 +162,13 @@ public:
 	void ClearFonts();
 
 	/// <summary>
+	/// ClearFilePaths
+	/// 
+	/// Clears the AssetHandler of all filepaths.
+	/// </summary>
+	void ClearFilePaths();
+
+	/// <summary>
 	/// Clear
 	/// 
 	/// Clears the AssetHandler of all SDL_Texture, Mix_Chunk and
@@ -158,6 +183,7 @@ private:
 		m_sounds = map<string, Mix_Chunk*>();
 		m_fonts = map<string, TTF_Font*>();
 		m_tracks = map<string, Mix_Music*>();
+		m_filepaths = map<string, string>();
 	}
 
 	static AssetHandler * m_instance;
@@ -165,5 +191,6 @@ private:
 	map<string, SDL_Texture*> m_textures;
 	map<string, Mix_Chunk*> m_sounds;
 	map<string, Mix_Music*> m_tracks;
+	map<string, string> m_filepaths;
 	map<string, TTF_Font*> m_fonts;
 };
