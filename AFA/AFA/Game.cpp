@@ -64,19 +64,7 @@ bool Game::Initialiser()
 
 void Game::LoadAssets()
 {
-	m_assetLoader->addTexture("Top", "Assets/Tiles/Top.png", RenderSystem::Renderer());
-	m_assetLoader->addTexture("Bottom", "Assets/Tiles/Bottom.png", RenderSystem::Renderer());
-	m_assetLoader->addTexture("Left", "Assets/Tiles/Left.png", RenderSystem::Renderer());
-	m_assetLoader->addTexture("Right", "Assets/Tiles/Right.png", RenderSystem::Renderer());
-	m_assetLoader->addTexture("Item", "Assets/Items/Item.png", RenderSystem::Renderer());
-	m_assetLoader->addTexture("Background", "Assets/Tiles/Background.png", RenderSystem::Renderer());
-	m_assetLoader->addTexture("Foreground", "Assets/Tiles/Foreground.png", RenderSystem::Renderer());
-	m_assetLoader->addTexture("Holder", "Assets/GUI/Holder.png", RenderSystem::Renderer());
-	m_assetLoader->addTexture("Heat", "Assets/GUI/HeatBar.png", RenderSystem::Renderer());
-	m_assetLoader->addTexture("Avatar", "Assets/GUI/Avatar.png", RenderSystem::Renderer());
-	m_assetLoader->addTexture("ResumeButton", "Assets/GUI/Resume.png", RenderSystem::Renderer());
-	m_assetLoader->addTexture("ExitButton", "Assets/GUI/Exit.png", RenderSystem::Renderer());
-	m_assetLoader->addFont("Arial", "Assets/Fonts/arial.ttf", 32);
+
 }
 
 void Game::Run()
@@ -119,5 +107,7 @@ void Game::Run()
 
 void Game::Clean()
 {
+	m_assetLoader->Clear();
+
 	SDL_Quit();
 }

@@ -11,6 +11,7 @@
 #include <fstream>
 #include <map>
 #include <thread>
+#include <codecvt>
 #include <SDL.h>
 #include <AssetHandler.h>
 using namespace std;

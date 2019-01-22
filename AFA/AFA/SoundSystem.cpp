@@ -29,7 +29,14 @@ void SoundSystem::Update()
 
 void SoundSystem::addMusic(Mix_Music * track)
 {
-	m_track.push_back(track);
+	if (m_track.empty())
+	{
+		m_track.insert(m_track.end(), track);
+	}
+	else
+	{
+		m_track.insert(m_track.begin(), track);
+	}
 }
 
 void SoundSystem::play()

@@ -1,6 +1,7 @@
 #pragma once
 #include "Scene.h"
 #include <ECS.h>
+#include "Loader.h"
 #include "Components.h"
 #include "InputSystem.h"
 #include "MovementSystem.h"
@@ -16,6 +17,11 @@ class TestScene : public Scene
 public:
 	TestScene() 
 	{
+		//////////////////////////////////////////////////////////
+		Loader * load = new Loader;
+		load->Load("Assets/Resources/GameData.json", "Level_01");
+		////////////////////////////////////////////////////////// 
+
 		RenderSystem::RenderColor(SDL_Color{ 0, 0, 0, 255 });
 
 		m_running = true;
@@ -38,9 +44,9 @@ public:
 
 		m_assets = AssetHandler::getInstance();
 
-		m_gui = new GUISystem;
-
 		m_pause = new PauseMenu;
+
+		m_gui = new GUISystem;
 
 		m_state = States::Start_Transition;
 	};

@@ -43,6 +43,14 @@ public:
 	void addMusic(Mix_Music * track);
 
 	/// <summary>
+	/// Add Music
+	/// 
+	/// This function adds music to the track list.
+	/// </summary>
+	/// <param name="track">string value picking the track to add.</param>
+	void addMusic(string track);
+
+	/// <summary>
 	/// Play
 	/// 
 	/// This function plays the music.
