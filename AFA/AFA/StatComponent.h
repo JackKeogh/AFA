@@ -37,7 +37,7 @@ public:
 	/// </summary>
 	void Update() override
 	{
-		//m_heat -= 1.0f * m_deltaTime;
+		m_heat -= 1.0f * m_deltaTime;
 
 		if (m_heat >= m_orginal)
 		{
