@@ -128,7 +128,10 @@ class MoveLeft : public Command
 				T->acceleration.x = -T->MaxAccel;
 			}
 
-			S->PlaySound("Step", 1);
+			if (!(T->in_air))
+			{
+				S->PlaySound("Step", 1);
+			}
 		}
 	}
 
@@ -174,7 +177,10 @@ class MoveRight : public Command
 				T->acceleration.x = T->MaxAccel;
 			}
 
-			S->PlaySound("Step", 1);
+			if (!(T->in_air))
+			{
+				S->PlaySound("Step", 1);
+			}
 		}
 	}
 
