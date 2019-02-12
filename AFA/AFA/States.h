@@ -2,6 +2,7 @@
 
 enum class States
 {
+	TitleScreen,
 	Start_Transition,
 	Play,
 	Pause,

@@ -187,18 +187,18 @@ private:
 		JSONObject gameData = root[L"Levels"]->AsObject();
 		JSONObject levelObj = gameData[level]->AsObject();
 
-		// Get Array of fonts
-		JSONArray fonts = levelObj[L"SFX"]->AsArray();
+		// Get Array of sound effects
+		JSONArray sfx = levelObj[L"SFX"]->AsArray();
 
-		if (fonts.size() == 0)
+		if (sfx.size() == 0)
 		{
 			return false;
 		}
 		else
 		{
-			for (int i = 0; i < fonts.size(); i++)
+			for (int i = 0; i < sfx.size(); i++)
 			{
-				JSONObject obj = fonts[i]->AsObject();
+				JSONObject obj = sfx[i]->AsObject();
 				
 				string tag = wstring_to_string(obj[L"Tag"]->AsString());
 				string location = wstring_to_string(obj[L"Location"]->AsString());

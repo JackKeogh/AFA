@@ -1,0 +1,29 @@
+{
+  "Levels": {
+    "Level_01": {
+      "Sprites": [
+        {
+          "Tag": "PlayButton",
+          "Location": "Assets/GUI/PlayButton.png"
+        },
+        {
+          "Tag": "ExitButton",
+          "Location": "Assets/GUI/Exit.png"
+        }
+      ],
+      "Fonts": [
+        {
+          "Tag": "Arial",
+          "Location": "Assets/Fonts/arial.ttf",
+          "Size": "32"
+        }
+      ],
+      "SFX": [
+        {
+          "Tag": "Jump",
+          "Location": "Assets/Sounds/Jump.wav"
+        }
+      ]
+    }
+  }
+}

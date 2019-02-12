@@ -17,41 +17,46 @@ class TestScene : public Scene
 public:
 	TestScene() 
 	{
-		//////////////////////////////////////////////////////////
-		Loader * load = new Loader;
-		load->Load("Assets/Resources/GameData.json", "Level_01");
-		////////////////////////////////////////////////////////// 
+		////////////////////////////////////////////////////////////
+		//Loader * load = new Loader;
+		//load->Load("Assets/Resources/GameData.json", "Level_01");
+		//////////////////////////////////////////////////////////// 
 
-		RenderSystem::RenderColor(SDL_Color{ 0, 0, 0, 255 });
+		//RenderSystem::RenderColor(SDL_Color{ 0, 0, 0, 255 });
 
-		m_running = true;
-		
-		m_inputSystem = new InputSystem;
+		//m_running = true;
+		//
+		//m_inputSystem = new InputSystem;
 
-		m_transition = new TransitionSystem;
+		//m_transition = new TransitionSystem;
 
-		m_entityManager = new jk::EntityManager;
+		//m_entityManager = new jk::EntityManager;
 
-		m_tileFactory = new TileFactory;
+		//m_tileFactory = new TileFactory;
 
-		m_playerFactory = new PlayerFactory;
+		//m_playerFactory = new PlayerFactory;
 
-		m_musicPlayer = new SoundSystem;
-		
-		m_itemFactory = new ItemFactory;
+		//m_musicPlayer = new SoundSystem;
+		//
+		//m_itemFactory = new ItemFactory;
 
-		m_imageFactory = new ImageFactory;
+		//m_imageFactory = new ImageFactory;
 
-		m_assets = AssetHandler::getInstance();
+		//m_assets = AssetHandler::getInstance();
 
-		m_pause = new PauseMenu;
+		//m_pause = new PauseMenu;
 
-		m_gui = new GUISystem;
+		//m_gui = new GUISystem;
 
-		m_state = States::Start_Transition;
+		//m_state = States::Start_Transition;
 	};
 
 	~TestScene() {};
+
+	void Clean() override
+	{
+		m_assets->Clear();
+	}
 
 	void Update(float delta_time) override 
 	{
@@ -220,6 +225,40 @@ public:
 
 	void Initialise() override 
 	{
+		//////////////////////////////////////////////////////////
+		Loader * load = new Loader;
+		load->Load("Assets/Resources/GameData.json", "Level_01");
+		////////////////////////////////////////////////////////// 
+
+		RenderSystem::RenderColor(SDL_Color{ 0, 0, 0, 255 });
+
+		m_running = true;
+
+		m_inputSystem = new InputSystem;
+
+		m_transition = new TransitionSystem;
+
+		m_entityManager = new jk::EntityManager;
+
+		m_tileFactory = new TileFactory;
+
+		m_playerFactory = new PlayerFactory;
+
+		m_musicPlayer = new SoundSystem;
+
+		m_itemFactory = new ItemFactory;
+
+		m_imageFactory = new ImageFactory;
+
+		m_assets = AssetHandler::getInstance();
+
+		m_pause = new PauseMenu;
+
+		m_gui = new GUISystem;
+
+		m_state = States::Start_Transition;
+
+		///////////////////////////////////////////////////////////////////////////////////////
 		m_entityManager->Clear();
 
 		LoadLevel();

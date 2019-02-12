@@ -159,6 +159,7 @@
     <ClCompile Include="RenderSystem.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SoundSystem.cpp" />
+    <ClCompile Include="TitleScreen.cpp" />
     <ClCompile Include="TransitionSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -177,6 +178,7 @@
     <ClInclude Include="JSONValue.h" />
     <ClInclude Include="Loader.h" />
     <ClInclude Include="KeyComponent.h" />
+    <ClInclude Include="TitleMenu.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MovementSystem.h" />
     <ClInclude Include="PauseMenu.h" />
@@ -192,12 +194,14 @@
     <ClInclude Include="StatComponent.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TagComponent.h" />
+    <ClInclude Include="TitleScreen.h" />
     <ClInclude Include="TransformComponent.h" />
     <ClInclude Include="TestScene.h" />
     <ClInclude Include="TransitionSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\GameData.json" />
+    <None Include="Assets\Resources\TitleScene.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

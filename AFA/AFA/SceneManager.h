@@ -7,6 +7,7 @@
 #include "RenderSystem.h"
 #include "Scene.h"
 #include "TestScene.h"
+#include "TitleScreen.h"
 
 class SceneManager
 {
@@ -14,6 +15,7 @@ public:
 	// An enum that lists all scenes in the game.
 	enum Scenes
 	{
+		MainMenu,
 		Test
 	};
 
