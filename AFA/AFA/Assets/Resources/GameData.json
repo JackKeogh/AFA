@@ -57,6 +57,12 @@
           "Location": "Assets/Fonts/arial.ttf",
           "Size": "32"
         }
+      ],
+      "SFX": [
+        {
+          "Tag": "Jump",
+          "Location": "Assets/Sounds/Jump.wav"
+        }
       ]
     }
   }
