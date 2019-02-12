@@ -8,6 +8,7 @@
 #include "TransformComponent.h"
 #include "Rigidbody.h"
 #include "AnimationComponent.h"
+#include "SoundComponent.h"
 
 class Command
 {
@@ -29,7 +30,23 @@ public:
 	/// This function executes the necessary update for
 	/// the command.
 	/// </summary>
+	virtual void Execute(TransformComponent * T, SoundComponent * S) {};
+
+	/// <summary>
+	/// Execute
+	/// 
+	/// This function executes the necessary update for
+	/// the command.
+	/// </summary>
 	virtual void Execute(TransformComponent * T, AnimationComponent * A) {};
+
+	/// <summary>
+	/// Execute
+	/// 
+	/// This function executes the necessary update for
+	/// the command.
+	/// </summary>
+	virtual void Execute(TransformComponent * T, AnimationComponent * A, SoundComponent * S) {};
 
 	/// <summary>
 	/// Execute
@@ -43,7 +60,21 @@ public:
 	/// 
 	/// This function executes the necessary update for the command.
 	/// </summary>
+	virtual void Execute(TransformComponent * T, RigidbodyComponent * R, SoundComponent * S) {};
+
+	/// <summary>
+	/// Execute
+	/// 
+	/// This function executes the necessary update for the command.
+	/// </summary>
 	virtual void Execute(TransformComponent * T, RigidbodyComponent * R, AnimationComponent * A) {};
+
+	/// <summary>
+	/// Execute
+	/// 
+	/// This function executes the necessary update for the command.
+	/// </summary>
+	virtual void Execute(TransformComponent * T, RigidbodyComponent * R, AnimationComponent * A, SoundComponent * S) {};
 
 	/// <summary>
 	/// Set Enabled
@@ -86,6 +117,24 @@ class MoveLeft : public Command
 		}
 	}
 
+	void Execute(TransformComponent * T, SoundComponent * S) override
+	{
+		if (enabled)
+		{
+			T->acceleration.x -= 0.1f;
+
+			if (T->acceleration.x < -T->MaxAccel)
+			{
+				T->acceleration.x = -T->MaxAccel;
+			}
+
+			if (!(T->in_air))
+			{
+				S->PlaySound("Step", 1);
+			}
+		}
+	}
+
 	void Execute(TransformComponent * T, AnimationComponent * A) override
 	{
 		if (enabled)
@@ -117,6 +166,24 @@ class MoveRight : public Command
 		}
 	}
 
+	void Execute(TransformComponent * T, SoundComponent * S) override
+	{
+		if (enabled)
+		{
+			T->acceleration.x += 0.1f;
+
+			if (T->acceleration.x > T->MaxAccel)
+			{
+				T->acceleration.x = T->MaxAccel;
+			}
+
+			if (!(T->in_air))
+			{
+				S->PlaySound("Step", 1);
+			}
+		}
+	}
+
 	void Execute(TransformComponent * T, AnimationComponent * A) override
 	{
 		if (enabled)
@@ -131,6 +198,23 @@ class MoveRight : public Command
 			}
 		}
 	};
+
+	void Execute(TransformComponent * T, AnimationComponent * A, SoundComponent * S) override
+	{
+		if (enabled)
+		{
+			A->IdleRight();
+
+			T->acceleration.x += 0.1f;
+
+			if (T->acceleration.x > T->MaxAccel)
+			{
+				T->acceleration.x = T->MaxAccel;
+			}
+
+			S->PlaySound("Step");
+		}
+	};
 };
 
 class Jump : public Command
@@ -141,6 +225,21 @@ class Jump : public Command
 		{
 			if (!(T->in_air))
 			{
+				T->jumpSpeed = -300;
+				T->in_air = true;
+				R->setGravity(true);
+				enabled = false;
+			}
+		}
+	}
+
+	void Execute(TransformComponent * T, RigidbodyComponent * R, SoundComponent * S) override
+	{
+		if (enabled)
+		{
+			if (!(T->in_air))
+			{
+				S->PlaySound("Jump");
 				T->jumpSpeed = -300;
 				T->in_air = true;
 				R->setGravity(true);

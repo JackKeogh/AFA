@@ -185,6 +185,7 @@
     <ClInclude Include="Rigidbody.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="SoundComponent.h" />
     <ClInclude Include="States.h" />
     <ClInclude Include="SoundSystem.h" />
     <ClInclude Include="SpriteComponent.h" />
