@@ -13,6 +13,13 @@ public:
 	virtual ~Scene() {};
 
 	/// <summary>
+	/// Clean
+	/// 
+	/// Cleans up all data when the scene closes.
+	/// </summary>
+	virtual void Clean() = 0;
+
+	/// <summary>
 	/// Update
 	/// 
 	/// Updates the scene class.

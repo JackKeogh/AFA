@@ -6,9 +6,10 @@ vector<Scene*> SceneManager::m_scenesList;
 
 SceneManager::SceneManager()
 {
+	m_scenesList.push_back(new TitleScreen);
 	m_scenesList.push_back(new TestScene);
-	m_scene = m_scenesList.at(Scenes::Test);
-	m_currentScene = Scenes::Test;
+	m_scene = m_scenesList.at(Scenes::MainMenu);
+	m_currentScene = Scenes::MainMenu;
 }
 
 SceneManager::~SceneManager()
@@ -20,9 +21,17 @@ void SceneManager::ChangeScene(SceneManager::Scenes N)
 {
 	switch (N)
 	{
-	case Scenes::Test:
+	case Scenes::MainMenu:
+		m_scene->Clean();
 		m_currentScene = N;
 		m_scene = m_scenesList.at(m_currentScene);
+		m_scene->Initialise();
+		break;
+	case Scenes::Test:
+		m_scene->Clean();
+		m_currentScene = N;
+		m_scene = m_scenesList.at(m_currentScene);
+		m_scene->Initialise();
 		break;
 	}
 }

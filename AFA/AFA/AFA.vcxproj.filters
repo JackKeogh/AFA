@@ -37,6 +37,9 @@
     <Filter Include="Source Files\Load">
       <UniqueIdentifier>{bde3e2e5-0e53-43b7-87db-e7507d3d37ad}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Scenes">
+      <UniqueIdentifier>{4f470000-3cc0-45a6-a795-a75af7047b20}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -80,6 +83,9 @@
     </ClCompile>
     <ClCompile Include="JSONValue.cpp">
       <Filter>Source Files\Load</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleScreen.cpp">
+      <Filter>Source Files\Scenes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -182,9 +188,18 @@
     <ClInclude Include="SoundComponent.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
+    <ClInclude Include="TitleScreen.h">
+      <Filter>Header Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleMenu.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\GameData.json">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Assets\Resources\TitleScene.json">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
