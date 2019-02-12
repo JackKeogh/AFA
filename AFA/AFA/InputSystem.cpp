@@ -73,7 +73,15 @@ void InputSystem::Update(jk::EntityManager * Manager, vector<jk::Entity*>& entit
 		
 		if (m_jump)
 		{
-			ent->getComponent<CommandComponent>().getCommand("Jump")->Execute(&ent->getComponent<TransformComponent>(), &ent->getComponent<RigidbodyComponent>());
+			if (ent->hasComponent<SoundComponent>())
+			{
+				ent->getComponent<CommandComponent>().getCommand("Jump")->Execute(&ent->getComponent<TransformComponent>(), &ent->getComponent<RigidbodyComponent>(),
+					&ent->getComponent<SoundComponent>());
+			}
+			else
+			{
+				ent->getComponent<CommandComponent>().getCommand("Jump")->Execute(&ent->getComponent<TransformComponent>(), &ent->getComponent<RigidbodyComponent>());
+			}
 		}
 		else
 		{

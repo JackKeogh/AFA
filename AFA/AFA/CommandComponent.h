@@ -8,6 +8,7 @@
 #include "TransformComponent.h"
 #include "Rigidbody.h"
 #include "AnimationComponent.h"
+#include "SoundComponent.h"
 
 class Command
 {
@@ -43,7 +44,21 @@ public:
 	/// 
 	/// This function executes the necessary update for the command.
 	/// </summary>
+	virtual void Execute(TransformComponent * T, RigidbodyComponent * R, SoundComponent * S) {};
+
+	/// <summary>
+	/// Execute
+	/// 
+	/// This function executes the necessary update for the command.
+	/// </summary>
 	virtual void Execute(TransformComponent * T, RigidbodyComponent * R, AnimationComponent * A) {};
+
+	/// <summary>
+	/// Execute
+	/// 
+	/// This function executes the necessary update for the command.
+	/// </summary>
+	virtual void Execute(TransformComponent * T, RigidbodyComponent * R, AnimationComponent * A, SoundComponent * S) {};
 
 	/// <summary>
 	/// Set Enabled
@@ -141,6 +156,21 @@ class Jump : public Command
 		{
 			if (!(T->in_air))
 			{
+				T->jumpSpeed = -300;
+				T->in_air = true;
+				R->setGravity(true);
+				enabled = false;
+			}
+		}
+	}
+
+	void Execute(TransformComponent * T, RigidbodyComponent * R, SoundComponent * S) override
+	{
+		if (enabled)
+		{
+			if (!(T->in_air))
+			{
+				S->PlaySound("Jump");
 				T->jumpSpeed = -300;
 				T->in_air = true;
 				R->setGravity(true);
