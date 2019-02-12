@@ -30,7 +30,23 @@ public:
 	/// This function executes the necessary update for
 	/// the command.
 	/// </summary>
+	virtual void Execute(TransformComponent * T, SoundComponent * S) {};
+
+	/// <summary>
+	/// Execute
+	/// 
+	/// This function executes the necessary update for
+	/// the command.
+	/// </summary>
 	virtual void Execute(TransformComponent * T, AnimationComponent * A) {};
+
+	/// <summary>
+	/// Execute
+	/// 
+	/// This function executes the necessary update for
+	/// the command.
+	/// </summary>
+	virtual void Execute(TransformComponent * T, AnimationComponent * A, SoundComponent * S) {};
 
 	/// <summary>
 	/// Execute
@@ -101,6 +117,21 @@ class MoveLeft : public Command
 		}
 	}
 
+	void Execute(TransformComponent * T, SoundComponent * S) override
+	{
+		if (enabled)
+		{
+			T->acceleration.x -= 0.1f;
+
+			if (T->acceleration.x < -T->MaxAccel)
+			{
+				T->acceleration.x = -T->MaxAccel;
+			}
+
+			S->PlaySound("Step", 1);
+		}
+	}
+
 	void Execute(TransformComponent * T, AnimationComponent * A) override
 	{
 		if (enabled)
@@ -132,6 +163,21 @@ class MoveRight : public Command
 		}
 	}
 
+	void Execute(TransformComponent * T, SoundComponent * S) override
+	{
+		if (enabled)
+		{
+			T->acceleration.x += 0.1f;
+
+			if (T->acceleration.x > T->MaxAccel)
+			{
+				T->acceleration.x = T->MaxAccel;
+			}
+
+			S->PlaySound("Step", 1);
+		}
+	}
+
 	void Execute(TransformComponent * T, AnimationComponent * A) override
 	{
 		if (enabled)
@@ -144,6 +190,23 @@ class MoveRight : public Command
 			{
 				T->acceleration.x = T->MaxAccel;
 			}
+		}
+	};
+
+	void Execute(TransformComponent * T, AnimationComponent * A, SoundComponent * S) override
+	{
+		if (enabled)
+		{
+			A->IdleRight();
+
+			T->acceleration.x += 0.1f;
+
+			if (T->acceleration.x > T->MaxAccel)
+			{
+				T->acceleration.x = T->MaxAccel;
+			}
+
+			S->PlaySound("Step");
 		}
 	};
 };
