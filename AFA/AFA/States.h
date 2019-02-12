@@ -8,5 +8,6 @@ enum class States
 	Pause,
 	Reset_Transition,
 	Play_Transition,
+	NextLevel,
 	Exit
 };

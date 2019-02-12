@@ -14,6 +14,8 @@ public:
 	{
 		AssetHandler * assets = AssetHandler::getInstance();
 		assets->Clear();
+
+		delete m_menu;
 	}
 
 	void Initialise() override
@@ -21,9 +23,12 @@ public:
 		//////////////////////////////////////////////////////////
 		Loader * load = new Loader;
 		load->Load("Assets/Resources/TitleScene.json", "Level_01");
+		delete load;
 		////////////////////////////////////////////////////////// 
 		
 		m_menu = new TitleMenu;
+
+		m_state = States::TitleScreen;
 
 		m_running = true;
 	}

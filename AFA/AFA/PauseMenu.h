@@ -8,5 +8,6 @@ public:
 	{
 		m_buttons.push_back(new ResumeButton);
 		m_buttons.push_back(new ExitButton);
+		m_buttons.push_back(new MainMenuButton);
 	}
 };

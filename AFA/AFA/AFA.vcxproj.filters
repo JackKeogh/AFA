@@ -84,7 +84,7 @@
     <ClCompile Include="JSONValue.cpp">
       <Filter>Source Files\Load</Filter>
     </ClCompile>
-    <ClCompile Include="TitleScreen.cpp">
+    <ClCompile Include="LevelChanger.cpp">
       <Filter>Source Files\Scenes</Filter>
     </ClCompile>
   </ItemGroup>

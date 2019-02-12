@@ -49,6 +49,10 @@
         {
           "Tag": "ExitButton",
           "Location": "Assets/GUI/Exit.png"
+        },
+        {
+          "Tag": "MainMenuButton",
+          "Location": "Assets/GUI/MainMenuButton.png"
         }
       ],
       "Fonts": [

@@ -54,6 +54,42 @@ public:
 	}
 };
 
+class MainMenuButton : public Button
+{
+public:
+	MainMenuButton()
+	{
+		AssetHandler * assets = AssetHandler::getInstance();
+		m_button = new Sprite(assets->getTexture("MainMenuButton"), SDL_Rect{ 0, 0, 250, 50 }, SDL_Rect{ 505,335,250,50 });
+		m_state = States::TitleScreen;
+	}
+
+	void onClick(States & state) override
+	{
+		state = m_state;
+	}
+
+	void Render() override
+	{
+		m_button->Render();
+	}
+
+	SDL_Rect Collider() override
+	{
+		return m_button->getRect();
+	}
+
+	void Hightlight() override
+	{
+		m_button->setSourceX(250);
+	}
+
+	void Reset() override
+	{
+		m_button->setSourceX(0);
+	}
+};
+
 class ResumeButton : public Button
 {
 public:

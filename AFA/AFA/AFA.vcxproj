@@ -159,7 +159,7 @@
     <ClCompile Include="RenderSystem.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SoundSystem.cpp" />
-    <ClCompile Include="TitleScreen.cpp" />
+    <ClCompile Include="LevelChanger.cpp" />
     <ClCompile Include="TransitionSystem.cpp" />
   </ItemGroup>
   <ItemGroup>

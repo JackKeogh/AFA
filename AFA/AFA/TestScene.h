@@ -55,6 +55,17 @@ public:
 
 	void Clean() override
 	{
+		delete m_inputSystem;
+		delete m_entityManager;
+		delete m_transition;
+		delete m_musicPlayer;
+		delete m_gui;
+		delete m_pause;
+		delete m_playerFactory;
+		delete m_tileFactory;
+		delete m_itemFactory;
+		delete m_imageFactory;
+
 		m_assets->Clear();
 	}
 
@@ -173,6 +184,10 @@ public:
 		{
 			m_pause->Render();
 		}
+		else if (m_state == States::TitleScreen)
+		{
+			LoadLevel();
+		}
 
 		RenderSystem::Present();
 	};
@@ -228,6 +243,7 @@ public:
 		//////////////////////////////////////////////////////////
 		Loader * load = new Loader;
 		load->Load("Assets/Resources/GameData.json", "Level_01");
+		delete load;
 		////////////////////////////////////////////////////////// 
 
 		RenderSystem::RenderColor(SDL_Color{ 0, 0, 0, 255 });
@@ -261,7 +277,7 @@ public:
 		///////////////////////////////////////////////////////////////////////////////////////
 		m_entityManager->Clear();
 
-		LoadLevel();
+		CreateLevel();
 
 		CameraSystem::setEndPoint(1800);
 
@@ -282,7 +298,7 @@ public:
 
 		m_entityManager->Refresh();
 
-		LoadLevel();
+		CreateLevel();
 	}
 
 	void ResetPlayer()
@@ -302,7 +318,7 @@ public:
 		m_inputSystem->Reset();
 	}
 
-	void LoadLevel() override 
+	void CreateLevel()
 	{
 		m_imageFactory->CreateEntity(m_entityManager, m_assets->getTexture("Background"), 0, 0, 1800, 720, jk::Layers::Background);
 		m_imageFactory->CreateEntity(m_entityManager, m_assets->getTexture("Foreground"), 0, 0, 1800, 720, jk::Layers::Foreground);
@@ -327,7 +343,9 @@ public:
 		}
 
 		m_itemFactory->CreateEntity(m_entityManager, m_assets->getTexture("Item"), 500, 560, 22, 25, "Hot_Coco");
-	};
+	}
+
+	void LoadLevel() override;
 
 private:
 	// Asset Handler
