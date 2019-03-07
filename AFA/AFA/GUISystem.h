@@ -15,6 +15,14 @@ public:
 		m_livesText = new Text(assets->getFont("Arial"), SDL_Rect{ 1200, 10, 0,0 }, SDL_Color{ 0, 0, 0, 0 }, "x 3");
 	};
 
+	~GUISystem()
+	{
+		delete m_holder;
+		delete m_heatBar;
+		delete m_livesSprite;
+		delete m_livesText;
+	}
+
 	void Update(float org, float current)
 	{
 		float s = current / org;

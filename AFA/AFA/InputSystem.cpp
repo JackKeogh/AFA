@@ -6,7 +6,9 @@ InputSystem::InputSystem()
 }
 
 InputSystem::~InputSystem()
-{}
+{
+	
+}
 
 void InputSystem::Reset()
 {

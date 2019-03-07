@@ -23,7 +23,10 @@ public:
 	/// <summary>
 	/// Default Deconstructor
 	/// </summary>
-	~TransitionSystem() {};
+	~TransitionSystem() 
+	{
+		delete m_box;
+	};
 
 	/// <summary>
 	/// FadeIn

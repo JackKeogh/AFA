@@ -8,6 +8,7 @@
 #include "Scene.h"
 #include "TestScene.h"
 #include "TitleScreen.h"
+#include "MemoryLeakScene.h"
 
 class SceneManager
 {
@@ -16,6 +17,7 @@ public:
 	enum Scenes
 	{
 		MainMenu,
+		MemoryLeak,
 		Test
 	};
 
@@ -80,5 +82,4 @@ public:
 private:
 	static Scenes m_currentScene;
 	static Scene* m_scene;
-	static vector<Scene*> m_scenesList;
 };

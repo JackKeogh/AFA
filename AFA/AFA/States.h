@@ -9,5 +9,6 @@ enum class States
 	Reset_Transition,
 	Play_Transition,
 	NextLevel,
+	Test,
 	Exit
 };

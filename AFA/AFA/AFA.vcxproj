@@ -178,6 +178,8 @@
     <ClInclude Include="JSONValue.h" />
     <ClInclude Include="Loader.h" />
     <ClInclude Include="KeyComponent.h" />
+    <ClInclude Include="MemoryLeakScene.h" />
+    <ClInclude Include="TestMenu.h" />
     <ClInclude Include="TitleMenu.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MovementSystem.h" />
@@ -201,6 +203,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\GameData.json" />
+    <None Include="Assets\Resources\MemoryLeak.json" />
     <None Include="Assets\Resources\TitleScene.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

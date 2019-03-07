@@ -19,6 +19,14 @@ struct Box
 		rect = SDL_Rect{ 0, 0, 0, 0 };
 		color = SDL_Color{ 0, 0, 0, 0 };
 	}
+
+	/// <summary>
+	/// Default destructor
+	/// </summary>
+	~Box()
+	{
+
+	}
 };
 
 class RenderSystem

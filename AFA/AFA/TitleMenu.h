@@ -6,7 +6,8 @@ class TitleMenu : public Menu
 public:
 	TitleMenu()
 	{
-		m_buttons.push_back(new PlayButton);
-		m_buttons.push_back(new ExitButton);
+		m_buttons = new vector<Button*>;
+		m_buttons->push_back(new PlayButton);
+		m_buttons->push_back(new ExitButton);
 	}
 };

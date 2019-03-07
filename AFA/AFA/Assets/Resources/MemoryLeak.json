@@ -1,0 +1,29 @@
+{
+  "Levels": {
+    "Menu": {
+      "Sprites": [
+        {
+          "Tag": "MainMenuButton",
+          "Location": "Assets/GUI/MainMenuButton.png"
+        },
+        {
+          "Tag": "ExitButton",
+          "Location": "Assets/GUI/Exit.png"
+        }
+      ],
+      "Fonts": [
+        {
+          "Tag": "Arial",
+          "Location": "Assets/Fonts/arial.ttf",
+          "Size": "32"
+        }
+      ],
+      "SFX": [
+        {
+          "Tag": "Jump",
+          "Location": "Assets/Sounds/Jump.wav"
+        }
+      ]
+    }
+  }
+}

@@ -6,8 +6,9 @@ class PauseMenu : public Menu
 public:
 	PauseMenu()
 	{
-		m_buttons.push_back(new ResumeButton);
-		m_buttons.push_back(new ExitButton);
-		m_buttons.push_back(new MainMenuButton);
+		m_buttons = new vector<Button*>();
+		m_buttons->push_back(new ResumeButton);
+		m_buttons->push_back(new ExitButton);
+		m_buttons->push_back(new MainMenuButton);
 	}
 };

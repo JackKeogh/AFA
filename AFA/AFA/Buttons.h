@@ -7,6 +7,13 @@
 class Button
 {
 public:
+	
+	~Button()
+	{
+		delete m_button;
+		delete m_state;
+	}
+
 	virtual void onClick(States & state) = 0;
 	virtual void Render() = 0;
 	virtual SDL_Rect Collider() = 0;
@@ -15,7 +22,7 @@ public:
 
 protected:
 	Sprite * m_button;
-	States m_state;
+	States * m_state;
 };
 
 class PlayButton : public Button
@@ -25,12 +32,12 @@ public:
 	{
 		AssetHandler * assets = AssetHandler::getInstance();
 		m_button = new Sprite(assets->getTexture("PlayButton"), SDL_Rect{ 0, 0, 250, 50 }, SDL_Rect{ 505,180,250,50 });
-		m_state = States::Play;
+		m_state = new States{ States::Play };
 	}
 
 	void onClick(States & state) override
 	{
-		state = m_state;
+		state = *m_state;
 	}
 
 	void Render() override
@@ -61,12 +68,12 @@ public:
 	{
 		AssetHandler * assets = AssetHandler::getInstance();
 		m_button = new Sprite(assets->getTexture("MainMenuButton"), SDL_Rect{ 0, 0, 250, 50 }, SDL_Rect{ 505,335,250,50 });
-		m_state = States::TitleScreen;
+		m_state = new States{ States::TitleScreen };
 	}
 
 	void onClick(States & state) override
 	{
-		state = m_state;
+		state = *m_state;
 	}
 
 	void Render() override
@@ -97,12 +104,12 @@ public:
 	{
 		AssetHandler * assets = AssetHandler::getInstance();
 		m_button = new Sprite(assets->getTexture("ResumeButton"), SDL_Rect{ 0, 0, 250, 50 }, SDL_Rect{ 505,180,250,50 });
-		m_state = States::Play;
+		m_state = new States{ States::Play };
 	}
 
 	void onClick(States & state) override
 	{
-		state = m_state;
+		state = *m_state;
 	}
 
 	void Render() override
@@ -133,12 +140,12 @@ public:
 	{
 		AssetHandler * assets = AssetHandler::getInstance();
 		m_button = new Sprite(assets->getTexture("ExitButton"), SDL_Rect{ 0, 0, 250, 50 }, SDL_Rect{ 505, 540, 250, 50 });
-		m_state = States::Exit;
+		m_state = new States{ States::Exit };
 	}
 
 	void onClick(States & state) override
 	{
-		state = m_state;
+		state = *m_state;
 	}
 
 	void Render() override

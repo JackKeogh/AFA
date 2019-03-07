@@ -6,11 +6,24 @@
 class Menu
 {
 public:
+
+	~Menu()
+	{
+		// Delete each object in vector array.
+		for (int i = 0; i < m_buttons->size(); i++)
+		{
+			delete m_buttons->at(i);
+		}
+
+		// Delete array itself.
+		delete m_buttons;
+	}
+
 	void Render()
 	{
-		for (Button * button : m_buttons)
+		for (int i = 0; i < m_buttons->size(); i++)
 		{
-			button->Render();
+			m_buttons->at(i)->Render();
 		}
 	}
 
@@ -18,13 +31,13 @@ public:
 	{
 		mouse.x += CameraSystem::Camera().x;
 
-		for (Button * button : m_buttons)
+		for (int i = 0; i < m_buttons->size(); i++)
 		{
-			button->Reset();
+			m_buttons->at(i)->Reset();
 
-			if (CollisionSystem::AABB(mouse, button->Collider()))
+			if (CollisionSystem::AABB(mouse, m_buttons->at(i)->Collider()))
 			{
-				return button;
+				return m_buttons->at(i);
 			}
 		}
 
@@ -32,5 +45,5 @@ public:
 	}
 
 protected:
-	vector<Button*> m_buttons;
+	vector<Button*>* m_buttons;
 };

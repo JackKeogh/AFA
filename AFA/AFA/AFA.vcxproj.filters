@@ -194,12 +194,21 @@
     <ClInclude Include="TitleMenu.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
+    <ClInclude Include="MemoryLeakScene.h">
+      <Filter>Header Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="TestMenu.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\GameData.json">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="Assets\Resources\TitleScene.json">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Assets\Resources\MemoryLeak.json">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

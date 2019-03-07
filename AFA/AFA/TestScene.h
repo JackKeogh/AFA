@@ -51,10 +51,10 @@ public:
 		//m_state = States::Start_Transition;
 	};
 
-	~TestScene() {};
-
-	void Clean() override
+	~TestScene() 
 	{
+		m_assets->Clear();
+
 		delete m_inputSystem;
 		delete m_entityManager;
 		delete m_transition;
@@ -65,8 +65,11 @@ public:
 		delete m_tileFactory;
 		delete m_itemFactory;
 		delete m_imageFactory;
+	};
 
-		m_assets->Clear();
+	void Clean() override
+	{
+		delete this;
 	}
 
 	void Update(float delta_time) override 

@@ -10,12 +10,18 @@ public:
 	
 	TitleScreen() {};
 
-	void Clean()
+	~TitleScreen()
 	{
 		AssetHandler * assets = AssetHandler::getInstance();
 		assets->Clear();
 
 		delete m_menu;
+		m_menu = NULL;
+	}
+
+	void Clean() override
+	{
+		delete this;
 	}
 
 	void Initialise() override

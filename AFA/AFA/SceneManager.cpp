@@ -2,19 +2,16 @@
 
 SceneManager::Scenes SceneManager::m_currentScene;
 Scene* SceneManager::m_scene;
-vector<Scene*> SceneManager::m_scenesList;
 
 SceneManager::SceneManager()
 {
-	m_scenesList.push_back(new TitleScreen);
-	m_scenesList.push_back(new TestScene);
-	m_scene = m_scenesList.at(Scenes::MainMenu);
+	m_scene = new TitleScreen;
 	m_currentScene = Scenes::MainMenu;
 }
 
 SceneManager::~SceneManager()
 {
-	m_scenesList.clear();
+	delete m_scene;
 }
 
 void SceneManager::ChangeScene(SceneManager::Scenes N)
@@ -22,15 +19,21 @@ void SceneManager::ChangeScene(SceneManager::Scenes N)
 	switch (N)
 	{
 	case Scenes::MainMenu:
-		m_scene->Clean();
+		delete m_scene;
 		m_currentScene = N;
-		m_scene = m_scenesList.at(m_currentScene);
+		m_scene = new TitleScreen;
 		m_scene->Initialise();
 		break;
 	case Scenes::Test:
-		m_scene->Clean();
+		delete m_scene;
 		m_currentScene = N;
-		m_scene = m_scenesList.at(m_currentScene);
+		m_scene = new TestScene;
+		m_scene->Initialise();
+		break;
+	case Scenes::MemoryLeak:
+		delete m_scene;
+		m_currentScene = N;
+		m_scene = new MemoryLeakScene;
 		m_scene->Initialise();
 		break;
 	}
